@@ -1,0 +1,66 @@
+<nz-layout class="layout">
+    <nz-header>
+      <div class="logo">
+        <a target="_blank">
+            <img src="https://scontent.fbeg1-1.fna.fbcdn.net/v/t1.15752-9/91450505_538401730390027_1277136258069430272_n.jpg?_nc_cat=106&_nc_sid=b96e70&_nc_eui2=AeGobQ2UIQ35U6UZu1rMLD09jLxXsLcFoA1rWyYfygiazPipzqqoNa7BqwrycCte2MZ8jASCxiG7gpED_cYyqWH9URIOS4iN2fFeIpz5ayonvw&_nc_ohc=18AEGwqgkC8AX82Vorb&_nc_ht=scontent.fbeg1-1.fna&oh=99bcd3c36e205dd8550d7d5dc1e77af9&oe=5EA84E45" alt="logo">
+            <h1>Klinicki centar</h1>
+        </a>
+      </div>
+      <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+        <li nz-menu-item>Profil</li>
+        <li nz-menu-item>Zdravstveni karton</li>
+        <li nz-menu-item>Promeni lozinku</li>
+        <li nz-menu-item nzMatchRouter>
+            <a (click)="clearStorage()">Odjavi se</a>
+        </li>
+      </ul>
+    </nz-header>
+    <nz-layout>
+      <nz-sider [nzWidth]="200" style="background:#fff">
+        <ul nz-menu [nzMode]="'inline'" style="height:100%">
+
+          <li nz-submenu>
+            <span title>Pregledi</span>
+            <ul>
+              <li nz-menu-item>Izaberi</li>
+              <li nz-menu-item>Zakazi</li>
+              <li nz-menu-item>Potvrdi</li>
+            </ul>
+          </li>
+
+          <li nz-menu-item>
+            <span title>Sve klinike</span>
+          </li>
+
+          <li nz-menu-item>
+            <span title>Moji lekari</span>
+          </li>
+
+          <li nz-submenu>
+            <span title>Arhiva</span>
+            <ul>
+              <li nz-menu-item>Istorija pregleda</li>
+              <li nz-menu-item>Istorija operacija</li>
+            </ul>
+          </li>
+
+          <li nz-submenu>
+            <span title>Oceni</span>
+            <ul>
+              <li nz-menu-item>Lekare</li>
+              <li nz-menu-item>Klinike</li>
+            </ul>
+          </li>
+        </ul>
+
+      </nz-sider>
+      <!-- <nz-layout style="padding:0 24px 24px">
+        <nz-breadcrumb style="margin:16px 0;">
+          <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+          <nz-breadcrumb-item>List</nz-breadcrumb-item>
+          <nz-breadcrumb-item>App</nz-breadcrumb-item>
+        </nz-breadcrumb>
+        <nz-content style="background:#fff; padding: 24px; min-height: 280px;">Content</nz-content>
+      </nz-layout> -->
+    </nz-layout>
+  </nz-layout>

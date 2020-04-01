@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "ClinicCenter"
+  "defaultProject": "ClinicCenter",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
