@@ -5,3 +5,10 @@
     margin: -5px 28px 16px 0px;
     float: left;
   }
+
+  
+.inner-content {
+  padding: 24px;
+  background: whitesmoke;
+  height: 100%;
+}
