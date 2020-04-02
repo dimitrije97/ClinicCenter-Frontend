@@ -1,6 +1,21 @@
 .registrationForm {
-    margin-top: 10%;
-    margin-left: 2%;
     width: 800px;
-    height: 900px;
+    margin-left: 2%;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: -3%;
 }
+
+.wallpaper {
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 0 auto;
+    height: 110%;
+    width: 100%;
+}
+
+.logo {
+    line-height: 64px;
+    margin: 11px 241px -4px 32px;
+    float: left;
+  }

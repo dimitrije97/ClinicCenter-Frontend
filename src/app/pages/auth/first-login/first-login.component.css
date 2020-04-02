@@ -1,4 +1,19 @@
+.first-login-form {
+    margin-left: 2%;
+    width: 310px;
+}
+
 .firstLoginWrapper {
-    margin-top: 10%;
-    width: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 0 auto;
+    height: 100%;
+    width: 100%;
+}
+
+
+.logo {
+    line-height: 64px;
+    margin: 11px 113px -2px 32px;
+    float: left;
 }
