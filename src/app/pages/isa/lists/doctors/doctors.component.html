@@ -10,7 +10,6 @@
         </th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -21,10 +20,7 @@
             <button (click)="profile(data.id)" nz-button nzType="primary" nzGhost>Profil</button>
           </td>
           <td>
-            <button nz-button nzType="primary" nzGhost>Zdravstveni karton</button>
-          </td>
-          <td>
-            <button nz-button nzType="primary" nzGhost>Zapocni pregled</button>
+            <button (click)="delete(data.id)" nz-button nzType="primary" nzGhost>Ukloni</button>
           </td>
       </tr>
     </tbody>

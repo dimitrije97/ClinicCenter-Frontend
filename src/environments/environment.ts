@@ -4,12 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:8091/',
-  patientRole: 'PATIENT',
-  doctorRole: 'DOCTOR',
-  nurseRole: 'NURSE',
-  adminRole: 'ADMIN',
-  cliniccenteradminRole: 'CLINIC_CENTER_ADMIN'
+  baseUrl: 'http://localhost:8090/'
 };
 
 /*

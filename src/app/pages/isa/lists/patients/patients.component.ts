@@ -13,7 +13,6 @@ export class PatientsComponent implements OnInit {
   public listOfData = [];
   private id;
   private user: any;
-  private form: FormGroup;
 
   constructor(private patientService: PatientService, private router: Router, private route: ActivatedRoute) { }
 
@@ -39,9 +38,9 @@ export class PatientsComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user'));
   } 
 
-  // onProfil(id) {
-  //   this.router.navigateByUrl(`dashboard/patient-profile/${id}`);
-  // }
+  profile(id) {
+    this.router.navigateByUrl(`dashboard/profile/${id}/patient`);
+  }
 
   private extractId(): void {
     this.id = this.route.snapshot.params.id;

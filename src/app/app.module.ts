@@ -20,6 +20,14 @@ import { FirstLoginComponent } from './pages/auth/first-login/first-login.compon
 import { IsaComponent } from './pages/isa/isa.component';
 import { UpdatePasswordComponent } from './pages/isa/update-password/update-password.component';
 import { PatientsComponent } from './pages/isa/lists/patients/patients.component';
+import { ProfileComponent } from './pages/isa/profiles/profile/profile.component';
+import { PatientComponent } from './pages/isa/profiles/patient/patient.component';
+import { AdminComponent } from './pages/isa/profiles/admin/admin.component';
+import { ClinicCenterAdminComponent } from './pages/isa/profiles/clinic-center-admin/clinic-center-admin.component';
+import { DoctorComponent } from './pages/isa/profiles/doctor/doctor.component';
+import { NurseComponent } from './pages/isa/profiles/nurse/nurse.component';
+import { AdminsComponent } from './pages/isa/lists/admins/admins.component';
+import { DoctorsComponent } from './pages/isa/lists/doctors/doctors.component';
 
 registerLocaleData(en);
 
@@ -37,7 +45,15 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     FirstLoginComponent,
     UpdatePasswordComponent,
     IsaComponent,
-    PatientsComponent
+    PatientsComponent,
+    ProfileComponent,
+    PatientComponent,
+    AdminComponent,
+    ClinicCenterAdminComponent,
+    DoctorComponent,
+    NurseComponent,
+    DoctorsComponent,
+    AdminsComponent
   ],
   imports: [
     BrowserModule,
