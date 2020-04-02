@@ -9,9 +9,10 @@ import { UpdatePasswordComponent } from './pages/isa/update-password/update-pass
 import { PatientsComponent } from './pages/isa/lists/patients/patients.component';
 
 const routes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: 'registration', component: RegistrationComponent},
-    { path: 'first-login', component: FirstLoginComponent},
+    { path: '', pathMatch: 'full', redirectTo: '/auth/login' },
+    { path: 'auth/login', component: LoginComponent },
+    { path: 'auth/registration', component: RegistrationComponent},
+    { path: 'auth/:id/new-password', component: FirstLoginComponent},
     {
       path: 'dashboard', component: IsaComponent, children: [
         { path: 'update-password', component: UpdatePasswordComponent},

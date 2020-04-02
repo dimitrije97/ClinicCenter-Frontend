@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +12,9 @@ export class RegistrationComponent implements OnInit {
 
   validateForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  private user: any
+
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -26,12 +29,25 @@ export class RegistrationComponent implements OnInit {
       country: [null, [Validators.required, Validators.minLength(4)]],
       ssn: [null, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.required, Validators.minLength(13), Validators.maxLength(13)]],
     });
+
+    this.setupUser();
   }
+
+  private setupUser(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  } 
 
   submitForm(): void {
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
+    }
+
+    {
+      console.log(this.validateForm.value)
+      this.authService.createPatient(this.validateForm.value).subscribe(data => {
+        this.router.navigateByUrl('auth/login');
+      }) 
     }
   }
 
