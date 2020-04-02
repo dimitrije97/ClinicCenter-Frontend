@@ -16,7 +16,8 @@ const routes: Routes = [
     {
       path: 'dashboard', component: IsaComponent, children: [
         { path: 'update-password', component: UpdatePasswordComponent},
-        { path: 'patients', component: PatientsComponent}
+        { path: 'patients', component: PatientsComponent},
+        { path: 'patients/:id/clinic', component: PatientsComponent}
       ]
     },
   ];

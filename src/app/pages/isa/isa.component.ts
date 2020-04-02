@@ -15,7 +15,7 @@ export class IsaComponent implements OnInit {
 
   public clearStorage(): void {
     localStorage.clear();
-    this.router.navigateByUrl('login');
+    this.router.navigateByUrl('auth/login');
   }
 
   public onUpdatePassword(): void {
