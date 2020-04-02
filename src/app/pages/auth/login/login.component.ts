@@ -36,23 +36,23 @@ export class LoginComponent implements OnInit {
           const id = user.id;
           this.router.navigateByUrl(`auth/${id}/new-password`);
         } else {
-          
+          this.router.navigateByUrl(`dashboard`);
         }
       } else if(user.userType === 'PATIENT') {
-        
+          this.router.navigateByUrl(`dashboard`);
       } else if(user.userType === 'ADMIN') {
         if(user.setNewPassword) {
           const id = user.id;
           this.router.navigateByUrl(`auth/${id}/new-password`);
         } else {
-          this.router.navigateByUrl(`dashboard/patients/${user.myClinic.id}/clinic`);
+          this.router.navigateByUrl(`dashboard`);
         }
       } else if(user.userType === 'CLINIC_CENTER_ADMIN') {
         if(user.setNewPassword) {
           const id = user.id;
           this.router.navigateByUrl(`auth/${id}/new-password`);
         } else {
-          this.router.navigateByUrl(`dashboard/patients`);
+          this.router.navigateByUrl(`dashboard`);
         }
       }
       

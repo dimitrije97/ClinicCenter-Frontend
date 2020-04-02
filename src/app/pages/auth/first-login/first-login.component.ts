@@ -40,9 +40,7 @@ export class FirstLoginComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
     this.authService.firstLogin(this.id, this.validateForm.value).subscribe(data => {
-      const user = data.userResponse;
-      localStorage.getItem('user');
-      console.log(user);
+      localStorage.clear();
       this.router.navigateByUrl("auth/login");
     });
   }

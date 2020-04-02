@@ -7,6 +7,12 @@ import { FirstLoginComponent } from './pages/auth/first-login/first-login.compon
 import { IsaComponent } from './pages/isa/isa.component';
 import { UpdatePasswordComponent } from './pages/isa/update-password/update-password.component';
 import { PatientsComponent } from './pages/isa/lists/patients/patients.component';
+import { ProfileComponent } from './pages/isa/profiles/profile/profile.component';
+import { PatientComponent } from './pages/isa/profiles/patient/patient.component';
+import { AdminComponent } from './pages/isa/profiles/admin/admin.component';
+import { DoctorComponent } from './pages/isa/profiles/doctor/doctor.component';
+import { AdminsComponent } from './pages/isa/lists/admins/admins.component';
+import { DoctorsComponent } from './pages/isa/lists/doctors/doctors.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/auth/login' },
@@ -17,7 +23,15 @@ const routes: Routes = [
       path: 'dashboard', component: IsaComponent, children: [
         { path: 'update-password', component: UpdatePasswordComponent},
         { path: 'patients', component: PatientsComponent},
-        { path: 'patients/:id/clinic', component: PatientsComponent}
+        { path: 'admins', component: AdminsComponent},
+        { path: 'doctors', component: DoctorsComponent},
+        { path: 'patients/:id/clinic', component: PatientsComponent},
+        { path: 'doctors/:id/clinic', component: DoctorsComponent},
+        { path: 'admins/:id/clinic', component: AdminsComponent},
+        { path: 'profile/:id/patient', component: PatientComponent},
+        { path: 'profile/:id/admin', component: AdminComponent},
+        { path: 'profile/:id/doctor', component: DoctorComponent},
+        { path: 'my-profile', component: ProfileComponent}
       ]
     },
   ];

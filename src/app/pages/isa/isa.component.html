@@ -7,8 +7,8 @@
         </a>
       </div>
       <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
-        <li nz-menu-item>Profil</li>
-        <li nz-menu-item>Zdravstveni karton</li>
+        <li routerLink="/dashboard/my-profile" nz-menu-item>Profil</li>
+        <li *ngIf="isPatient" nz-menu-item>Zdravstveni karton</li>
         <li nz-menu-item nzMatchRouter>
             <a (click)="onUpdatePassword()">Promeni lozinku</a>
         </li>
