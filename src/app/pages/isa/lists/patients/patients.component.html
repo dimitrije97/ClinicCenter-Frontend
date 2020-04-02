@@ -1,20 +1,9 @@
-<nz-table #nzTable [nzData]="listOfDisplayData">
+<nz-table #nzTable [nzData]="listOfData">
     <thead>
       <tr>
         <th nzCustomFilter>
             Ime
-            <nz-dropdown nzTrigger="click" nzPlacement="bottomRight" [nzClickHide]="false" nzTableFilter #dropdown>
-                <i nz-icon nzType="search" class="ant-table-filter-icon" [class.ant-table-filter-open]="dropdown.nzVisible"nz-dropdown></i>
-            <div class="search-box">
-                <input type="text" nz-input placeholder="Pretraga po imenu" [(ngModel)]="searchValue" />
-                <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
-                    Pretrazi
-                </button>
-                <button nz-button nzSize="small" (click)="reset()">
-                    Resetuj
-                </button>
-            </div>
-            </nz-dropdown>
+            
         </th>
         <th>
             Prezime

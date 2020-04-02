@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
           const id = user.id;
           this.router.navigateByUrl(`auth/${id}/new-password`);
         } else {
-         
+          
         }
       } else if(user.userType === 'PATIENT') {
         
@@ -45,14 +45,14 @@ export class LoginComponent implements OnInit {
           const id = user.id;
           this.router.navigateByUrl(`auth/${id}/new-password`);
         } else {
-          
+          this.router.navigateByUrl(`dashboard/patients/${user.myClinic.id}/clinic`);
         }
       } else if(user.userType === 'CLINIC_CENTER_ADMIN') {
         if(user.setNewPassword) {
           const id = user.id;
           this.router.navigateByUrl(`auth/${id}/new-password`);
         } else {
-          
+          this.router.navigateByUrl(`dashboard/patients`);
         }
       }
       
