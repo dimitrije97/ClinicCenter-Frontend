@@ -2,18 +2,18 @@
     <nz-header>
       <div class="logo">
         <a target="_blank">
-            <img src="https://scontent.fbeg1-1.fna.fbcdn.net/v/t1.15752-9/91450505_538401730390027_1277136258069430272_n.jpg?_nc_cat=106&_nc_sid=b96e70&_nc_eui2=AeGobQ2UIQ35U6UZu1rMLD09jLxXsLcFoA1rWyYfygiazPipzqqoNa7BqwrycCte2MZ8jASCxiG7gpED_cYyqWH9URIOS4iN2fFeIpz5ayonvw&_nc_ohc=18AEGwqgkC8AX82Vorb&_nc_ht=scontent.fbeg1-1.fna&oh=99bcd3c36e205dd8550d7d5dc1e77af9&oe=5EA84E45" alt="logo">
-            <h1>Klinicki centar</h1>
+            <!-- <img src="https://scontent.fbeg1-1.fna.fbcdn.net/v/t1.15752-9/91450505_538401730390027_1277136258069430272_n.jpg?_nc_cat=106&_nc_sid=b96e70&_nc_eui2=AeGobQ2UIQ35U6UZu1rMLD09jLxXsLcFoA1rWyYfygiazPipzqqoNa7BqwrycCte2MZ8jASCxiG7gpED_cYyqWH9URIOS4iN2fFeIpz5ayonvw&_nc_ohc=18AEGwqgkC8AX82Vorb&_nc_ht=scontent.fbeg1-1.fna&oh=99bcd3c36e205dd8550d7d5dc1e77af9&oe=5EA84E45" alt="logo"> -->
+            <h3 style="color: white; font-style: italic;">Klinički centar</h3>
         </a>
       </div>
       <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
-        <li nz-menu-item>Profil</li>
-        <li nz-menu-item>Zdravstveni karton</li>
+        <li nz-menu-item style="font-style:oblique;">Profil</li>
+        <li nz-menu-item style="font-style:oblique;">Zdravstveni karton</li>
         <li nz-menu-item nzMatchRouter>
-            <a (click)="onUpdatePassword()">Promeni lozinku</a>
+            <a (click)="onUpdatePassword()" style="font-style:oblique;">Promeni lozinku</a>
         </li>
         <li nz-menu-item nzMatchRouter>
-            <a (click)="clearStorage()">Odjavi se</a>
+            <a (click)="clearStorage()" style="font-style:oblique;">Odjavi se</a>
         </li>
       </ul>
     </nz-header>
@@ -24,9 +24,9 @@
           <li nz-submenu>
             <span title>Pregledi</span>
             <ul>
-              <li nz-menu-item>Zapocni (L)</li>
+              <li nz-menu-item>Započni (L)</li>
               <li nz-menu-item>Izaberi</li>
-              <li nz-menu-item>Zakazi</li>
+              <li nz-menu-item>Zakaži</li>
               <li nz-menu-item>Potvrdi</li>
             </ul>
           </li>
@@ -48,7 +48,7 @@
           </li>
 
           <li nz-menu-item nzMatchRouter>
-            <a>Godisnji odmor/Odsustvo</a>
+            <a>Godišnji odmor/Odsustvo</a>
           </li>
 
           <li nz-submenu>
