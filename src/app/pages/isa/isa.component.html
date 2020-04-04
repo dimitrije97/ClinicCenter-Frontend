@@ -37,8 +37,8 @@
           <li *ngIf="isAdmin" nz-submenu>
             <span title>Zahtevi</span>
             <ul>
-              <li (click)="pendingExaminationsByClinic()" nz-menu-item>Pregled</li>
-              <li (click)="pendingVacationsByClinic()" nz-menu-item>Godišnji odmor</li>
+              <li (click)="pendingExaminationsByClinic()" nz-menu-item>Za preglede</li>
+              <li (click)="pendingVacationsByClinic()" nz-menu-item>Za godišnje odmore</li>
             </ul>
           </li>
           <li *ngIf="isAdmin" nz-submenu>
@@ -46,7 +46,7 @@
             <ul>
               <li (click)="createExaminationType()" nz-menu-item>Tip pregleda</li>
               <li (click)="createEmergencyRoom()" nz-menu-item>Salu</li>
-              <li (click)="createDoctor()" nz-menu-item>Dotkora</li>
+              <li (click)="createDoctor()" nz-menu-item>Doktora</li>
               <li (click)="createNurse()" nz-menu-item>Medicinsku sestru</li>
               <li (click)="createPotentialExamination()" nz-menu-item>Potencijalni pregled</li>
             </ul>

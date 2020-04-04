@@ -1,37 +1,39 @@
-<nz-date-picker [(ngModel)]="date"></nz-date-picker>
+<div class="wrapper">
+  <nz-date-picker nzPlaceHolder="Odaberi datum" style="width: 170px" [(ngModel)]="date"></nz-date-picker>
+
+    <br />
+    <br />
+
+  <nz-time-picker nzPlaceHolder="Odaberi vreme" style="width: 170px" [(ngModel)]="startAt"></nz-time-picker>
+      
+    <br />
+    <br />
+
+  <nz-select
+    style="width: 170px;"
+    nzShowSearchselectedType
+    nzAllowClear
+    nzPlaceHolder="Izaberi doktora"
+    [(ngModel)]="selectedDoctor"
+  >
+  <nz-option *ngFor="let item of listOfData" [nzValue]="item.id" [nzLabel]="item.firstName"></nz-option>
+  </nz-select>
 
   <br />
   <br />
 
-<nz-time-picker [(ngModel)]="startAt"></nz-time-picker>
-    
+  <nz-select
+    style="width: 170px;"
+    nzShowSearchselectedType
+    nzAllowClear
+    nzPlaceHolder="Izaberi salu"
+    [(ngModel)]="selectedEmergencyRoom"
+  >
+  <nz-option *ngFor="let item of listOfData2" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
+  </nz-select>
+
   <br />
   <br />
 
-<nz-select
-  style="width: 200px;"
-  nzShowSearchselectedType
-  nzAllowClear
-  nzPlaceHolder="Izaberite lekara"
-  [(ngModel)]="selectedDoctor"
->
-<nz-option *ngFor="let item of listOfData" [nzValue]="item.id" [nzLabel]="item.firstName"></nz-option>
-</nz-select>
-
-<br />
-<br />
-
-<nz-select
-  style="width: 200px;"
-  nzShowSearchselectedType
-  nzAllowClear
-  nzPlaceHolder="Izaberite salu"
-  [(ngModel)]="selectedEmergencyRoom"
->
-<nz-option *ngFor="let item of listOfData2" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
-</nz-select>
-
-<br />
-<br />
-
-<button (click)="onSearch()" nz-button nzType="primary" nzGhost>Zakazi</button>
+  <button (click)="onSearch()" nz-button nzType="primary" nzGhost>Zakaži</button>
+</div>

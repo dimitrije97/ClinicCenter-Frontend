@@ -7,7 +7,7 @@
           </span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input id="name" formControlName="name" placeholder="naziv" />
+          <input nz-input id="name" formControlName="name" placeholder="Naziv" />
           <nz-form-explain *ngIf="validateForm.get('name')?.dirty && validateForm.get('name')?.errors"
             >Unesite naziv tipa pregleda!</nz-form-explain
           >
@@ -21,7 +21,7 @@
           </span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input id="price" formControlName="price" placeholder="cena" />
+          <input nz-input id="price" formControlName="price" placeholder="Cena" />
           <nz-form-explain *ngIf="validateForm.get('price')?.dirty && validateForm.get('price')?.errors"
             >Unesite cenu tipa pregleda!</nz-form-explain
           >
@@ -30,7 +30,7 @@
       
       <nz-form-item nz-row style="margin-bottom:8px;">
         <nz-form-control [nzSpan]="14" [nzOffset]="6">
-          <button (click)="create()" nz-button nzType="primary">Sacuvaj</button>
+          <button (click)="create()" nz-button nzType="primary" nzGhost>Sačuvaj</button>
         </nz-form-control>
       </nz-form-item>
     </form>

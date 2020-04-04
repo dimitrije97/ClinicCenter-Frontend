@@ -7,7 +7,7 @@
           </span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input id="firstName" formControlName="firstName" placeholder="ime" />
+          <input nz-input id="firstName" formControlName="firstName" placeholder="Ime" />
           <nz-form-explain *ngIf="validateForm.get('firstName')?.dirty && validateForm.get('firstName')?.errors"
             >Unesite svoje ime!</nz-form-explain
           >
@@ -21,7 +21,7 @@
           </span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input id="lastName" formControlName="lastName" placeholder="prezime" />
+          <input nz-input id="lastName" formControlName="lastName" placeholder="Prezime" />
           <nz-form-explain *ngIf="validateForm.get('lastName')?.dirty && validateForm.get('lastName')?.errors"
             >Unesite svoje prezime!</nz-form-explain
           >
@@ -31,7 +31,7 @@
       <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="ssn" nzRequired>JMBG</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input id="ssn" formControlName="ssn" placeholder="jmbg" />
+          <input nz-input id="ssn" formControlName="ssn" placeholder="Jmbg" />
           <nz-form-explain *ngIf="validateForm.get('ssn')?.dirty && validateForm.get('ssn')?.errors"
             >Unesite JMBG!</nz-form-explain
           >
@@ -41,7 +41,7 @@
       <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="address" nzRequired>Adresa</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input id="address" formControlName="address" placeholder="adresa" />
+          <input nz-input id="address" formControlName="address" placeholder="Adresa" />
           <nz-form-explain *ngIf="validateForm.get('address')?.dirty && validateForm.get('address')?.errors"
             >Unesite adresu!</nz-form-explain
           >
@@ -51,7 +51,7 @@
       <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="city" nzRequired>Grad</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input id="city" formControlName="city" placeholder="grad" />
+          <input nz-input id="city" formControlName="city" placeholder="Grad" />
           <nz-form-explain *ngIf="validateForm.get('city')?.dirty && validateForm.get('city')?.errors"
             >Unesite grad!</nz-form-explain
           >
@@ -59,11 +59,11 @@
       </nz-form-item>
   
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="country" nzRequired>Drzava</nz-form-label>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="country" nzRequired>Država</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input id="country" formControlName="country" placeholder="drzava" />
+          <input nz-input id="country" formControlName="country" placeholder="Država" />
           <nz-form-explain *ngIf="validateForm.get('country')?.dirty && validateForm.get('country')?.errors"
-            >Unesite drzavu!</nz-form-explain
+            >Unesite državu!</nz-form-explain
           >
         </nz-form-control>
       </nz-form-item>
@@ -71,7 +71,7 @@
       <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phone" nzRequired>Broj telefona</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input id="phone" formControlName="phone" placeholder="broj telefona" />
+          <input nz-input id="phone" formControlName="phone" placeholder="Broj telefona" />
           <nz-form-explain *ngIf="validateForm.get('phone')?.dirty && validateForm.get('phone')?.errors"
             >Unesite broj telefona!</nz-form-explain
           >
@@ -81,7 +81,7 @@
       <nz-form-item>
         <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-          <input nz-input formControlName="email" id="email" placeholder="email adresa" />
+          <input nz-input formControlName="email" id="email" placeholder="E-mail adresa" />
           <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
             Niste uneli validan email!
           </nz-form-explain>
@@ -90,7 +90,7 @@
   
       <nz-form-item *ngIf="!isReadOnly" nz-row style="margin-bottom:8px;">
         <nz-form-control [nzSpan]="14" [nzOffset]="6">
-          <button (click)="update()" nz-button nzType="primary">Sacuvaj</button>
+          <button (click)="update()" nz-button nzType="primary">Sačuvaj</button>
         </nz-form-control>
       </nz-form-item>
     </form>
