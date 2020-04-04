@@ -1,0 +1,22 @@
+<nz-table #basicTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th>Doktor</th>
+        <th>Klinika</th>
+        <th>Tip</th>
+        <th>Datum</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.doctorFirstName }}</td>
+        <td>{{ data.clinicName }}</td>
+        <td>{{ data.examinationTypeName }}</td>
+        <td>{{ formatDate(data.date) }}</td>
+        <td>
+          <button (click)="delete(data.id)" nz-button nzType="danger" nzGhost>Ukloni</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>

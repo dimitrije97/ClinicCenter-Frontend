@@ -38,6 +38,9 @@ import { NewExaminationTypeComponent } from './pages/isa/create-forms/new-examin
 import { NewEmergencyRoomComponent } from './pages/isa/create-forms/new-emergency-room/new-emergency-room.component';
 import { NewDoctorComponent } from './pages/isa/create-forms/new-doctor/new-doctor.component';
 import { NewNurseComponent } from './pages/isa/create-forms/new-nurse/new-nurse.component';
+import { NursesComponent } from './pages/isa/lists/nurses/nurses.component';
+import { NewPotentialExaminationComponent } from './pages/isa/create-forms/new-potential-examination/new-potential-examination.component';
+import { PotentialExaminationsComponent } from './pages/isa/lists/potential-examinations/potential-examinations.component';
 
 registerLocaleData(en);
 
@@ -73,7 +76,10 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NewExaminationTypeComponent,
     NewEmergencyRoomComponent,
     NewDoctorComponent,
-    NewNurseComponent
+    NewNurseComponent,
+    NursesComponent,
+    NewPotentialExaminationComponent,
+    PotentialExaminationsComponent
   ],
   imports: [
     BrowserModule,

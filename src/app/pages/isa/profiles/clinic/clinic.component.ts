@@ -21,10 +21,10 @@ export class ClinicComponent implements OnInit {
 
   ngOnInit(): void {
     this.setupUser();
+    this.setupIsReadOnly();
     this.setupForm();
     this.extractId();
     this.getDetails();
-    this.setupIsReadOnly();
   }
 
   private setupIsReadOnly(): void {
