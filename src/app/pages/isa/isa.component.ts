@@ -46,16 +46,84 @@ export class IsaComponent implements OnInit {
     }
   }
 
+  //all users
   public clearStorage(): void {
     localStorage.clear();
     this.router.navigateByUrl('auth/login');
   }
-
-  public onUpdatePassword(): void {
+  
+  //all users
+  public updatePassword(): void {
     this.router.navigateByUrl('dashboard/update-password');
   }
 
-  public onPatients(): void {
-    this.router.navigateByUrl('dashboard/patients');
+  //admin, doctor and nurse
+  public clinicProfile(): void {
+    this.router.navigateByUrl(`dashboard/profile/${this.user.myClinic.id}/clinic`);
+  }
+
+  //admin
+  public pendingExaminationsByClinic(): void {
+
+  }
+
+  //admin
+  public pendingVacationsByClinic(): void {
+
+  }
+
+  //admin
+  public potentialExaminationsByClinic(): void {
+
+  }
+
+  //admin
+  public emergencyRoomsByClinic(): void {
+    this.router.navigateByUrl(`dashboard/emergency-rooms/${this.user.myClinic.id}/clinic`);
+  }
+
+  //admin
+  public examinationTypesByClinic(): void {
+    this.router.navigateByUrl(`dashboard/examination-types/${this.user.myClinic.id}/clinic`);
+  }
+
+  //admin
+  public reportByClinic(): void {
+
+  }
+
+  //admin
+  public createPotentialExamination(): void {
+    
+  }
+
+  //admin
+  public doctorsByClinic(): void {
+    this.router.navigateByUrl(`dashboard/doctors/${this.user.myClinic.id}/clinic`);
+  }
+
+  //admin
+  public nursesByClinic(): void {
+    
+  }
+
+  //admin
+  public createDoctor(): void {
+    this.router.navigateByUrl(`dashboard/create-doctor`);
+  }
+
+  //admin
+  public createNurse(): void {
+    this.router.navigateByUrl(`dashboard/create-nurse`);
+  }
+
+  //admin
+  public createEmergencyRoom(): void {
+    this.router.navigateByUrl(`dashboard/create-emergency-room`);
+  }
+
+  //admin
+  public createExaminationType(): void {
+    this.router.navigateByUrl(`dashboard/create-examination-type`);
   }
 }

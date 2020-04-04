@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-update-password',
@@ -10,16 +11,24 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class UpdatePasswordComponent implements OnInit {
   
   validateForm: FormGroup;
+  private user: any;
 
   
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.setupUser();
     this.setupForm();
   }
 
+  private setupUser(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  }
+
   submitForm(): void {
-  
+    this.authService.updatePassword(this.user.id, this.validateForm.value).subscribe(data => {
+      // console.log(data)
+    })
   }
 
   private setupForm(): void {
