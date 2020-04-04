@@ -28,6 +28,16 @@ import { DoctorComponent } from './pages/isa/profiles/doctor/doctor.component';
 import { NurseComponent } from './pages/isa/profiles/nurse/nurse.component';
 import { AdminsComponent } from './pages/isa/lists/admins/admins.component';
 import { DoctorsComponent } from './pages/isa/lists/doctors/doctors.component';
+import { ClinicsComponent } from './pages/isa/lists/clinics/clinics.component';
+import { ClinicComponent } from './pages/isa/profiles/clinic/clinic.component';
+import { EmergencyRoomsComponent } from './pages/isa/lists/emergency-rooms/emergency-rooms.component';
+import { ExaminationTypesComponent } from './pages/isa/lists/examination-types/examination-types.component';
+import { EmergencyRoomComponent } from './pages/isa/profiles/emergency-room/emergency-room.component';
+import { ExaminationTypeComponent } from './pages/isa/profiles/examination-type/examination-type.component';
+import { NewExaminationTypeComponent } from './pages/isa/create-forms/new-examination-type/new-examination-type.component';
+import { NewEmergencyRoomComponent } from './pages/isa/create-forms/new-emergency-room/new-emergency-room.component';
+import { NewDoctorComponent } from './pages/isa/create-forms/new-doctor/new-doctor.component';
+import { NewNurseComponent } from './pages/isa/create-forms/new-nurse/new-nurse.component';
 
 registerLocaleData(en);
 
@@ -53,7 +63,17 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     DoctorComponent,
     NurseComponent,
     DoctorsComponent,
-    AdminsComponent
+    AdminsComponent,
+    ClinicsComponent,
+    ClinicComponent,
+    EmergencyRoomsComponent,
+    ExaminationTypesComponent,
+    EmergencyRoomComponent,
+    ExaminationTypeComponent,
+    NewExaminationTypeComponent,
+    NewEmergencyRoomComponent,
+    NewDoctorComponent,
+    NewNurseComponent
   ],
   imports: [
     BrowserModule,

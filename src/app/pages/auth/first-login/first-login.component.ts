@@ -12,19 +12,12 @@ export class FirstLoginComponent implements OnInit {
 
   validateForm: FormGroup;
   private id: any;
-  private user: any;
   
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.setupForm();
-    this.setupUser();
     this.extractId();
-    
-  }
-
-  private setupUser(): void {
-    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   private setupForm(): void {
@@ -39,7 +32,7 @@ export class FirstLoginComponent implements OnInit {
       this.validateForm.controls[i].markAsDirty();
       this.validateForm.controls[i].updateValueAndValidity();
     }
-    this.authService.firstLogin(this.id, this.validateForm.value).subscribe(data => {
+    this.authService.updatePassword(this.id, this.validateForm.value).subscribe(data => {
       localStorage.clear();
       this.router.navigateByUrl("auth/login");
     });

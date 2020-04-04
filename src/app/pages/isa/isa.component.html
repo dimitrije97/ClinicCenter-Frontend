@@ -9,9 +9,9 @@
       <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
         <li routerLink="/dashboard/my-profile" nz-menu-item style="font-style:oblique;">Profil</li>
         <li *ngIf="isPatient" nz-menu-item style="font-style:oblique;">Zdravstveni karton</li>
-
+        <li *ngIf="isDoctor" (click)="clinicProfile()" nz-menu-item style="font-style:oblique;">Profil klinike</li>
         <li nz-menu-item nzMatchRouter>
-            <a (click)="onUpdatePassword()" style="font-style:oblique;">Promeni lozinku</a>
+            <a (click)="updatePassword()" style="font-style:oblique;">Promeni lozinku</a>
         </li>
         <li nz-menu-item nzMatchRouter>
             <a (click)="clearStorage()" style="font-style:oblique;">Odjavi se</a>
@@ -21,8 +21,43 @@
     <nz-layout>
       <nz-sider [nzWidth]="200" >
         <ul nz-menu [nzMode]="'inline'" style="height:100%">
+          
+          <li *ngIf="isAdmin" nz-submenu>
+            <span title>Klinika</span>
+            <ul>
+              <li (click)="clinicProfile()" nz-menu-item>Profil</li>
+              <li (click)="doctorsByClinic()" nz-menu-item>Doktori</li>
+              <li (click)="doctorsByClinic()" nz-menu-item>Medicinske Sestre</li>
+              <li (click)="emergencyRoomsByClinic()" nz-menu-item>Sale</li>
+              <li (click)="examinationTypesByClinic()" nz-menu-item>Tipovi pregleda</li>
+              <li (click)="reportByClinic()" nz-menu-item>Izveštaj</li>
+            </ul>
+          </li>
+          <li *ngIf="isAdmin" nz-submenu>
+            <span title>Zahtevi</span>
+            <ul>
+              <li (click)="pendingExaminationsByClinic()" nz-menu-item>Pregled</li>
+              <li (click)="pendingVacationsByClinic()" nz-menu-item>Godišnji odmor</li>
+            </ul>
+          </li>
+          <li *ngIf="isAdmin" nz-submenu>
+            <span title>Kreiraj</span>
+            <ul>
+              <li (click)="createExaminationType()" nz-menu-item>Tip pregleda</li>
+              <li (click)="createEmergencyRoom()" nz-menu-item>Salu</li>
+              <li (click)="createDoctor()" nz-menu-item>Dotkora</li>
+              <li (click)="createNurse()" nz-menu-item>Medicinsku sestru</li>
+            </ul>
+          </li>
+          <li *ngIf="isAdmin" nz-submenu>
+            <span title>Pregledi</span>
+            <ul>
+              <li (click)="potentialExaminationsByClinic()" nz-menu-item>Slobodni termini</li>
+              <li (click)="createPotentialExamination()" nz-menu-item>Kreiraj termin</li>
+            </ul>
+          </li>
 
-          <li nz-submenu>
+          <!-- <li nz-submenu>
             <span title>Pregledi</span>
             <ul>
               <li nz-menu-item>Započni (L)</li>
@@ -41,7 +76,7 @@
           </li>
 
           <li nz-menu-item nzMatchRouter>
-            <a (click)="onPatients()">Pacijenti</a>
+            <a (click)="patients()">Pacijenti</a>
           </li>
 
           <li nz-menu-item nzMatchRouter>
@@ -66,7 +101,7 @@
               <li nz-menu-item>Lekare</li>
               <li nz-menu-item>Klinike</li>
             </ul>
-          </li>
+          </li> -->
         </ul>
 
       </nz-sider>

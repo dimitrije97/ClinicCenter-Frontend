@@ -19,7 +19,7 @@ export class AuthService {
     return this.http.post(this.baseUrl + 'auth/patients', body);
   }
 
-  public firstLogin(id: string, body: any): Observable<any> {
+  public updatePassword(id, body): Observable<any> {
     return this.http.post(`${this.baseUrl}auth/${id}/new-password`, body);
   }
 }

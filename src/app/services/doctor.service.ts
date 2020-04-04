@@ -32,4 +32,8 @@ export class DoctorService {
   public deleteDoctor(id): Observable<any> {
     return this.http.delete(`${this.baseUrl}doctors/${id}/doctor`);
   }
+
+  public createExaminationType(body, id): Observable<any> {
+    return this.http.post(`${this.baseUrl}auth/doctors/${id}/clinic`, body);
+  }
 }
