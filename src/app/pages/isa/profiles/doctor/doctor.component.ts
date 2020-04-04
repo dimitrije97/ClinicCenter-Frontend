@@ -75,5 +75,4 @@ export class DoctorComponent implements OnInit {
       // console.log(data)
     })
   }
-
 }

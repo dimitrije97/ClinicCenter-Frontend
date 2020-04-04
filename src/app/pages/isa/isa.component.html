@@ -27,10 +27,11 @@
             <ul>
               <li (click)="clinicProfile()" nz-menu-item>Profil</li>
               <li (click)="doctorsByClinic()" nz-menu-item>Doktori</li>
-              <li (click)="doctorsByClinic()" nz-menu-item>Medicinske Sestre</li>
+              <li (click)="nursesByClinic()" nz-menu-item>Medicinske Sestre</li>
               <li (click)="emergencyRoomsByClinic()" nz-menu-item>Sale</li>
               <li (click)="examinationTypesByClinic()" nz-menu-item>Tipovi pregleda</li>
               <li (click)="reportByClinic()" nz-menu-item>Izveštaj</li>
+              <li (click)="potentialExaminationsByClinic()" nz-menu-item>Slobodni pregledi</li>
             </ul>
           </li>
           <li *ngIf="isAdmin" nz-submenu>
@@ -47,13 +48,7 @@
               <li (click)="createEmergencyRoom()" nz-menu-item>Salu</li>
               <li (click)="createDoctor()" nz-menu-item>Dotkora</li>
               <li (click)="createNurse()" nz-menu-item>Medicinsku sestru</li>
-            </ul>
-          </li>
-          <li *ngIf="isAdmin" nz-submenu>
-            <span title>Pregledi</span>
-            <ul>
-              <li (click)="potentialExaminationsByClinic()" nz-menu-item>Slobodni termini</li>
-              <li (click)="createPotentialExamination()" nz-menu-item>Kreiraj termin</li>
+              <li (click)="createPotentialExamination()" nz-menu-item>Potencijalni pregled</li>
             </ul>
           </li>
 

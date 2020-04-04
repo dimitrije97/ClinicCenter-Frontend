@@ -33,7 +33,7 @@ export class EmergencyRoomService {
     return this.http.delete(`${this.baseUrl}emergency-rooms/${id}/emergency-room`);
   }
 
-  public createExaminationType(body, id): Observable<any> {
+  public createEmergencyRoom(body, id): Observable<any> {
     return this.http.post(`${this.baseUrl}auth/emergency-rooms/${id}/clinic`, body);
   }
 }

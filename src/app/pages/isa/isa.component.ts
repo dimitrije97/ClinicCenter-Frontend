@@ -74,7 +74,7 @@ export class IsaComponent implements OnInit {
 
   //admin
   public potentialExaminationsByClinic(): void {
-
+    this.router.navigateByUrl(`dashboard/potential-examinations/${this.user.myClinic.id}/clinic`);
   }
 
   //admin
@@ -93,18 +93,13 @@ export class IsaComponent implements OnInit {
   }
 
   //admin
-  public createPotentialExamination(): void {
-    
-  }
-
-  //admin
   public doctorsByClinic(): void {
     this.router.navigateByUrl(`dashboard/doctors/${this.user.myClinic.id}/clinic`);
   }
 
   //admin
   public nursesByClinic(): void {
-    
+    this.router.navigateByUrl(`dashboard/nurses/${this.user.myClinic.id}/clinic`);
   }
 
   //admin
@@ -125,5 +120,10 @@ export class IsaComponent implements OnInit {
   //admin
   public createExaminationType(): void {
     this.router.navigateByUrl(`dashboard/create-examination-type`);
+  }
+
+  //admin
+  public createPotentialExamination(): void {
+    this.router.navigateByUrl(`dashboard/create-potential-examination`);
   }
 }

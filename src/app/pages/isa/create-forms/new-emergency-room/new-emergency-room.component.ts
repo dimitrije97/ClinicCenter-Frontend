@@ -40,7 +40,7 @@ export class NewEmergencyRoomComponent implements OnInit {
 
     {
       console.log(this.validateForm.value)
-      this.emergencyRoomService.createExaminationType(this.validateForm.value, this.user.myClinic.id).subscribe(data => {
+      this.emergencyRoomService.createEmergencyRoom(this.validateForm.value, this.user.myClinic.id).subscribe(data => {
         
       }) 
     }

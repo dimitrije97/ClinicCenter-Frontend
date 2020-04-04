@@ -23,6 +23,10 @@ import { NewDoctorComponent } from './pages/isa/create-forms/new-doctor/new-doct
 import { NewNurseComponent } from './pages/isa/create-forms/new-nurse/new-nurse.component';
 import { NewEmergencyRoomComponent } from './pages/isa/create-forms/new-emergency-room/new-emergency-room.component';
 import { NewExaminationTypeComponent } from './pages/isa/create-forms/new-examination-type/new-examination-type.component';
+import { NursesComponent } from './pages/isa/lists/nurses/nurses.component';
+import { NurseComponent } from './pages/isa/profiles/nurse/nurse.component';
+import { NewPotentialExaminationComponent } from './pages/isa/create-forms/new-potential-examination/new-potential-examination.component';
+import { PotentialExaminationsComponent } from './pages/isa/lists/potential-examinations/potential-examinations.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/auth/login' },
@@ -40,13 +44,16 @@ const routes: Routes = [
         { path: 'patients/:id/clinic', component: PatientsComponent},
         { path: 'doctors/:id/clinic', component: DoctorsComponent},
         { path: 'admins/:id/clinic', component: AdminsComponent},
+        { path: 'nurses/:id/clinic', component: NursesComponent},
         { path: 'emergency-rooms/:id/clinic', component: EmergencyRoomsComponent},
         { path: 'examination-types/:id/clinic', component: ExaminationTypesComponent},
+        { path: 'potential-examinations/:id/clinic', component: PotentialExaminationsComponent},
 
         { path: 'my-profile', component: ProfileComponent},
         { path: 'profile/:id/patient', component: PatientComponent},
         { path: 'profile/:id/admin', component: AdminComponent},
         { path: 'profile/:id/doctor', component: DoctorComponent},
+        { path: 'profile/:id/nurse', component: NurseComponent},
         { path: 'profile/:id/clinic', component: ClinicComponent},
         { path: 'profile/:id/examination-type', component: ExaminationTypeComponent},
         { path: 'profile/:id/emergency-room', component: EmergencyRoomComponent},
@@ -55,6 +62,7 @@ const routes: Routes = [
         { path: 'create-nurse', component: NewNurseComponent},
         { path: 'create-emergency-room', component: NewEmergencyRoomComponent},
         { path: 'create-examination-type', component: NewExaminationTypeComponent},
+        { path: 'create-potential-examination', component: NewPotentialExaminationComponent},
       ]
     },
   ];
