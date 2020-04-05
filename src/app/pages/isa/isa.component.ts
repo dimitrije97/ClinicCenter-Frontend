@@ -64,12 +64,12 @@ export class IsaComponent implements OnInit {
 
   //admin
   public pendingExaminationsByClinic(): void {
-
+    this.router.navigateByUrl(`dashboard/pending-examinations/${this.user.myClinic.id}/clinic`);
   }
 
   //admin
   public pendingVacationsByClinic(): void {
-
+    this.router.navigateByUrl(`dashboard/pending-vacations/${this.user.id}/clinic`);
   }
 
   //admin

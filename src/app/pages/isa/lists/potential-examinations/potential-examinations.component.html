@@ -5,6 +5,7 @@
         <th>Klinika</th>
         <th>Tip</th>
         <th>Datum</th>
+        <th>Termin</th>
         <th> </th>
       </tr>
     </thead>
@@ -14,6 +15,7 @@
         <td>{{ data.clinicName }}</td>
         <td>{{ data.examinationTypeName }}</td>
         <td>{{ formatDate(data.date) }}</td>
+        <td>{{ data.startAt }}</td>
         <td>
           <button (click)="delete(data.id)" nz-button nzType="danger" nzGhost>Ukloni</button>
         </td>
