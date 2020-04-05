@@ -27,6 +27,8 @@ import { NursesComponent } from './pages/isa/lists/nurses/nurses.component';
 import { NurseComponent } from './pages/isa/profiles/nurse/nurse.component';
 import { NewPotentialExaminationComponent } from './pages/isa/create-forms/new-potential-examination/new-potential-examination.component';
 import { PotentialExaminationsComponent } from './pages/isa/lists/potential-examinations/potential-examinations.component';
+import { PendingExaminationsComponent } from './pages/isa/lists/pending-examinations/pending-examinations.component';
+import { PendingVacationsComponent } from './pages/isa/lists/pending-vacations/pending-vacations.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/auth/login' },
@@ -48,6 +50,8 @@ const routes: Routes = [
         { path: 'emergency-rooms/:id/clinic', component: EmergencyRoomsComponent},
         { path: 'examination-types/:id/clinic', component: ExaminationTypesComponent},
         { path: 'potential-examinations/:id/clinic', component: PotentialExaminationsComponent},
+        { path: 'pending-examinations/:id/clinic', component: PendingExaminationsComponent},
+        { path: 'pending-vacations/:id/clinic', component: PendingVacationsComponent},
 
         { path: 'my-profile', component: ProfileComponent},
         { path: 'profile/:id/patient', component: PatientComponent},

@@ -38,5 +38,4 @@ export class PotentialExaminationsComponent implements OnInit {
   formatDate(date): String {
     return moment(date).format("L");
   }
-
 }
