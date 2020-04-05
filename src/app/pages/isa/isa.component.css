@@ -7,6 +7,12 @@
   
 .inner-content {
   padding: 24px;
-  background: white;
-  height: 100%;
+  /* background-image: url("https://scontent.fbeg2-1.fna.fbcdn.net/v/t1.15752-9/92262961_146469003474440_2565241153943240704_n.jpg?_nc_cat=101&_nc_sid=b96e70&_nc_eui2=AeF03JGzZ8kWXJm62LPh_xXfQRsWQY8DXpNBGxZBjwNek6IBk0uBIAF2i0j6KzXTtco&_nc_ohc=3Mv6H82kqnQAX-shbia&_nc_ht=scontent.fbeg2-1.fna&oh=a8644e6ed014661f8a1244cd5a02e856&oe=5EB1380F");
+  background-repeat: no-repeat; */
+  background: #F6F6F6;
+  height: 125%;
+}
+
+.ant-layout {
+  height: 122%;
 }
