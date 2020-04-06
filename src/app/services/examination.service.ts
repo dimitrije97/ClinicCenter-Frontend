@@ -32,4 +32,12 @@ export class ExaminationService {
   public createExaminationRequestAsDoctor(body, id): Observable<any> {
     return this.http.post(`${this.baseUrl}examinations/create-examination-request/${id}/doctor`, body);
   }
+
+  public createExaminationRequestAsPatient(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}examinations/create-examination-request`, body);
+  }
+
+  public isExaminationInProgress(body): Observable<any> {
+    return this.http.get(`${this.baseUrl}examinations/in-progress`, body);
+  }
 }

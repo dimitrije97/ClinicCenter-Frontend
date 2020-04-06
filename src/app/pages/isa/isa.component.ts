@@ -136,4 +136,17 @@ export class IsaComponent implements OnInit {
   public vacation(): void {
     this.router.navigateByUrl(`dashboard/create-vacation-request`);
   }
+
+  //patient
+  public schedule(): void {
+    this.router.navigateByUrl(`dashboard/create-examination-request`);
+  }
+
+  public clinics(): void {
+    this.router.navigateByUrl(`dashboard/clinics`);
+  }
+
+  public choosePotential(): void {
+    this.router.navigateByUrl(`dashboard/potential-examinations`);
+  }
 }

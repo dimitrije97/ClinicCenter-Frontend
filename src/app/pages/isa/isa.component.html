@@ -67,6 +67,41 @@
           <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
             <a (click)="vacation()">Godišnji odmor</a>
           </li>
+
+          <!-- patient -->
+
+          <li *ngIf="isPatient" nz-submenu>
+            <span title>Pregledi</span>
+            <ul>
+              <li nz-menu-item (click)="choosePotential()">Izaberi</li>
+              <li nz-menu-item nzMatchRouter (click)="schedule()">Zakaži</li>
+              <li nz-menu-item>Potvrdi</li>
+            </ul>
+          </li>
+
+          <li nz-menu-item nzMatchRouter *ngIf="isPatient">
+            <a (click)="clinics()">Klinike</a>
+          </li>
+
+          <li nz-menu-item nzMatchRouter *ngIf="isPatient">
+            <a>Zakazane posete</a>
+          </li>
+
+          <li *ngIf="isPatient" nz-submenu>
+            <span title>Arhiva</span>
+            <ul>
+              <li nz-menu-item>Istorija pregleda</li>
+              <li nz-menu-item>Istorija operacija</li>
+            </ul>
+          </li>
+
+          <li *ngIf="isPatient" nz-submenu>
+            <span title>Oceni</span>
+            <ul>
+              <li nz-menu-item>Lekare</li>
+              <li nz-menu-item>Klinike</li>
+            </ul>
+          </li>
           
         </ul>
 

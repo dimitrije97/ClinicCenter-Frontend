@@ -1,0 +1,18 @@
+<div class="inputWrapper">
+    <nz-date-picker style="width: 180px;" [(ngModel)]="date" nzPlaceHolder="Odaberi datum"></nz-date-picker>
+    <br />
+    <br />
+    <nz-time-picker style="width: 180px;" [(ngModel)]="time" nzPlaceHolder="Odaberi vreme"></nz-time-picker>
+    <br />
+    <br />
+    <nz-select
+        style="width: 180px;"
+        nzShowSearchselectedType
+        nzAllowClear
+        nzPlaceHolder="Odaberi tip pregleda"
+        [(ngModel)]="examinationTypeId">  
+        <nz-option *ngFor="let item of listOfData" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
+    </nz-select>
+</div>
+
+<button class="confirm" (click)="onSchedule()" nz-button nzType="primary" nzGhost>Prikaži klinike</button>

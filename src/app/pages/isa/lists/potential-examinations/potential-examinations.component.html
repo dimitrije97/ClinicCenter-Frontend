@@ -16,8 +16,11 @@
         <td>{{ data.examinationTypeName }}</td>
         <td>{{ formatDate(data.date) }}</td>
         <td>{{ data.startAt }}</td>
-        <td>
+        <td *ngIf="isAdmin">
           <button (click)="delete(data.id)" nz-button nzType="danger" nzGhost>Ukloni</button>
+        </td>
+        <td *ngIf="isPatient">
+          <button nz-button nzType="primary" nzGhost>Zakaži</button>
         </td>
       </tr>
     </tbody>

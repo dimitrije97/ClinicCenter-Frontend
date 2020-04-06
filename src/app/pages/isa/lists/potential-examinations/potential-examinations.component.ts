@@ -11,15 +11,18 @@ export class PotentialExaminationsComponent implements OnInit {
 
   listOfData = [];
   private user: any;
+  public isAdmin: boolean;
+  public isPatient: boolean;
 
   constructor(private peService: PotentialExaminationService) { }
 
   ngOnInit() {
     this.setupUser();
+    this.setupUserType();
     this.setupData();
   }
 
-  private setupUser() {
+  private setupUser(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
   }
 
@@ -27,6 +30,16 @@ export class PotentialExaminationsComponent implements OnInit {
     this.peService.getAllPotentialExaminationsByClinic(this.user.myClinic.id).subscribe(data => {
       this.listOfData = data;
     })
+  }
+
+  private setupUserType(): void {
+    if(this.user.userType === 'ADMIN') {
+      this.isAdmin = true;
+      this.isPatient = false;
+    } else if(this.user.userType === 'PATIENT') {
+      this.isPatient = true;
+      this.isAdmin = false;
+    }
   }
 
   delete(id): void {

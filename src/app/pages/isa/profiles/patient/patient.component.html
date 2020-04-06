@@ -59,7 +59,7 @@
       </nz-form-item>
   
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="country" nzRequired>Drzava</nz-form-label>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="country" nzRequired>Država</nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
           <input nz-input id="country" formControlName="country" placeholder="Država" />
           <nz-form-explain *ngIf="validateForm.get('country')?.dirty && validateForm.get('country')?.errors"
