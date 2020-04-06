@@ -1,0 +1,12 @@
+nz-date-picker,
+nz-month-picker,
+nz-range-picker,
+nz-week-picker {
+margin-top: 20px;
+margin-bottom: 8px;
+margin-left: 2%;
+}
+
+.confirm {
+    margin-left: 2%;
+}

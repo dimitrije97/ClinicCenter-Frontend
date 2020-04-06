@@ -18,14 +18,14 @@
         <td>{{ data.firstName }}</td>
         <td>{{ data.lastName }}</td>
         <td>
-            <button (click)="profile(data.id)" nz-button nzType="primary" nzGhost>Profil</button>
-          </td>
-          <td>
-            <button nz-button nzType="primary" nzGhost>Zdravstveni karton</button>
-          </td>
-          <td>
-            <button nz-button nzType="primary" nzGhost>Zapocni pregled</button>
-          </td>
+          <button (click)="profile(data.id)" nz-button nzType="primary" nzGhost>Profil</button>
+        </td>
+        <td>
+          <button nz-button nzType="primary" (click)="scheduleExamination(data.id)" nzGhost>Zakaži pregled</button>
+        </td>
+        <td>
+          <button nz-button nzType="primary" nzGhost>Unesi izveštaj</button>
+        </td>
       </tr>
     </tbody>
   </nz-table>

@@ -22,6 +22,8 @@
       <nz-sider [nzWidth]="200" >
         <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" style="height:100%">
           
+          <!-- admin -->
+
           <li *ngIf="isAdmin" nz-submenu>
             <span title>Klinika</span>
             <ul>
@@ -52,51 +54,20 @@
             </ul>
           </li>
 
-          <!-- <li nz-submenu>
-            <span title>Pregledi</span>
-            <ul>
-              <li nz-menu-item>Započni (L)</li>
-              <li nz-menu-item>Izaberi</li>
-              <li nz-menu-item>Zakaži</li>
-              <li nz-menu-item>Potvrdi</li>
-            </ul>
-          </li>
+          <!-- doctor -->
 
-          <li nz-menu-item>
-            <a>Sve klinike</a>
-          </li>
-
-          <li nz-menu-item>
-            <a>Moji lekari</a>
-          </li>
-
-          <li nz-menu-item nzMatchRouter>
+          <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
             <a (click)="patients()">Pacijenti</a>
           </li>
 
-          <li nz-menu-item nzMatchRouter>
+          <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
             <a>Radni kalendar</a>
           </li>
 
-          <li nz-menu-item nzMatchRouter>
-            <a>Godišnji odmor/Odsustvo</a>
+          <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
+            <a (click)="vacation()">Godišnji odmor</a>
           </li>
-
-          <li nz-submenu>
-            <span title>Arhiva</span>
-            <ul>
-              <li nz-menu-item>Istorija pregleda</li>
-              <li nz-menu-item>Istorija operacija</li>
-            </ul>
-          </li>
-
-          <li nz-submenu>
-            <span title>Oceni</span>
-            <ul>
-              <li nz-menu-item>Lekare</li>
-              <li nz-menu-item>Klinike</li>
-            </ul>
-          </li> -->
+          
         </ul>
 
       </nz-sider>

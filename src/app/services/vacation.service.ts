@@ -28,4 +28,8 @@ export class VacationService {
   public approveVacation(id): Observable<any> {
     return this.http.post(`${this.baseUrl}vacations/approve/${id}/vacation-request`, null);
   }
+
+  public createVacation(body, id): Observable<any> {
+    return this.http.post(`${this.baseUrl}vacations/${id}/staff`, body);
+  }
 }
