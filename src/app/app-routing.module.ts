@@ -31,6 +31,8 @@ import { PendingExaminationsComponent } from './pages/isa/lists/pending-examinat
 import { PendingVacationsComponent } from './pages/isa/lists/pending-vacations/pending-vacations.component';
 import { NewVacationRequestComponent } from './pages/isa/create-forms/new-vacation-request/new-vacation-request.component';
 import { NewExaminationByDoctorComponent } from './pages/isa/create-forms/new-examination-by-doctor/new-examination-by-doctor.component';
+import { NewExaminationByPatientComponent } from './pages/isa/create-forms/new-examination-by-patient/new-examination-by-patient.component';
+
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/auth/login' },
@@ -52,6 +54,7 @@ const routes: Routes = [
         { path: 'emergency-rooms/:id/clinic', component: EmergencyRoomsComponent},
         { path: 'examination-types/:id/clinic', component: ExaminationTypesComponent},
         { path: 'potential-examinations/:id/clinic', component: PotentialExaminationsComponent},
+        { path: 'potential-examinations', component: PotentialExaminationsComponent},
         { path: 'pending-examinations/:id/clinic', component: PendingExaminationsComponent},
         { path: 'pending-vacations/:id/clinic', component: PendingVacationsComponent},
 
@@ -71,6 +74,7 @@ const routes: Routes = [
         { path: 'create-potential-examination', component: NewPotentialExaminationComponent},
         { path: 'create-vacation-request', component: NewVacationRequestComponent},
         { path: 'create-examination-request/:id/patient', component: NewExaminationByDoctorComponent},
+        { path: 'create-examination-request', component: NewExaminationByPatientComponent},
       ]
     },
   ];

@@ -45,6 +45,7 @@ import { PendingExaminationsComponent } from './pages/isa/lists/pending-examinat
 import { PendingVacationsComponent } from './pages/isa/lists/pending-vacations/pending-vacations.component';
 import { NewVacationRequestComponent } from './pages/isa/create-forms/new-vacation-request/new-vacation-request.component';
 import { NewExaminationByDoctorComponent } from './pages/isa/create-forms/new-examination-by-doctor/new-examination-by-doctor.component';
+import { NewExaminationByPatientComponent } from './pages/isa/create-forms/new-examination-by-patient/new-examination-by-patient.component';
 
 registerLocaleData(en);
 
@@ -87,7 +88,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     PendingExaminationsComponent,
     PendingVacationsComponent,
     NewVacationRequestComponent,
-    NewExaminationByDoctorComponent
+    NewExaminationByDoctorComponent,
+    NewExaminationByPatientComponent
   ],
   imports: [
     BrowserModule,

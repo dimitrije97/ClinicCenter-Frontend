@@ -45,10 +45,10 @@ export class PatientsComponent implements OnInit {
   private extractId(): void {
     this.id = this.route.snapshot.params.id;
   }
- 
- public scheduleExamination(id): void {
-  this.router.navigateByUrl(`dashboard/create-examination-request/${id}/patient`);
-}
+  
+  public scheduleExamination(id): void {
+    this.router.navigateByUrl(`dashboard/create-examination-request/${id}/patient`);
+  }
 
 }
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ClinicService } from 'src/app/services/clinic.service';
 
 @Component({
   selector: 'app-clinics',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClinicsComponent implements OnInit {
 
-  constructor() { }
+  public listOfData = [];
 
-  ngOnInit(): void {
+  constructor(private clinicService: ClinicService, private router: Router, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.setupData();
   }
 
+  private setupData(): void {
+    this.clinicService.getAllClinics().subscribe(data => {
+      this.listOfData = data;
+    });
+  }
 }
