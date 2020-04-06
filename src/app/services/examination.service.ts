@@ -28,4 +28,8 @@ export class ExaminationService {
   public confirmExamination(body): Observable<any> {
     return this.http.post(`${this.baseUrl}examinations/confirm-examination-request`, body);
   }
+
+  public createExaminationRequestAsDoctor(body, id): Observable<any> {
+    return this.http.post(`${this.baseUrl}examinations/create-examination-request/${id}/doctor`, body);
+  }
 }

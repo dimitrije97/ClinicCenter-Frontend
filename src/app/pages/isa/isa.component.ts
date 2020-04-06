@@ -126,4 +126,14 @@ export class IsaComponent implements OnInit {
   public createPotentialExamination(): void {
     this.router.navigateByUrl(`dashboard/create-potential-examination`);
   }
+
+  //doctor
+  public patients(): void {
+    this.router.navigateByUrl(`dashboard/patients/${this.user.myClinic.id}/clinic`);
+  }
+
+  //doctor
+  public vacation(): void {
+    this.router.navigateByUrl(`dashboard/create-vacation-request`);
+  }
 }

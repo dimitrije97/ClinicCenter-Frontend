@@ -38,14 +38,19 @@ export class PatientsComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user'));
   } 
 
-  profile(id) {
+  public profile(id): void {
     this.router.navigateByUrl(`dashboard/profile/${id}/patient`);
   }
 
   private extractId(): void {
     this.id = this.route.snapshot.params.id;
   }
- }
+ 
+ public scheduleExamination(id): void {
+  this.router.navigateByUrl(`dashboard/create-examination-request/${id}/patient`);
+}
+
+}
 
 //  searchValue = '';
 //     sortName: string | null = null;
