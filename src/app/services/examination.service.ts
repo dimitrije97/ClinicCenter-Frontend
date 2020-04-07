@@ -36,4 +36,16 @@ export class ExaminationService {
   public createExaminationRequestAsPatient(body): Observable<any> {
     return this.http.post(`${this.baseUrl}examinations/create-examination-request`, body);
   }
+
+  public getAllConfirmingExaminationsByPatient(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}examinations/confirming/${id}/patient`);
+  }
+
+  public approveExamination(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}examinations/approve-examination`, body);
+  }
+
+  public getAllExaminationsByPatient(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}examinations/${id}/patient`);
+  }
 }

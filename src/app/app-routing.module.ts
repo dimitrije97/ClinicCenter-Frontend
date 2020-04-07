@@ -32,6 +32,8 @@ import { PendingVacationsComponent } from './pages/isa/lists/pending-vacations/p
 import { NewVacationRequestComponent } from './pages/isa/create-forms/new-vacation-request/new-vacation-request.component';
 import { NewExaminationByDoctorComponent } from './pages/isa/create-forms/new-examination-by-doctor/new-examination-by-doctor.component';
 import { NewExaminationByPatientComponent } from './pages/isa/create-forms/new-examination-by-patient/new-examination-by-patient.component';
+import { ConfirmingExaminationsComponent } from './pages/isa/lists/confirming-examinations/confirming-examinations.component';
+import { ExaminationsByPatientComponent } from './pages/isa/lists/examinations-by-patient/examinations-by-patient.component';
 
 
 const routes: Routes = [
@@ -56,7 +58,9 @@ const routes: Routes = [
         { path: 'potential-examinations/:id/clinic', component: PotentialExaminationsComponent},
         { path: 'potential-examinations', component: PotentialExaminationsComponent},
         { path: 'pending-examinations/:id/clinic', component: PendingExaminationsComponent},
+        { path: 'confirming-examinations', component: ConfirmingExaminationsComponent},
         { path: 'pending-vacations/:id/clinic', component: PendingVacationsComponent},
+        { path: 'examinations-by-patient', component: ExaminationsByPatientComponent},
 
         { path: 'my-profile', component: ProfileComponent},
         { path: 'profile/:id/patient', component: PatientComponent},

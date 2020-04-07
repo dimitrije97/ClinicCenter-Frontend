@@ -74,8 +74,8 @@
             <span title>Pregledi</span>
             <ul>
               <li nz-menu-item (click)="choosePotential()">Izaberi</li>
-              <li nz-menu-item nzMatchRouter (click)="schedule()">Zakaži</li>
-              <li nz-menu-item>Potvrdi</li>
+              <li nz-menu-item nzMatchRouter (click)="scheduleExaminations()">Zakaži</li>
+              <li nz-menu-item nzMatchRouter (click)="confirmExaminations()">Potvrdi</li>
             </ul>
           </li>
 
@@ -84,7 +84,7 @@
           </li>
 
           <li nz-menu-item nzMatchRouter *ngIf="isPatient">
-            <a>Zakazane posete</a>
+            <a (click)="examinationsByPatient()">Zakazane posete</a>
           </li>
 
           <li *ngIf="isPatient" nz-submenu>
