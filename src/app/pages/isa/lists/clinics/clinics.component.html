@@ -16,7 +16,9 @@
       <tr *ngFor="let data of nzTable.data">
         <td>{{ data.name }}</td>
         <td>{{ data.address }}</td>
-        <td></td>
+        <td>
+          <button (click)="getAvgGradeOfClinic(data.id)" nz-button nzType="primary" nzGhost>Prosecna ocena</button>
+        </td>
       </tr>
     </tbody>
   </nz-table>
