@@ -45,7 +45,11 @@ export class PotentialExaminationsComponent implements OnInit {
   delete(id): void {
     this.peService.deletePotentialExamination(id).subscribe(data => {
       this.setupData();
-    })
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
+    });
   }
 
   formatDate(date): String {

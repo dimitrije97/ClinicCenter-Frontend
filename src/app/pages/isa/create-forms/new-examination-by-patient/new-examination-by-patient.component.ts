@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ExaminationService } from 'src/app/services/examination.service';
 import * as moment from 'moment';
 import { ExaminationTypeService } from 'src/app/services/examination-type.service';
+import { FilterService } from 'src/app/services/filter.service';
+import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-new-examination-by-patient',
@@ -12,15 +14,18 @@ import { ExaminationTypeService } from 'src/app/services/examination-type.servic
 })
 export class NewExaminationByPatientComponent implements OnInit {
 
-  public time: Date | null = null;
-  public date: Date = null;
-  public user: any;
-  patientId: null;
-  examinationTypeId = null;
+  public date: Date | null = null;
+  private user: any;
+  public examinationTypeId: any;
   public listOfData = [];
   public validateForm: FormGroup;
+
+  public isVisible: boolean = false;
+  public clinicId: any;
+  public listOfData2 = [];
+  public time: any;
   
-  constructor(private router: Router, private route: ActivatedRoute, private examinationTypeService:ExaminationTypeService, private examinationService: ExaminationService, private fb: FormBuilder) { }
+  constructor(private filterService: FilterService, private router: Router, private route: ActivatedRoute, private examinationTypeService:ExaminationTypeService, private examinationService: ExaminationService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.setupUser();
@@ -37,19 +42,38 @@ export class NewExaminationByPatientComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user'));
   }
 
-  public onSchedule(): void {
+  public showFilteredClinics(): void {
     const body = {
-      date: moment(this.date).format('L'),
-      startAt: moment(this.time).format('HH:mm:ss'),
-      patientId: this.user.id,
-      examinationTypeId: this.examinationTypeId
-      //fali doctorId
-
+      examinationTypeId: this.examinationTypeId,
+      date: moment(this.date).format('YYYY/MM/DD')
     }
     console.log(body)
-    this.examinationService.createExaminationRequestAsPatient(body).subscribe(() => {
-      
-    })
+    this.filterService.getFilteredClinics(body).subscribe(data => {
+      this.isVisible = true;
+      this.listOfData2 = data;
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
+    });
+  }
+
+  public showFilteredDoctors(): void {
+    const body = {
+      date: moment(this.date).format('L'),
+      examinationTypeId: this.examinationTypeId,
+      startAt: moment(this.time).format("HH:mm:ss"),
+      clinicId: this.clinicId
+    }
+    console.log(body)
+    // this.filterService.get(body).subscribe(data => {
+    //   console.log(data);
+    //   this.isVisible = true;
+    // },
+    // error => {
+    //   const message = error.error.message;
+    //   console.log(message)
+    // });
   }
 
 }

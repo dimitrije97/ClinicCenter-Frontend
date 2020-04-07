@@ -38,7 +38,11 @@ export class ExaminationTypesComponent implements OnInit {
   delete(id) {
     this.examinationTypeService.deleteExaminationType(id).subscribe(() => {
       this.setupData();
-    })
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
+    });
   }
 
 }

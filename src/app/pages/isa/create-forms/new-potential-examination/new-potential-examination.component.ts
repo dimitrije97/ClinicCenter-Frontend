@@ -49,6 +49,10 @@ export class NewPotentialExaminationComponent implements OnInit {
     }
     this.peService.createPotentialExamination(body).subscribe(() => {
       
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
     });
   }
 }

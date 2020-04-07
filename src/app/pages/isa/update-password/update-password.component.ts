@@ -28,7 +28,11 @@ export class UpdatePasswordComponent implements OnInit {
   submitForm(): void {
     this.authService.updatePassword(this.user.id, this.validateForm.value).subscribe(data => {
       // console.log(data)
-    })
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
+    });
   }
 
   private setupForm(): void {

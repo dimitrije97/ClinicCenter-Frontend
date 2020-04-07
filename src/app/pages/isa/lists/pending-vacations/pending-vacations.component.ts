@@ -55,6 +55,10 @@ export class PendingVacationsComponent implements OnInit {
     console.log(body)
     this.vacationService.denyVacation(id, body).subscribe(data => {
       this.setupData();
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
     });
   }
 

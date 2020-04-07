@@ -44,6 +44,10 @@ export class NewDoctorComponent implements OnInit {
   private setupData(): void {
     this.examinationTypeService.getAllExaminationTypes().subscribe(data => {
       this.listOfData = data;
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
     });
   }
 

@@ -35,6 +35,10 @@ export class FirstLoginComponent implements OnInit {
     this.authService.updatePassword(this.id, this.validateForm.value).subscribe(data => {
       localStorage.clear();
       this.router.navigateByUrl("auth/login");
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
     });
   }
 

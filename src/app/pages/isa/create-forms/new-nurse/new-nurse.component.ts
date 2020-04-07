@@ -53,7 +53,11 @@ export class NewNurseComponent implements OnInit {
       console.log(body)
       this.nurseService.createNurse(body, this.user.myClinic.id).subscribe(data => {
         console.log(data);
-      }) 
+      },
+      error => {
+        const message = error.error.message;
+        console.log(message)
+      });
     }
   }
 
