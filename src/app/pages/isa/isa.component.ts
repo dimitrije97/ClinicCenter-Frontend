@@ -138,7 +138,7 @@ export class IsaComponent implements OnInit {
   }
 
   //patient
-  public schedule(): void {
+  public scheduleExaminations(): void {
     this.router.navigateByUrl(`dashboard/create-examination-request`);
   }
 
@@ -148,5 +148,13 @@ export class IsaComponent implements OnInit {
 
   public choosePotential(): void {
     this.router.navigateByUrl(`dashboard/potential-examinations`);
+  }
+
+  public confirmExaminations(): void {
+    this.router.navigateByUrl(`dashboard/confirming-examinations`);
+  }
+
+  public examinationsByPatient(): void {
+    this.router.navigateByUrl(`dashboard/examinations-by-patient`);
   }
 }

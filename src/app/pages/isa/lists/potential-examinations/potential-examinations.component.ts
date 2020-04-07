@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PotentialExaminationService } from 'src/app/services/potential-examination.service';
 import * as moment from 'moment'
+import { PotentialExaminationService } from 'src/app/services/potential-examination.service';
+import { ExaminationService } from 'src/app/services/examination.service';
 
 @Component({
   selector: 'app-potential-examinations',
@@ -14,7 +15,7 @@ export class PotentialExaminationsComponent implements OnInit {
   public isAdmin: boolean;
   public isPatient: boolean;
 
-  constructor(private peService: PotentialExaminationService) { }
+  constructor(private peService: PotentialExaminationService, private examinationService: ExaminationService) { }
 
   ngOnInit() {
     this.setupUser();
@@ -27,9 +28,15 @@ export class PotentialExaminationsComponent implements OnInit {
   }
 
   public setupData(): void {
-    this.peService.getAllPotentialExaminationsByClinic(this.user.myClinic.id).subscribe(data => {
-      this.listOfData = data;
-    })
+    if(this.isAdmin) {
+      this.peService.getAllPotentialExaminationsByClinic(this.user.myClinic.id).subscribe(data => {
+        this.listOfData = data;
+      })
+    } else if(this.isPatient) {
+      this.peService.getAllPotentialExaminations().subscribe(data => {
+        this.listOfData = data;
+      })
+    }
   }
 
   private setupUserType(): void {
@@ -44,6 +51,19 @@ export class PotentialExaminationsComponent implements OnInit {
 
   delete(id): void {
     this.peService.deletePotentialExamination(id).subscribe(data => {
+      this.setupData();
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
+    });
+  }
+
+  public schedule(id): void {
+    const body = {
+      examinationId: id
+    }
+    this.examinationService.approveExamination(body).subscribe(data => {
       this.setupData();
     },
     error => {
