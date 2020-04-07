@@ -5,7 +5,6 @@ import { ExaminationService } from 'src/app/services/examination.service';
 import * as moment from 'moment';
 import { ExaminationTypeService } from 'src/app/services/examination-type.service';
 import { FilterService } from 'src/app/services/filter.service';
-import { Time } from '@angular/common';
 
 @Component({
   selector: 'app-new-examination-by-patient',
@@ -24,6 +23,7 @@ export class NewExaminationByPatientComponent implements OnInit {
   public clinicId: any;
   public listOfData2 = [];
   public time: any;
+
   
   constructor(private filterService: FilterService, private router: Router, private route: ActivatedRoute, private examinationTypeService:ExaminationTypeService, private examinationService: ExaminationService, private fb: FormBuilder) { }
 
