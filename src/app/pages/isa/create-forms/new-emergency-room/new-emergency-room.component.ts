@@ -42,7 +42,11 @@ export class NewEmergencyRoomComponent implements OnInit {
       console.log(this.validateForm.value)
       this.emergencyRoomService.createEmergencyRoom(this.validateForm.value, this.user.myClinic.id).subscribe(data => {
         
-      }) 
+      },
+      error => {
+        const message = error.error.message;
+        console.log(message)
+      });
     }
   }
 

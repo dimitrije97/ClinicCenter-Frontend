@@ -40,7 +40,11 @@ export class NursesComponent implements OnInit {
   delete(id) {
     this.nurseService.deleteNurse(id).subscribe(() => {
       this.setupData();
-    })
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
+    });
   }
 
 }

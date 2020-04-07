@@ -73,6 +73,10 @@ export class DoctorComponent implements OnInit {
   public update(): void {
     this.doctorService.updateDoctor(this.id, this.validateForm.value).subscribe(data => {
       // console.log(data)
-    })
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
+    });
   }
 }

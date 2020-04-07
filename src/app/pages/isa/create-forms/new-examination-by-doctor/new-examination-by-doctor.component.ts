@@ -40,9 +40,12 @@ export class NewExaminationByDoctorComponent implements OnInit {
       patientId: this.id
 
     }
-    console.log(body)
-    this.examinationService.createExaminationRequestAsDoctor(body, this.user.id).subscribe(() => {
-      
+    this.examinationService.createExaminationRequestAsDoctor(body, this.user.id).subscribe(data => {
+      console.log(data);
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
     })
   }
 

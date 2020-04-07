@@ -46,7 +46,11 @@ export class AdminsComponent implements OnInit {
   delete(id) {
     this.adminService.deleteAdmin(id).subscribe(() => {
       this.setupData();
-    })
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
+    });
   }
  }
 

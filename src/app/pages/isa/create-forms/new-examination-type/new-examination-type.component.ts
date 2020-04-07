@@ -42,7 +42,11 @@ export class NewExaminationTypeComponent implements OnInit {
       console.log(this.validateForm.value)
       this.examinationTypeService.createExaminationType(this.validateForm.value).subscribe(data => {
         
-      }) 
+      },
+      error => {
+        const message = error.error.message;
+        console.log(message)
+      });
     }
   }
 

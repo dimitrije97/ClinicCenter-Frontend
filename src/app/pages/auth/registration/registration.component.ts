@@ -47,7 +47,11 @@ export class RegistrationComponent implements OnInit {
       console.log(this.validateForm.value)
       this.authService.createPatient(this.validateForm.value).subscribe(data => {
         this.router.navigateByUrl('auth/login');
-      }) 
+      },
+      error => {
+        const message = error.error.message;
+        console.log(message)
+      });
     }
   }
 

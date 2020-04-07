@@ -40,7 +40,11 @@ export class DoctorsComponent implements OnInit {
   delete(id) {
     this.doctorService.deleteDoctor(id).subscribe(() => {
       this.setupData();
-    })
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
+    });
   }
 
 }

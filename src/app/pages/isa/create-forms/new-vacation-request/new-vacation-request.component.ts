@@ -43,6 +43,10 @@ export class NewVacationRequestComponent implements OnInit {
     }
     this.vacationService.createVacation(body, this.user.id).subscribe(data => {
       console.log(data);
+    },
+    error => {
+      const message = error.error.message;
+      console.log(message)
     });
     
   }

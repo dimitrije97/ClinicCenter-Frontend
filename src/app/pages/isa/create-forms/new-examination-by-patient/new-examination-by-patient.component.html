@@ -2,9 +2,6 @@
     <nz-date-picker style="width: 180px;" [(ngModel)]="date" nzPlaceHolder="Odaberi datum"></nz-date-picker>
     <br />
     <br />
-    <nz-time-picker style="width: 180px;" [(ngModel)]="time" nzPlaceHolder="Odaberi vreme"></nz-time-picker>
-    <br />
-    <br />
     <nz-select
         style="width: 180px;"
         nzShowSearchselectedType
@@ -15,4 +12,20 @@
     </nz-select>
 </div>
 
-<button class="confirm" (click)="onSchedule()" nz-button nzType="primary" nzGhost>Prikaži klinike</button>
+<button class="confirm" (click)="showFilteredClinics()" nz-button nzType="primary" nzGhost>Prikaži klinike</button>
+
+<div *ngIf="isVisible">
+    <nz-select
+        style="width: 180px;"
+        nzShowSearchselectedType
+        nzAllowClear
+        nzPlaceHolder="Odaberi kliniku"
+        [(ngModel)]="clinicId">  
+        <nz-option *ngFor="let item of listOfData2" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
+    </nz-select>
+    <br />
+    <br />
+    <nz-time-picker style="width: 180px;" [(ngModel)]="time" nzPlaceHolder="Odaberi vreme"></nz-time-picker>
+</div>
+
+<button *ngIf="isVisible" class="confirm" (click)="showFilteredDoctors()" nz-button nzType="primary" nzGhost>Prikaži lekare</button>
