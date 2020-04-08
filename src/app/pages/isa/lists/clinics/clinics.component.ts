@@ -21,6 +21,10 @@ export class ClinicsComponent implements OnInit {
   private setupData(): void {
     this.clinicService.getAllClinics().subscribe(data => {
       this.listOfData = data;
+    },
+    error => {
+      this.message.info(error.error.message);
+      this.router.navigateByUrl(`dashboard`);
     });
   }
 

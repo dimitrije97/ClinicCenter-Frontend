@@ -137,23 +137,31 @@ export class IsaComponent implements OnInit {
     this.router.navigateByUrl(`dashboard/create-vacation-request`);
   }
 
+  public schedule(): void {
+    this.router.navigateByUrl(`dashboard/doctor-calendar`);
+  }
+
   //patient
   public scheduleExaminations(): void {
     this.router.navigateByUrl(`dashboard/create-examination-request`);
   }
 
+  //patient
   public clinics(): void {
     this.router.navigateByUrl(`dashboard/clinics`);
   }
 
+  //patient
   public choosePotential(): void {
     this.router.navigateByUrl(`dashboard/potential-examinations`);
   }
 
+  //patient
   public confirmExaminations(): void {
     this.router.navigateByUrl(`dashboard/confirming-examinations`);
   }
 
+  //patient
   public examinationsByPatient(): void {
     this.router.navigateByUrl(`dashboard/examinations-by-patient`);
   }

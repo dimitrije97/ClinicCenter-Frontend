@@ -22,10 +22,10 @@
         <td>{{ formatDate(data.date) }}</td>
         <td>{{ data.startAt }}</td>
         <td *ngIf="!isVisible">
-            <button (click)="confirm(data.id)" nz-button nzType="primary" nzGhost>Odobri</button>
+            <button (click)="confirm(data.id)" nz-button nzType="primary">Odobri</button>
           </td>
           <td *ngIf="!isVisible">
-            <button (click)="getReason()" nz-button nzType="danger" nzGhost>Odbij</button>
+            <button (click)="getReason()" nz-button nzType="danger">Odbij</button>
           </td>
           <td *ngIf="isVisible">
             <form nz-form [formGroup]="validateForm">
@@ -37,7 +37,7 @@
             </form>
           </td>
           <td *ngIf="isVisible">
-            <button (click)="deny(data.id)" nz-button nzType="primary" nzGhost>Potvrdi</button>
+            <button (click)="deny(data.id)" nz-button nzType="primary">Potvrdi</button>
           </td>
       </tr>
     </tbody>

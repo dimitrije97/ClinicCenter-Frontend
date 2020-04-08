@@ -3,6 +3,7 @@ import * as moment from 'moment'
 import { PotentialExaminationService } from 'src/app/services/potential-examination.service';
 import { ExaminationService } from 'src/app/services/examination.service';
 import { NzMessageService } from 'ng-zorro-antd';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-potential-examinations',
@@ -16,7 +17,7 @@ export class PotentialExaminationsComponent implements OnInit {
   public isAdmin: boolean;
   public isPatient: boolean;
 
-  constructor(private message: NzMessageService, private peService: PotentialExaminationService, private examinationService: ExaminationService) { }
+  constructor(private router: Router, private message: NzMessageService, private peService: PotentialExaminationService, private examinationService: ExaminationService) { }
 
   ngOnInit() {
     this.setupUser();
@@ -35,6 +36,7 @@ export class PotentialExaminationsComponent implements OnInit {
       },
       error => {
         this.message.info(error.error.message);
+        this.router.navigateByUrl(`dashboard`);
       });
     } else if(this.isPatient) {
       this.peService.getAllPotentialExaminations().subscribe(data => {
@@ -42,6 +44,7 @@ export class PotentialExaminationsComponent implements OnInit {
       },
       error => {
         this.message.info(error.error.message);
+        this.router.navigateByUrl(`dashboard`);
       });
     }
   }

@@ -52,7 +52,8 @@ export class NewPotentialExaminationComponent implements OnInit {
       this.message.info('Uspešno ste kreirali novi potencijalni pregled.');
     },
     error => {
-      this.message.info(error.error.message);
+      // this.message.info(error.error.message);
+      this.message.info('Sva polja moraju biti popunjena.');
     });
   }
 }

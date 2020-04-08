@@ -37,6 +37,7 @@ export class PatientsComponent implements OnInit {
       },
       error => {
         this.message.info(error.error.message);
+        this.router.navigateByUrl(`dashboard`);
       });
     }
   }

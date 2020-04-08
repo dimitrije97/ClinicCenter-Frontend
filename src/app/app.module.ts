@@ -48,6 +48,7 @@ import { NewExaminationByDoctorComponent } from './pages/isa/create-forms/new-ex
 import { NewExaminationByPatientComponent } from './pages/isa/create-forms/new-examination-by-patient/new-examination-by-patient.component';
 import { ConfirmingExaminationsComponent } from './pages/isa/lists/confirming-examinations/confirming-examinations.component';
 import { ExaminationsByPatientComponent } from './pages/isa/lists/examinations-by-patient/examinations-by-patient.component';
+import { DoctorCalendarComponent } from './pages/isa/lists/doctor-calendar/doctor-calendar.component';
 
 registerLocaleData(en);
 
@@ -93,7 +94,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NewExaminationByDoctorComponent,
     NewExaminationByPatientComponent,
     ConfirmingExaminationsComponent,
-    ExaminationsByPatientComponent
+    ExaminationsByPatientComponent,
+    DoctorCalendarComponent
   ],
   imports: [
     BrowserModule,

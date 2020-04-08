@@ -46,7 +46,8 @@ export class NewExaminationByDoctorComponent implements OnInit {
       this.message.info('Uspešno ste poslali zahtev za novi pregled.')
     },
     error => {
-      this.message.info(error.error.message);
+      // this.message.info(error.error.message);
+      this.message.info('Sva polja moraju biti popunjena.');
     });
   }
 

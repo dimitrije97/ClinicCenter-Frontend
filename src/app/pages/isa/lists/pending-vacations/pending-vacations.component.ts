@@ -31,6 +31,7 @@ export class PendingVacationsComponent implements OnInit {
     },
     error => {
       this.message.info(error.error.message);
+      this.router.navigateByUrl(`dashboard`);
     });
     this.isVisible = false;
     this.validateForm = this.fb.group({

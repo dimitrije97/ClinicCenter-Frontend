@@ -12,7 +12,7 @@
     </nz-select>
 </div>
 
-<button class="confirm" (click)="showFilteredClinics()" nz-button nzType="primary" nzGhost>Prikaži klinike</button>
+<button class="confirm" (click)="showFilteredClinics()" nz-button nzType="primary">Prikaži klinike</button>
 
 <div *ngIf="isVisible">
     <nz-select
@@ -28,4 +28,4 @@
     <nz-time-picker style="width: 180px;" [(ngModel)]="time" nzPlaceHolder="Odaberi vreme"></nz-time-picker>
 </div>
 
-<button *ngIf="isVisible" class="confirm" (click)="showFilteredDoctors()" nz-button nzType="primary" nzGhost>Prikaži lekare</button>
+<button *ngIf="isVisible" class="confirm" (click)="showFilteredDoctors()" nz-button nzType="primary">Prikaži lekare</button>

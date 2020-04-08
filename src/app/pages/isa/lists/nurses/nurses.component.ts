@@ -24,6 +24,10 @@ export class NursesComponent implements OnInit {
     if(this.user.userType === 'ADMIN') {
       this.nurseService.getAllNursesByClinic(this.user.myClinic.id).subscribe(data => {
         this.listOfData = data;
+      },
+      error => {
+        this.message.info(error.error.message);
+        this.router.navigateByUrl(`dashboard`);
       });
     } else {
       

@@ -18,10 +18,10 @@
         <td>{{ data.doctorFirstName }} {{ data.doctorLastName}} </td>
         
         <td *ngIf="isAdmin">
-          <button (click)="delete(data.id)" nz-button nzType="danger" nzGhost>Ukloni</button>
+          <button (click)="delete(data.id)" nz-button nzType="danger">Ukloni</button>
         </td>
         <td *ngIf="isPatient">
-          <button (click)="schedule(data.id)" nz-button nzType="primary" nzGhost>Zakaži</button>
+          <button (click)="schedule(data.id)" nz-button nzType="primary">Zakaži</button>
         </td>
       </tr>
     </tbody>

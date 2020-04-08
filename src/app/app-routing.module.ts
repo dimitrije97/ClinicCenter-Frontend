@@ -34,6 +34,7 @@ import { NewExaminationByDoctorComponent } from './pages/isa/create-forms/new-ex
 import { NewExaminationByPatientComponent } from './pages/isa/create-forms/new-examination-by-patient/new-examination-by-patient.component';
 import { ConfirmingExaminationsComponent } from './pages/isa/lists/confirming-examinations/confirming-examinations.component';
 import { ExaminationsByPatientComponent } from './pages/isa/lists/examinations-by-patient/examinations-by-patient.component';
+import { DoctorCalendarComponent } from './pages/isa/lists/doctor-calendar/doctor-calendar.component';
 
 
 const routes: Routes = [
@@ -61,6 +62,7 @@ const routes: Routes = [
         { path: 'confirming-examinations', component: ConfirmingExaminationsComponent},
         { path: 'pending-vacations/:id/clinic', component: PendingVacationsComponent},
         { path: 'examinations-by-patient', component: ExaminationsByPatientComponent},
+        { path: 'doctor-calendar', component: DoctorCalendarComponent},
 
         { path: 'my-profile', component: ProfileComponent},
         { path: 'profile/:id/patient', component: PatientComponent},

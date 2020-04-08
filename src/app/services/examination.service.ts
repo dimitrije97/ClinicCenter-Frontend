@@ -48,4 +48,8 @@ export class ExaminationService {
   public getAllExaminationsByPatient(id): Observable<any> {
     return this.http.get(`${this.baseUrl}examinations/${id}/patient`);
   }
+
+  public getAllExaminationsByDoctor(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}examinations/${id}/doctor`);
+  }
 }

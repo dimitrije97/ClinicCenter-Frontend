@@ -26,6 +26,10 @@ export class AdminsComponent implements OnInit {
     if(this.user.userType === 'CLINIC_CENTER_ADMIN') {
       this.adminService.getAllAdmins().subscribe(data => {
         this.listOfData = data;
+      },
+      error => {
+        this.message.info(error.error.message);
+        this.router.navigateByUrl(`dashboard`);
       });
     } else {
       
