@@ -3,6 +3,7 @@ import { VacationService } from 'src/app/services/vacation.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-pending-vacations',
@@ -17,7 +18,7 @@ export class PendingVacationsComponent implements OnInit {
   private user: any;
   public isVisible: boolean;
 
-  constructor(private vacationService: VacationService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
+  constructor(private message: NzMessageService, private vacationService: VacationService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.setupUser();
@@ -27,6 +28,9 @@ export class PendingVacationsComponent implements OnInit {
   private setupData(): void {
     this.vacationService.getAllVacationRequestsByAdmin(this.user.id).subscribe(data => {
       this.listOfData = data;
+    },
+    error => {
+      this.message.info(error.error.message);
     });
     this.isVisible = false;
     this.validateForm = this.fb.group({
@@ -41,6 +45,10 @@ export class PendingVacationsComponent implements OnInit {
   confirm(id): void {
     this.vacationService.approveVacation(id).subscribe(data => {
       this.setupData();
+      this.message.info('Uspešno ste odobrili zahtev za godišnji odmor.');
+    },
+    error => {
+      this.message.info(error.error.message);
     });
   }
 
@@ -55,10 +63,10 @@ export class PendingVacationsComponent implements OnInit {
     console.log(body)
     this.vacationService.denyVacation(id, body).subscribe(data => {
       this.setupData();
+      this.message.info('Uspešno ste odbili zahtev za godišnji odmor.');
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
+      this.message.info(error.error.message);
     });
   }
 

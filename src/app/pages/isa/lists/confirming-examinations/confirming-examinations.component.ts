@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExaminationService } from 'src/app/services/examination.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-confirming-examinations',
@@ -13,7 +14,7 @@ export class ConfirmingExaminationsComponent implements OnInit {
   public listOfData = [];
   private user: any;
 
-  constructor(private examinationService: ExaminationService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private message: NzMessageService, private examinationService: ExaminationService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.setupUser();
@@ -23,6 +24,9 @@ export class ConfirmingExaminationsComponent implements OnInit {
   private setupData(): void {
     this.examinationService.getAllConfirmingExaminationsByPatient(this.user.id).subscribe(data => {
       this.listOfData = data;
+    },
+    error => {
+      this.message.info(error.error.message);
     });
   }
 
@@ -36,6 +40,10 @@ export class ConfirmingExaminationsComponent implements OnInit {
     }
     this.examinationService.approveExamination(body).subscribe(data => {
       this.setupData();
+      this.message.info('Uspešno ste zakazali pregled.');
+    },
+    error => {
+      this.message.info(error.error.message);
     });
   }
   
@@ -47,6 +55,9 @@ export class ConfirmingExaminationsComponent implements OnInit {
     console.log(body)
     this.examinationService.denyExamination(body).subscribe(data => {
       this.setupData();
+    },
+    error => {
+      this.message.info(error.error.message);
     });
   }
 

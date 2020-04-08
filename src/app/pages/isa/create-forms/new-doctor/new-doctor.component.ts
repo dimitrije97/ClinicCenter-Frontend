@@ -4,6 +4,7 @@ import { ExaminationTypeService } from 'src/app/services/examination-type.servic
 import { DoctorService } from 'src/app/services/doctor.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-new-doctor',
@@ -20,7 +21,7 @@ export class NewDoctorComponent implements OnInit {
   endAt: Date | null = null;
   examinationTypeId = null;
 
-  constructor(private examinationTypeService: ExaminationTypeService, private fb: FormBuilder, private doctorService: DoctorService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private message: NzMessageService, private examinationTypeService: ExaminationTypeService, private fb: FormBuilder, private doctorService: DoctorService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.setupUser();
@@ -67,7 +68,10 @@ export class NewDoctorComponent implements OnInit {
       console.log(body)
       this.doctorService.createDoctor(body, this.user.myClinic.id).subscribe(data => {
         console.log(data);
-      }) 
+        this.message.info('Uspešno ste kreirali novog lekara.');
+      // error => {
+      //   this.message.info(error.error.message);
+      });
     }
   }
 

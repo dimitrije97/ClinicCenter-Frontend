@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { PotentialExaminationService } from 'src/app/services/potential-examination.service';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { EmergencyRoomService } from 'src/app/services/emergency-room.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-new-potential-examination',
@@ -20,7 +21,7 @@ export class NewPotentialExaminationComponent implements OnInit {
   public date = null; // new Date();
   public user: any;
 
-  constructor(private router: Router, private peService: PotentialExaminationService, private doctorService: DoctorService, private erService: EmergencyRoomService) { }
+  constructor(private message: NzMessageService, private router: Router, private peService: PotentialExaminationService, private doctorService: DoctorService, private erService: EmergencyRoomService) { }
 
   ngOnInit() {
     this.setupUser();
@@ -48,11 +49,10 @@ export class NewPotentialExaminationComponent implements OnInit {
       startAt: moment(this.startAt).format('HH:mm:ss')
     }
     this.peService.createPotentialExamination(body).subscribe(() => {
-      
+      this.message.info('Uspešno ste kreirali novi potencijalni pregled.');
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
+      this.message.info(error.error.message);
     });
   }
 }

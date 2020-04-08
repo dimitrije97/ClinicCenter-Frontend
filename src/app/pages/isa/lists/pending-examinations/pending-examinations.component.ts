@@ -3,6 +3,7 @@ import { ExaminationService } from 'src/app/services/examination.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-pending-examinations',
@@ -17,7 +18,7 @@ export class PendingExaminationsComponent implements OnInit {
   private user: any;
   public isVisible: boolean;
 
-  constructor(private examinationService: ExaminationService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
+  constructor(private message: NzMessageService, private examinationService: ExaminationService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.setupUser();
@@ -30,6 +31,9 @@ export class PendingExaminationsComponent implements OnInit {
   private setupData(): void {
     this.examinationService.getAllPendingExaminationsByClinic(this.user.myClinic.id).subscribe(data => {
       this.listOfData = data;
+    },
+    error => {
+      this.message.info(error.error.message);
     });
     this.isVisible = false;
   }
@@ -44,6 +48,10 @@ export class PendingExaminationsComponent implements OnInit {
     }
     this.examinationService.confirmExamination(body).subscribe(data => {
       this.setupData();
+      this.message.info('Uspešno ste odobrili zahtev za pregled.');
+    },
+    error => {
+      this.message.info(error.error.message);
     });
   }
 
@@ -59,6 +67,10 @@ export class PendingExaminationsComponent implements OnInit {
     console.log(body)
     this.examinationService.denyExamination(body).subscribe(data => {
       this.setupData();
+      this.message.info('Uspešno ste odbili zahtev za pregled.');
+    },
+    error => {
+      this.message.info(error.error.message);
     });
   }
 

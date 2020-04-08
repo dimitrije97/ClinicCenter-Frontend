@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-doctors',
@@ -12,7 +13,7 @@ export class DoctorsComponent implements OnInit {
   public listOfData = [];
   private user: any;
 
-  constructor(private doctorService: DoctorService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private message: NzMessageService, private doctorService: DoctorService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.setupUser();
@@ -23,6 +24,9 @@ export class DoctorsComponent implements OnInit {
     if(this.user.userType === 'ADMIN') {
       this.doctorService.getAllDoctorsByClinic(this.user.myClinic.id).subscribe(data => {
         this.listOfData = data;
+      },
+      error => {
+        this.message.info(error.error.message);
       });
     } else {
       
@@ -40,10 +44,10 @@ export class DoctorsComponent implements OnInit {
   delete(id) {
     this.doctorService.deleteDoctor(id).subscribe(() => {
       this.setupData();
+      this.message.info('Uspešno ste obrisali lekara.');
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
+      this.message.info(error.error.message);
     });
   }
 

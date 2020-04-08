@@ -29,8 +29,7 @@ export class ClinicsComponent implements OnInit {
       this.message.info(data.grade);
     },
     error => {
-      const msg = error.error.message;
-      console.log(msg)
+      this.message.info(error.error.message);
     });
   }
 }

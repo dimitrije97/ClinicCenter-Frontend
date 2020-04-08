@@ -3,6 +3,7 @@ import * as moment from 'moment'
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { NurseService } from 'src/app/services/nurse.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-new-nurse',
@@ -18,7 +19,7 @@ export class NewNurseComponent implements OnInit {
   startAt: Date | null = null;
   endAt: Date | null = null;
 
-  constructor(private fb: FormBuilder, private nurseService: NurseService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private message: NzMessageService, private fb: FormBuilder, private nurseService: NurseService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.setupUser();
@@ -53,10 +54,9 @@ export class NewNurseComponent implements OnInit {
       console.log(body)
       this.nurseService.createNurse(body, this.user.myClinic.id).subscribe(data => {
         console.log(data);
-      },
-      error => {
-        const message = error.error.message;
-        console.log(message)
+        this.message.info('Uspešno ste kreirali novu medicinsku sestru.');
+      // error => {
+      //   this.message.info(error.error.message);
       });
     }
   }

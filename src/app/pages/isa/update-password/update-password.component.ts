@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-update-password',
@@ -14,7 +15,7 @@ export class UpdatePasswordComponent implements OnInit {
   private user: any;
 
   
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(private message: NzMessageService, private fb: FormBuilder, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -27,11 +28,10 @@ export class UpdatePasswordComponent implements OnInit {
 
   submitForm(): void {
     this.authService.updatePassword(this.user.id, this.validateForm.value).subscribe(data => {
-      // console.log(data)
+      this.message.info('Uspešno ste izmenili lozinku.');
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
+      this.message.info(error.error.message);
     });
   }
 

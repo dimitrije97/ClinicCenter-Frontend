@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-admin',
@@ -18,7 +19,7 @@ export class AdminComponent implements OnInit {
   private id: string;
   private user: any;
 
-  constructor(private route: ActivatedRoute, private adminService: AdminService, private fb: FormBuilder) { }
+  constructor(private message: NzMessageService, private route: ActivatedRoute, private adminService: AdminService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -72,8 +73,11 @@ export class AdminComponent implements OnInit {
 
   public update(): void {
     this.adminService.updateAdmin(this.id, this.validateForm.value).subscribe(data => {
-      // console.log(data)
-    })
+      this.message.info('Uspešno ste izmenili podatke.');
+    },
+    error => {
+      this.message.info(error.error.message);
+    });
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-registration',
@@ -14,7 +15,7 @@ export class RegistrationComponent implements OnInit {
 
   private user: any
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) {}
+  constructor(private message: NzMessageService, private fb: FormBuilder, private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -46,16 +47,17 @@ export class RegistrationComponent implements OnInit {
     {
       console.log(this.validateForm.value)
       this.authService.createPatient(this.validateForm.value).subscribe(data => {
+        this.message.info('Uspešno ste poslali zahtev za registraciju.');
         this.router.navigateByUrl('auth/login');
       },
       error => {
-        const message = error.error.message;
-        console.log(message)
+        this.message.info(error.error.message);
       });
     }
   }
 
   updateConfirmValidator(): void {
+    /** wait for refresh value */
     Promise.resolve().then(() => this.validateForm.controls.rePassword.updateValueAndValidity());
   }
 
@@ -67,5 +69,9 @@ export class RegistrationComponent implements OnInit {
     }
     return {};
   };
+
+  getCaptcha(e: MouseEvent): void {
+    e.preventDefault();
+  }
 
 }
