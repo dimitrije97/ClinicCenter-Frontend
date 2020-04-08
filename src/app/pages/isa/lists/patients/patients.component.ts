@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
 import { PatientService } from 'src/app/services/patient.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-patients',
@@ -14,7 +15,7 @@ export class PatientsComponent implements OnInit {
   private id;
   private user: any;
 
-  constructor(private patientService: PatientService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private message: NzMessageService, private patientService: PatientService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.setupUser();
@@ -26,10 +27,16 @@ export class PatientsComponent implements OnInit {
     if(this.user.userType === 'CLINIC_CENTER_ADMIN') {
       this.patientService.getAllPatients().subscribe(data => {
         this.listOfData = data;
+      },
+      error => {
+        this.message.info(error.error.message);
       });
     } else {
       this.patientService.getAllPatientsByClinic(this.user.myClinic.id).subscribe(data => {
         this.listOfData = data;
+      },
+      error => {
+        this.message.info(error.error.message);
       });
     }
   }

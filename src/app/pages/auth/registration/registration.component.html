@@ -6,7 +6,7 @@
   </div>
   
   
-  <form nz-form [formGroup]="validateForm" class="registrationForm" (ngSubmit)="submitForm()">
+  <form nz-form [formGroup]="validateForm" class="registrationForm">
     <nz-form-item>
       <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="firstName" nzRequired>Ime</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
@@ -123,7 +123,7 @@
   
     <nz-form-item nz-row style="margin-bottom:8px;">
       <nz-form-control [nzSpan]="14" [nzOffset]="6">
-        <button nz-button nzType="primary">Registruj se</button>
+        <button (click)="submitForm()" nz-button nzType="primary" [disabled]="!validateForm.valid">Registruj se</button>
       </nz-form-control>
     </nz-form-item>
   </form>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-admins',
@@ -13,7 +14,7 @@ export class AdminsComponent implements OnInit {
   private id;
   private user: any;
 
-  constructor(private adminService: AdminService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private message: NzMessageService, private adminService: AdminService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.setupUser();
@@ -46,10 +47,10 @@ export class AdminsComponent implements OnInit {
   delete(id) {
     this.adminService.deleteAdmin(id).subscribe(() => {
       this.setupData();
+      this.message.info('Uspešno ste obrisali administratora.');
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
+      this.message.info(error.error.message);
     });
   }
  }

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ExaminationService } from 'src/app/services/examination.service';
 import * as moment from 'moment';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-new-examination-by-doctor',
@@ -17,7 +18,7 @@ export class NewExaminationByDoctorComponent implements OnInit {
   public validateForm: FormGroup;
   id: any;
 
-  constructor(private router: Router, private route: ActivatedRoute, private examinationService: ExaminationService, private fb: FormBuilder) { }
+  constructor(private message: NzMessageService, private router: Router, private route: ActivatedRoute, private examinationService: ExaminationService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.setupUser();
@@ -42,11 +43,11 @@ export class NewExaminationByDoctorComponent implements OnInit {
     }
     this.examinationService.createExaminationRequestAsDoctor(body, this.user.id).subscribe(data => {
       console.log(data);
+      this.message.info('Uspešno ste poslali zahtev za novi pregled.')
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
-    })
+      this.message.info(error.error.message);
+    });
   }
 
 }

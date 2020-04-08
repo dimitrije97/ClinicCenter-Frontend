@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ExaminationTypeService } from 'src/app/services/examination-type.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-examination-type',
@@ -17,7 +18,7 @@ export class ExaminationTypeComponent implements OnInit {
   private id: string;
   private user: any;
 
-  constructor(private route: ActivatedRoute, private examinationTypeService: ExaminationTypeService, private fb: FormBuilder) { }
+  constructor(private message: NzMessageService, private route: ActivatedRoute, private examinationTypeService: ExaminationTypeService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -62,8 +63,11 @@ export class ExaminationTypeComponent implements OnInit {
 
   public update(): void {
     this.examinationTypeService.updateExaminationType(this.id, this.validateForm.value).subscribe(data => {
-      // console.log(data)
-    })
+      this.message.info('Uspešno ste izmenili podatke.');
+    },
+    error => {
+      this.message.info(error.error.message);
+    });
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ExaminationTypeService } from 'src/app/services/examination-type.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-new-examination-type',
@@ -14,7 +15,7 @@ export class NewExaminationTypeComponent implements OnInit {
 
   private user: any;
 
-  constructor(private route: ActivatedRoute, private examinationTypeService: ExaminationTypeService, private fb: FormBuilder) { }
+  constructor(private message: NzMessageService, private route: ActivatedRoute, private examinationTypeService: ExaminationTypeService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -41,11 +42,10 @@ export class NewExaminationTypeComponent implements OnInit {
     {
       console.log(this.validateForm.value)
       this.examinationTypeService.createExaminationType(this.validateForm.value).subscribe(data => {
-        
+        this.message.info('Uspešno ste kreirali novi tip pregleda.');
       },
       error => {
-        const message = error.error.message;
-        console.log(message)
+        this.message.info(error.error.message);
       });
     }
   }

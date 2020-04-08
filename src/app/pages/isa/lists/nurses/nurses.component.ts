@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NurseService } from 'src/app/services/nurse.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-nurses',
@@ -12,7 +13,7 @@ export class NursesComponent implements OnInit {
   public listOfData = [];
   private user: any;
 
-  constructor(private nurseService: NurseService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private message: NzMessageService, private nurseService: NurseService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.setupUser();
@@ -40,10 +41,10 @@ export class NursesComponent implements OnInit {
   delete(id) {
     this.nurseService.deleteNurse(id).subscribe(() => {
       this.setupData();
+      this.message.info('Uspešno ste obrisali medicinsku sestru.');
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
+      this.message.info(error.error.message);
     });
   }
 

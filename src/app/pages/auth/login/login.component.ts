@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   validateForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(private message: NzMessageService, private fb: FormBuilder, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -54,13 +55,11 @@ export class LoginComponent implements OnInit {
         } else {
           this.router.navigateByUrl(`dashboard`);
         }
-      }
-      
+      } 
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
-    })
+      this.message.info(error.error.message);
+    });
   }
 
   onRegistration(): void {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExaminationTypeService } from 'src/app/services/examination-type.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-examination-types',
@@ -12,7 +13,7 @@ export class ExaminationTypesComponent implements OnInit {
   public listOfData = [];
   private user: any;
 
-  constructor(private examinationTypeService: ExaminationTypeService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private message: NzMessageService, private examinationTypeService: ExaminationTypeService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.setupUser();
@@ -23,6 +24,9 @@ export class ExaminationTypesComponent implements OnInit {
     if(this.user.userType === 'ADMIN') {
       this.examinationTypeService.getAllExaminationTypesByClinic(this.user.myClinic.id).subscribe(data => {
         this.listOfData = data;
+      },
+      error => {
+        this.message.info(error.error.message);
       });
     }
   }
@@ -38,10 +42,10 @@ export class ExaminationTypesComponent implements OnInit {
   delete(id) {
     this.examinationTypeService.deleteExaminationType(id).subscribe(() => {
       this.setupData();
+      this.message.info('Uspešno ste obrisali tip pregleda.');
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
+      this.message.info(error.error.message);
     });
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DoctorService } from 'src/app/services/doctor.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-doctor',
@@ -18,7 +19,7 @@ export class DoctorComponent implements OnInit {
   private id: string;
   private user: any;
 
-  constructor(private route: ActivatedRoute, private doctorService: DoctorService, private fb: FormBuilder) { }
+  constructor(private message: NzMessageService, private route: ActivatedRoute, private doctorService: DoctorService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -72,11 +73,10 @@ export class DoctorComponent implements OnInit {
 
   public update(): void {
     this.doctorService.updateDoctor(this.id, this.validateForm.value).subscribe(data => {
-      // console.log(data)
+      this.message.info('Uspešno ste izmenili podatke.');
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
+      this.message.info(error.error.message);
     });
   }
 }

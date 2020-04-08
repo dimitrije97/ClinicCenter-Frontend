@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { EmergencyRoomService } from 'src/app/services/emergency-room.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-new-emergency-room',
@@ -14,7 +15,7 @@ export class NewEmergencyRoomComponent implements OnInit {
 
   private user: any;
 
-  constructor(private route: ActivatedRoute, private emergencyRoomService: EmergencyRoomService, private fb: FormBuilder) { }
+  constructor(private message: NzMessageService, private route: ActivatedRoute, private emergencyRoomService: EmergencyRoomService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -41,11 +42,10 @@ export class NewEmergencyRoomComponent implements OnInit {
     {
       console.log(this.validateForm.value)
       this.emergencyRoomService.createEmergencyRoom(this.validateForm.value, this.user.myClinic.id).subscribe(data => {
-        
+        this.message.info('Uspešno ste kreirali novu salu.');
       },
       error => {
-        const message = error.error.message;
-        console.log(message)
+        this.message.info(error.error.message);
       });
     }
   }

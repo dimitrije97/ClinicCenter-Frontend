@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment'
 import { PotentialExaminationService } from 'src/app/services/potential-examination.service';
 import { ExaminationService } from 'src/app/services/examination.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-potential-examinations',
@@ -15,7 +16,7 @@ export class PotentialExaminationsComponent implements OnInit {
   public isAdmin: boolean;
   public isPatient: boolean;
 
-  constructor(private peService: PotentialExaminationService, private examinationService: ExaminationService) { }
+  constructor(private message: NzMessageService, private peService: PotentialExaminationService, private examinationService: ExaminationService) { }
 
   ngOnInit() {
     this.setupUser();
@@ -31,11 +32,17 @@ export class PotentialExaminationsComponent implements OnInit {
     if(this.isAdmin) {
       this.peService.getAllPotentialExaminationsByClinic(this.user.myClinic.id).subscribe(data => {
         this.listOfData = data;
-      })
+      },
+      error => {
+        this.message.info(error.error.message);
+      });
     } else if(this.isPatient) {
       this.peService.getAllPotentialExaminations().subscribe(data => {
         this.listOfData = data;
-      })
+      },
+      error => {
+        this.message.info(error.error.message);
+      });
     }
   }
 
@@ -52,10 +59,10 @@ export class PotentialExaminationsComponent implements OnInit {
   delete(id): void {
     this.peService.deletePotentialExamination(id).subscribe(data => {
       this.setupData();
+      this.message.info('Uspešno ste uklonili potencijalni pregled.');
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
+      this.message.info(error.error.message);
     });
   }
 
@@ -65,10 +72,10 @@ export class PotentialExaminationsComponent implements OnInit {
     }
     this.examinationService.approveExamination(body).subscribe(data => {
       this.setupData();
+      this.message.info('Uspešno ste zakzali pregled.');
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
+      this.message.info(error.error.message);
     });
   }
 

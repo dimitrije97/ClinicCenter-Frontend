@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-first-login',
@@ -13,7 +14,7 @@ export class FirstLoginComponent implements OnInit {
   validateForm: FormGroup;
   private id: any;
   
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private authService: AuthService) { }
+  constructor(private message: NzMessageService, private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.setupForm();
@@ -34,11 +35,11 @@ export class FirstLoginComponent implements OnInit {
     }
     this.authService.updatePassword(this.id, this.validateForm.value).subscribe(data => {
       localStorage.clear();
+      this.message.info('Uspešno ste izmenili lozinku.');
       this.router.navigateByUrl("auth/login");
     },
     error => {
-      const message = error.error.message;
-      console.log(message)
+      this.message.info(error.error.message);
     });
   }
 
