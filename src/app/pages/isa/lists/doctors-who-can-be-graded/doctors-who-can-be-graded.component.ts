@@ -3,6 +3,7 @@ import { DoctorService } from 'src/app/services/doctor.service';
 import { NzMessageService } from 'ng-zorro-antd';
 import { Router } from '@angular/router';
 import { GradeService } from 'src/app/services/grade.service';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-doctors-who-can-be-graded',
@@ -11,10 +12,13 @@ import { GradeService } from 'src/app/services/grade.service';
 })
 export class DoctorsWhoCanBeGradedComponent implements OnInit {
 
+  validateForm: FormGroup;
   public listOfData = [];
   private user: any;
+  public isVisible: boolean;
+  public grade = null;
 
-  constructor(private gradeService: GradeService, private doctorService: DoctorService, private message: NzMessageService, private router: Router) { }
+  constructor(private fb: FormBuilder, private gradeService: GradeService, private doctorService: DoctorService, private message: NzMessageService, private router: Router) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -29,7 +33,10 @@ export class DoctorsWhoCanBeGradedComponent implements OnInit {
       this.message.info(error.error.message);
       this.router.navigateByUrl(`dashboard`);
     });
-  
+    this.isVisible = false;
+    this.validateForm = this.fb.group({
+      grade: [null, [Validators.required, Validators.minLength(1), Validators.maxLength(1), Validators.pattern("^[1-5]*$")]]
+    });
   }
 
   private setupUser(): void {
@@ -45,7 +52,23 @@ export class DoctorsWhoCanBeGradedComponent implements OnInit {
      });
    }
 
-   public grade(id): void {
-     
+   public gradeDoctor(): void {
+    this.isVisible = true;
+   }
+
+   public confirm(id): void {
+    const body = {
+      ...this.validateForm.value,
+      patientId: this.user.id,
+      doctorOrClinicId: id
+    }
+    console.log(body)
+    this.gradeService.gradeDoctor(body).subscribe(data => {
+      this.setupData();
+      this.message.info('Uspešno ste ocenili lekara.');
+    },
+    error => {
+      this.message.info(error.error.message);
+    });
    }
 }

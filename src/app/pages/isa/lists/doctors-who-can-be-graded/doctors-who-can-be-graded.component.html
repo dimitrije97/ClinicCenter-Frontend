@@ -10,17 +10,30 @@
         </th>
         <th></th>
         <th></th>
+        <th *ngIf="isVisible"></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let data of nzTable.data">
-        <td>{{ data.firstName }}</td>
-        <td>{{ data.lastName }}</td>
-        <td>
-            <button (click)="getAvgGradeOfDoctor(data.id)" nz-button nzType="primary">Prosečna ocena</button>
-        </td>
-        <td>
-          <button (click)="grade(data.id)" nz-button nzType="primary">Oceni</button>
+      <td>{{ data.firstName }}</td>
+      <td>{{ data.lastName }}</td>
+      <td>
+          <button (click)="getAvgGradeOfDoctor(data.id)" nz-button nzType="primary">Prosečna ocena</button>
+      </td>
+      <td *ngIf="!isVisible">
+        <button (click)="gradeDoctor()" nz-button nzType="primary">Oceni</button>
+      </td>
+      <td *ngIf="isVisible">
+        <form nz-form [formGroup]="validateForm">
+          <nz-form-item>
+            <nz-form-control style="height: 18px;" [nzSm]="14" [nzXs]="24">
+              <input nz-input id="grade" formControlName="grade" placeholder="Upiši ocenu"/>
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+      </td>
+      <td *ngIf="isVisible">
+        <button (click)="confirm(data.id)" nz-button nzType="primary" [disabled]="!validateForm.valid">Potvrdi</button>
       </td>
       </tr>
     </tbody>
