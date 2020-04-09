@@ -20,4 +20,12 @@ export class GradeService {
   public getAllClinicsWhichCanBeGraded(id): Observable<any> {
     return this.http.get(`${this.baseUrl}grades/clinics/${id}/patient`);
   }
+
+  public gradeDoctor(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}grades/grade-doctor`, body);
+  }
+
+  public gradeClinic(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}grades/grade-clinic`, body);
+  }
 }
