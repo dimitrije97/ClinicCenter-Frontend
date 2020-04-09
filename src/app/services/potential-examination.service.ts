@@ -27,4 +27,8 @@ export class PotentialExaminationService {
   public deletePotentialExamination(id): Observable<any> {
     return this.http.delete(`${this.baseUrl}potential-examinations/${id}/potential-examination`);
   }
+
+  public approvePotentialExamination(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}potential-examinations/approve-potential-examination`, body);
+  }
 }

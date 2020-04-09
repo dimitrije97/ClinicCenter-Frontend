@@ -45,11 +45,19 @@ export class ExaminationService {
     return this.http.post(`${this.baseUrl}examinations/approve-examination`, body);
   }
 
-  public getAllExaminationsByPatient(id): Observable<any> {
-    return this.http.get(`${this.baseUrl}examinations/${id}/patient`);
+  public getAllFutureExaminationsByPatient(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}examinations/future/${id}/patient`);
   }
 
-  public getAllExaminationsByDoctor(id): Observable<any> {
-    return this.http.get(`${this.baseUrl}examinations/${id}/doctor`);
+  public getAllFutureExaminationsByDoctor(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}examinations/future/${id}/doctor`);
+  }
+
+  public cancelFutureExamination(id): Observable<any> {
+    return this.http.delete(`${this.baseUrl}examinations/cancel/${id}/examination`);
+  }
+
+  public getExaminationsHistory(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}examinations/history/${id}/patient`);
   }
 }

@@ -36,4 +36,8 @@ export class DoctorService {
   public createDoctor(body, id): Observable<any> {
     return this.http.post(`${this.baseUrl}auth/doctors/${id}/clinic`, body);
   }
+
+  public getAvgGrade(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}grades/avg/${id}/doctor`);
+  }
 }

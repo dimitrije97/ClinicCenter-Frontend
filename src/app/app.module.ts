@@ -47,8 +47,12 @@ import { NewVacationRequestComponent } from './pages/isa/create-forms/new-vacati
 import { NewExaminationByDoctorComponent } from './pages/isa/create-forms/new-examination-by-doctor/new-examination-by-doctor.component';
 import { NewExaminationByPatientComponent } from './pages/isa/create-forms/new-examination-by-patient/new-examination-by-patient.component';
 import { ConfirmingExaminationsComponent } from './pages/isa/lists/confirming-examinations/confirming-examinations.component';
-import { ExaminationsByPatientComponent } from './pages/isa/lists/examinations-by-patient/examinations-by-patient.component';
 import { DoctorCalendarComponent } from './pages/isa/lists/doctor-calendar/doctor-calendar.component';
+import { FutureExaminationsComponent } from './pages/isa/lists/future-examinations/future-examinations.component';
+import { ExaminationsHistoryComponent } from './pages/isa/lists/examinations-history/examinations-history.component';
+import { DoctorsWhoCanBeGradedComponent } from './pages/isa/lists/doctors-who-can-be-graded/doctors-who-can-be-graded.component';
+import { ClinicsWhichCanBeGradedComponent } from './pages/isa/lists/clinics-which-can-be-graded/clinics-which-can-be-graded.component';
+import { PricelistComponent } from './pages/isa/lists/pricelist/pricelist.component';
 
 registerLocaleData(en);
 
@@ -94,8 +98,12 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NewExaminationByDoctorComponent,
     NewExaminationByPatientComponent,
     ConfirmingExaminationsComponent,
-    ExaminationsByPatientComponent,
-    DoctorCalendarComponent
+    DoctorCalendarComponent,
+    FutureExaminationsComponent,
+    ExaminationsHistoryComponent,
+    DoctorsWhoCanBeGradedComponent,
+    ClinicsWhichCanBeGradedComponent,
+    PricelistComponent
   ],
   imports: [
     BrowserModule,

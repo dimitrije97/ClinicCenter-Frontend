@@ -71,9 +71,10 @@ export class PotentialExaminationsComponent implements OnInit {
 
   public schedule(id): void {
     const body = {
-      examinationId: id
+      examinationId: id,
+      patientId: this.user.id
     }
-    this.examinationService.approveExamination(body).subscribe(data => {
+    this.peService.approvePotentialExamination(body).subscribe(data => {
       this.setupData();
       this.message.info('Uspešno ste zakzali pregled.');
     },

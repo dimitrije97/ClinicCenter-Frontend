@@ -27,6 +27,7 @@ export class ConfirmingExaminationsComponent implements OnInit {
     },
     error => {
       this.message.info(error.error.message);
+      this.router.navigateByUrl(`dashboard`);
     });
   }
 
@@ -44,7 +45,6 @@ export class ConfirmingExaminationsComponent implements OnInit {
     },
     error => {
       this.message.info(error.error.message);
-      this.router.navigateByUrl(`dashboard`);
     });
   }
   

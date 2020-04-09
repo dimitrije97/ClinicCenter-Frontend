@@ -8,6 +8,7 @@
       <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
         <li routerLink="/dashboard/my-profile" nz-menu-item style="font-style:oblique;">Profil</li>
         <li *ngIf="isPatient" nz-menu-item style="font-style:oblique;">Zdravstveni karton</li>
+        <li *ngIf="isPatient" routerLink="/dashboard/pricelist" nz-menu-item style="font-style:oblique;">Cenovnik</li>
         <li *ngIf="isDoctor" (click)="clinicProfile()" nz-menu-item style="font-style:oblique;">Profil klinike</li>
         <li nz-menu-item nzMatchRouter>
             <a (click)="updatePassword()" style="font-style:oblique;">Promeni lozinku</a>
@@ -66,13 +67,16 @@
           <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
             <a (click)="vacation()">Godišnji odmor</a>
           </li>
+          <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
+            <a (click)="futureExaminations()">Zakazane posete</a>
+          </li>
 
           <!-- patient -->
 
           <li *ngIf="isPatient" nz-submenu>
             <span title>Pregledi</span>
             <ul>
-              <li nz-menu-item (click)="choosePotential()">Izaberi</li>
+              <li nz-menu-item (click)="choosePotential()">Izaberi termin</li>
               <li nz-menu-item nzMatchRouter (click)="scheduleExaminations()">Zakaži</li>
               <li nz-menu-item nzMatchRouter (click)="confirmExaminations()">Potvrdi</li>
             </ul>
@@ -83,13 +87,13 @@
           </li>
 
           <li nz-menu-item nzMatchRouter *ngIf="isPatient">
-            <a (click)="examinationsByPatient()">Zakazane posete</a>
+            <a (click)="futureExaminations()">Zakazane posete</a>
           </li>
 
           <li *ngIf="isPatient" nz-submenu>
             <span title>Arhiva</span>
             <ul>
-              <li nz-menu-item>Istorija pregleda</li>
+              <li nz-menu-item (click)="examinationHistory()">Istorija pregleda</li>
               <li nz-menu-item>Istorija operacija</li>
             </ul>
           </li>
@@ -97,8 +101,8 @@
           <li *ngIf="isPatient" nz-submenu>
             <span title>Oceni</span>
             <ul>
-              <li nz-menu-item>Lekare</li>
-              <li nz-menu-item>Klinike</li>
+              <li nz-menu-item (click)="gradeDoctors()">Lekare</li>
+              <li nz-menu-item (click)="gradeClinics()">Klinike</li>
             </ul>
           </li>
           

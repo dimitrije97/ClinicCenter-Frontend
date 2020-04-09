@@ -33,8 +33,12 @@ import { NewVacationRequestComponent } from './pages/isa/create-forms/new-vacati
 import { NewExaminationByDoctorComponent } from './pages/isa/create-forms/new-examination-by-doctor/new-examination-by-doctor.component';
 import { NewExaminationByPatientComponent } from './pages/isa/create-forms/new-examination-by-patient/new-examination-by-patient.component';
 import { ConfirmingExaminationsComponent } from './pages/isa/lists/confirming-examinations/confirming-examinations.component';
-import { ExaminationsByPatientComponent } from './pages/isa/lists/examinations-by-patient/examinations-by-patient.component';
 import { DoctorCalendarComponent } from './pages/isa/lists/doctor-calendar/doctor-calendar.component';
+import { FutureExaminationsComponent } from './pages/isa/lists/future-examinations/future-examinations.component';
+import { ExaminationsHistoryComponent } from './pages/isa/lists/examinations-history/examinations-history.component';
+import { DoctorsWhoCanBeGradedComponent } from './pages/isa/lists/doctors-who-can-be-graded/doctors-who-can-be-graded.component';
+import { ClinicsWhichCanBeGradedComponent } from './pages/isa/lists/clinics-which-can-be-graded/clinics-which-can-be-graded.component';
+import { PricelistComponent } from './pages/isa/lists/pricelist/pricelist.component';
 
 
 const routes: Routes = [
@@ -61,8 +65,12 @@ const routes: Routes = [
         { path: 'pending-examinations/:id/clinic', component: PendingExaminationsComponent},
         { path: 'confirming-examinations', component: ConfirmingExaminationsComponent},
         { path: 'pending-vacations/:id/clinic', component: PendingVacationsComponent},
-        { path: 'examinations-by-patient', component: ExaminationsByPatientComponent},
         { path: 'doctor-calendar', component: DoctorCalendarComponent},
+        { path: 'future-examinations', component: FutureExaminationsComponent},
+        { path: 'examinations-history', component: ExaminationsHistoryComponent},
+        { path: 'doctors-who-can-be-graded', component: DoctorsWhoCanBeGradedComponent},
+        { path: 'clinics-which-can-be-graded', component: ClinicsWhichCanBeGradedComponent},
+        { path: 'pricelist', component: PricelistComponent},
 
         { path: 'my-profile', component: ProfileComponent},
         { path: 'profile/:id/patient', component: PatientComponent},

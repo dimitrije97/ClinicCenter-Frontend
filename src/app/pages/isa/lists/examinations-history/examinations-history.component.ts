@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ExaminationService } from 'src/app/services/examination.service';
-import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { NzMessageService } from 'ng-zorro-antd';
+import { ExaminationService } from 'src/app/services/examination.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-examinations-by-patient',
-  templateUrl: './examinations-by-patient.component.html',
-  styleUrls: ['./examinations-by-patient.component.css']
+  selector: 'app-examinations-history',
+  templateUrl: './examinations-history.component.html',
+  styleUrls: ['./examinations-history.component.css']
 })
-export class ExaminationsByPatientComponent implements OnInit {
+export class ExaminationsHistoryComponent implements OnInit {
 
   public listOfData = [];
   private user: any;
@@ -22,7 +22,7 @@ export class ExaminationsByPatientComponent implements OnInit {
   }
 
   private setupData(): void {
-    this.examinationService.getAllExaminationsByPatient(this.user.id).subscribe(data => {
+    this.examinationService.getExaminationsHistory(this.user.id).subscribe(data => {
       this.listOfData = data;
     },
     error => {
@@ -39,4 +39,3 @@ export class ExaminationsByPatientComponent implements OnInit {
     return moment(date).format("L");
   }
 }
-

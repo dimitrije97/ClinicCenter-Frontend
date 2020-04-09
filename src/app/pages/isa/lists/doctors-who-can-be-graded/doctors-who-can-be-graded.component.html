@@ -1,0 +1,27 @@
+<nz-table #nzTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th nzCustomFilter>
+            Ime
+            
+        </th>
+        <th>
+            Prezime
+        </th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ data.firstName }}</td>
+        <td>{{ data.lastName }}</td>
+        <td>
+            <button (click)="getAvgGradeOfDoctor(data.id)" nz-button nzType="primary">Prosečna ocena</button>
+        </td>
+        <td>
+          <button (click)="grade(data.id)" nz-button nzType="primary">Oceni</button>
+      </td>
+      </tr>
+    </tbody>
+  </nz-table>
