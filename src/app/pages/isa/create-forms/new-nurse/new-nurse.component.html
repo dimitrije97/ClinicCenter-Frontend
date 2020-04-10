@@ -1,4 +1,4 @@
-<div class="inputWrapper">
+<div class="inputWrapper2">
     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="workTime" nzRequired>
       <span>
         Radno vreme
@@ -7,7 +7,7 @@
   
     <nz-time-picker nzPlaceHolder="Od" style="width: 130px" [(ngModel)]="startAt"></nz-time-picker>
   
-    <nz-time-picker nzPlaceHolder="Do" style="width: 130px" [(ngModel)]="endAt"></nz-time-picker>
+    <nz-time-picker nzPlaceHolder="Do" style="width: 130px" style="margin-left: 10px;" [(ngModel)]="endAt"></nz-time-picker>
   </div>
   
   <form class="inputWrapper2" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">

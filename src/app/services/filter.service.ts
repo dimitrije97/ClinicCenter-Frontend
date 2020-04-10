@@ -13,33 +13,37 @@ export class FilterService {
   constructor(private http: HttpClient) { }
 
 
-  public getFilteredClinics(body): Observable<any> {
-    return this.http.post(`${this.baseUrl}filters/clinics`, body);
+  public getFilteredClinics(filter = {}): Observable<any> {
+    return this.http.get(`${this.baseUrl}filters/clinics${this.buildFilterRequest(filter)}`);
   }
 
-  public getFilteredDoctors(body): Observable<any> {
-    return this.http.post(`${this.baseUrl}filters/doctors`, body);
+  public getFilteredDoctors(filter = {}): Observable<any> {
+    return this.http.get(`${this.baseUrl}filters/doctors${this.buildFilterRequest(filter)}`);
   }
 
-  // private buildFilterRequest(filterObject: any): String {
-  //   const values = Object.keys(filterObject).filter(filterValue => filterValue !== null || filterValue !== '');
-  //   if(values.length === 0) {
-  //     return '';
-  //   }
-  //   let filterQuery = '?';
-  //   let counter;
-  //   Object.keys(filterObject).forEach(x => {
-  //     if(filterObject[x] !== null || filterObject[x] !== '') {
-  //       let temp = '';
-  //       if(counter === 0) {
-  //         temp = '';
-  //       } else {
-  //         temp = '&';
-  //       }
-  //       filterQuery = filterQuery + temp + x + '=' + filterObject[x];
-  //       counter = counter + 1;
-  //     }
-  //   })
-  //   return filterQuery;
-  // }
+  public getFilteredEmergencyRooms(filter = {}): Observable<any> {
+    return this.http.get(`${this.baseUrl}filters/emergency-rooms${this.buildFilterRequest(filter)}`);
+  }
+
+  private buildFilterRequest(filterObject: any): String {
+    const values = Object.keys(filterObject).filter(filterValue => filterValue !== null || filterValue !== '');
+    if(values.length === 0) {
+      return '';
+    }
+    let filterQuery = '?';
+    let counter;
+    Object.keys(filterObject).forEach(x => {
+      if(filterObject[x] !== null || filterObject[x] !== '') {
+        let temp = '';
+        if(counter === 0) {
+          temp = '';
+        } else {
+          temp = '&';
+        }
+        filterQuery = filterQuery + temp + x + '=' + filterObject[x];
+        counter = counter + 1;
+      }
+    })
+    return filterQuery;
+  }
 }

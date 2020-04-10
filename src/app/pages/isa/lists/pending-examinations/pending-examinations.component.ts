@@ -18,6 +18,11 @@ export class PendingExaminationsComponent implements OnInit {
   private user: any;
   public isVisible: boolean;
 
+  public examinationId: any;
+
+  public listOfData2 = [];
+  public isVisible2: boolean;
+
   constructor(private message: NzMessageService, private examinationService: ExaminationService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -37,15 +42,21 @@ export class PendingExaminationsComponent implements OnInit {
       this.router.navigateByUrl(`dashboard`);
     });
     this.isVisible = false;
+    this.isVisible2 = false;
   }
 
   private setupUser(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
-  } 
+  }
+  
+  chooseEmergencyRoom(id): void {
+    this.examinationId = id;
+    this.isVisible2 = true;
+  }
 
-  confirm(id): void {
+  confirm(): void {
     const body = {
-      examinationId: id
+      examinationId: this.examinationId
     }
     this.examinationService.confirmExamination(body).subscribe(data => {
       this.setupData();
@@ -58,6 +69,7 @@ export class PendingExaminationsComponent implements OnInit {
 
   getReason(): void {
     this.isVisible = true;
+    this.isVisible2 = false;
   }
 
   deny(id): void {

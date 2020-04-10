@@ -56,12 +56,11 @@ export class NewExaminationByPatientComponent implements OnInit {
   }
 
   public showFilteredClinics(): void {
-    const body = {
+    const filterObject = {
       examinationTypeId: this.examinationTypeId,
       date: moment(this.date).format('YYYY/MM/DD')
     }
-    console.log(body)
-    this.filterService.getFilteredClinics(body).subscribe(data => {
+    this.filterService.getFilteredClinics(filterObject).subscribe(data => {
       this.isVisible = true;
       this.listOfData2 = data;
       
@@ -88,14 +87,13 @@ export class NewExaminationByPatientComponent implements OnInit {
   }
 
   public showFilteredDoctors(): void {
-    const body = {
-      date: moment(this.date).format('L'),
+    const filterObject = {
+      date: moment(this.date).format('YYYY/MM/DD'),
       examinationTypeId: this.examinationTypeId,
       startAt: moment(this.time).format("HH:mm:ss"),
       clinicId: this.clinicId
     }
-    console.log(body)
-    this.filterService.getFilteredDoctors(body).subscribe(data => {
+    this.filterService.getFilteredDoctors(filterObject).subscribe(data => {
       this.listOfData3 = data;
       this.isVisible3 = true;
 
@@ -133,6 +131,7 @@ export class NewExaminationByPatientComponent implements OnInit {
     }
     this.examinationService.createExaminationRequestAsPatient(body).subscribe(() => {
       console.log(body);
+      this.message.info('Uspešno ste poslali zahtev za pregled.');
     },
     error => {
       this.message.info(error.error.message);

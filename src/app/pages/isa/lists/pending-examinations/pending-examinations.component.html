@@ -22,7 +22,7 @@
         <td>{{ formatDate(data.date) }}</td>
         <td>{{ data.startAt }}</td>
         <td *ngIf="!isVisible">
-            <button (click)="confirm(data.id)" nz-button nzType="primary">Odobri</button>
+            <button (click)="chooseEmergencyRoom(data.id)" nz-button nzType="primary">Odobri</button>
           </td>
           <td *ngIf="!isVisible">
             <button (click)="getReason()" nz-button nzType="danger">Odbij</button>
@@ -42,3 +42,5 @@
       </tr>
     </tbody>
   </nz-table>
+
+  
