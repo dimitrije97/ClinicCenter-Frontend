@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
+import { FilterService } from 'src/app/services/filter.service';
 
 @Component({
   selector: 'app-pending-examinations',
@@ -22,8 +23,10 @@ export class PendingExaminationsComponent implements OnInit {
 
   public listOfData2 = [];
   public isVisible2: boolean;
+  
+  public emergencyRoomId: any = null;
 
-  constructor(private message: NzMessageService, private examinationService: ExaminationService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
+  constructor(private filterService: FilterService, private message: NzMessageService, private examinationService: ExaminationService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.setupUser();
@@ -51,13 +54,25 @@ export class PendingExaminationsComponent implements OnInit {
   
   chooseEmergencyRoom(id): void {
     this.examinationId = id;
-    this.isVisible2 = true;
+    const filterObject = {
+      examinationId: id
+    }
+    this.filterService.getFilteredEmergencyRooms(filterObject).subscribe(data => {
+      this.listOfData2 = data;
+      this.isVisible2 = true;
+    },
+    error => {
+      this.message.info(error.error.message);
+    });
+    
   }
 
   confirm(): void {
     const body = {
-      examinationId: this.examinationId
+      examinationId: this.examinationId,
+      emergencyRoomId: this.emergencyRoomId
     }
+    console.log(body)
     this.examinationService.confirmExamination(body).subscribe(data => {
       this.setupData();
       this.message.info('Uspešno ste odobrili zahtev za pregled.');

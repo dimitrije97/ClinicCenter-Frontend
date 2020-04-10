@@ -43,4 +43,15 @@
     </tbody>
   </nz-table>
 
-  
+  <!-- ISVISIBLE2 -->
+  <nz-select *ngIf="isVisible2"
+    style="width: 180px;"
+    nzShowSearchselectedType
+    nzAllowClear
+    nzPlaceHolder="Odaberi salu"
+    [(ngModel)]="emergencyRoomId">  
+    <nz-option *ngFor="let item of listOfData2" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
+</nz-select>
+<br />
+<br />
+<button *ngIf="isVisible2" (click)="confirm()" nz-button nzType="primary">Potvrdi</button>
