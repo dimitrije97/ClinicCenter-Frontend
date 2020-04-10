@@ -56,6 +56,7 @@ export class ConfirmingExaminationsComponent implements OnInit {
     console.log(body)
     this.examinationService.denyExamination(body).subscribe(data => {
       this.setupData();
+      this.message.info('Uspešno ste odbili zahtev za pregled');
     },
     error => {
       this.message.info(error.error.message);
