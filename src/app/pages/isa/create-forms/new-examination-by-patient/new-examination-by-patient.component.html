@@ -1,31 +1,91 @@
-<div class="inputWrapper">
-    <nz-date-picker style="width: 180px;" [(ngModel)]="date" nzPlaceHolder="Odaberi datum"></nz-date-picker>
-    <br />
-    <br />
-    <nz-select
-        style="width: 180px;"
-        nzShowSearchselectedType
-        nzAllowClear
-        nzPlaceHolder="Odaberi tip pregleda"
-        [(ngModel)]="examinationTypeId">  
-        <nz-option *ngFor="let item of listOfData" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
-    </nz-select>
-</div>
+<nz-date-picker style="width: 180px;" [(ngModel)]="date" nzPlaceHolder="Odaberi datum"></nz-date-picker>
+<br />
+<br />
+<nz-select
+    style="width: 180px;"
+    nzShowSearchselectedType
+    nzAllowClear
+    nzPlaceHolder="Odaberi tip pregleda"
+    [(ngModel)]="examinationTypeId">  
+    <nz-option *ngFor="let item of listOfData" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
+</nz-select>
+<br />
+<br />
+<button (click)="showFilteredClinics()" nz-button nzType="primary">Prikaži klinike</button>
 
-<button class="confirm" (click)="showFilteredClinics()" nz-button nzType="primary">Prikaži klinike</button>
+<!-- ISVISIBLE -->
+<br />
+<br />
+<nz-table #nzTable [nzData]="listOfData2" *ngIf="isVisible">
+    <thead>
+      <tr>
+        <th nzCustomFilter>
+            Naziv
+        </th>
+        <th>
+            Adresa
+        </th>
+        <th>
+            Opis
+        </th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ data.name }}</td>
+        <td>{{ data.address }}</td>
+        <td>{{ data.description }}</td>
+        <td>
+          <button (click)="getAvgGradeOfClinic(data.id)" nz-button nzType="primary">Prosečna ocena</button>
+        </td>
+        <td>
+            <button (click)="chooseClinic(data.id)" nz-button nzType="primary">Izaberi kliniku</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  
+  <!-- ISVISIBLE2 -->
+  <nz-time-picker *ngIf="isVisible2" style="width: 180px;" [(ngModel)]="time" nzPlaceHolder="Odaberi vreme"></nz-time-picker>
+  <br />
+  <br />
+  <button *ngIf="isVisible2" (click)="showFilteredDoctors()" nz-button nzType="primary">Prikaži lekare</button>
+  
+  <!-- ISVISIBLE3 -->
+  <br />
+  <br />
+  <nz-table #nzTable [nzData]="listOfData3" *ngIf="isVisible3">
+    <thead>
+      <tr>
+        <th nzCustomFilter>
+            Ime
+        </th>
+        <th>
+            Prezime
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ data.firstName }}</td>
+        <td>{{ data.lastName }}</td>
+        <td>{{ data.email }}</td>
+        <td>
+          <button (click)="getAvgGradeOfDoctor(data.id)" nz-button nzType="primary">Prosečna ocena</button>
+        </td>
+        <td>
+            <button (click)="chooseDoctor(data.id)" nz-button nzType="primary">Izaberi lekara</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
 
-<div *ngIf="isVisible">
-    <nz-select
-        style="width: 180px;"
-        nzShowSearchselectedType
-        nzAllowClear
-        nzPlaceHolder="Odaberi kliniku"
-        [(ngModel)]="clinicId">  
-        <nz-option *ngFor="let item of listOfData2" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
-    </nz-select>
-    <br />
-    <br />
-    <nz-time-picker style="width: 180px;" [(ngModel)]="time" nzPlaceHolder="Odaberi vreme"></nz-time-picker>
-</div>
-
-<button *ngIf="isVisible" class="confirm" (click)="showFilteredDoctors()" nz-button nzType="primary">Prikaži lekare</button>
+  <!-- ISVISIBLE4 -->
+  <button *ngIf="isVisible4" (click)="sendExaminationRequest()" nz-button nzType="primary">Pošalji</button>

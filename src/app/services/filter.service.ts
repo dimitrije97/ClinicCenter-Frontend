@@ -14,7 +14,11 @@ export class FilterService {
 
 
   public getFilteredClinics(body): Observable<any> {
-    return this.http.get(`${this.baseUrl}filters/clinics`, body);
+    return this.http.post(`${this.baseUrl}filters/clinics`, body);
+  }
+
+  public getFilteredDoctors(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}filters/doctors`, body);
   }
 
   // private buildFilterRequest(filterObject: any): String {
