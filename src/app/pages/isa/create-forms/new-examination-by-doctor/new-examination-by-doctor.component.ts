@@ -35,19 +35,18 @@ export class NewExaminationByDoctorComponent implements OnInit {
 
   public onSchedule(): void {
     const body = {
-      date: moment(this.date).format('L'),
+      date: moment(this.date).format('YYYY/MM/DD'),
       startAt: moment(this.time).format('HH:mm:ss'),
       currentTime: moment().format('HH:mm:ss'),
       patientId: this.id
 
     }
+    console.log(body);
     this.examinationService.createExaminationRequestAsDoctor(body, this.user.id).subscribe(data => {
-      console.log(data);
       this.message.info('Uspešno ste poslali zahtev za novi pregled.')
     },
     error => {
-      // this.message.info(error.error.message);
-      this.message.info('Sva polja moraju biti popunjena.');
+      this.message.info(error.error.message);
     });
   }
 

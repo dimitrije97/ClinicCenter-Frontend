@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ExaminationService } from 'src/app/services/examination.service';
 import * as moment from 'moment';
+import { ScheduleService } from 'src/app/services/schedule.service';
 
 @Component({
   selector: 'app-doctor-calendar',
@@ -9,58 +9,47 @@ import * as moment from 'moment';
 })
 export class DoctorCalendarComponent implements OnInit {
 
-  // listDataMap = [];
+  listOfData = [];
   user: any;
 
-  constructor(private examinationService: ExaminationService) { }
+  constructor(private scheduleService: ScheduleService) { }
 
   ngOnInit(): void {
-
+    this.setupUser();
+    this.setupData();
   }
 
-  listDataMap = {
-    eight: [
-      { type: 'warning', content: 'This is warning event.' },
-      { type: 'success', content: 'This is usual event.' }
-    ],
-    ten: [
-      { type: 'warning', content: 'This is warning event.' },
-      { type: 'success', content: 'This is usual event.' },
-      { type: 'error', content: 'This is error event.' }
-    ],
-    eleven: [
-      { type: 'warning', content: 'This is warning event' },
-      { type: 'success', content: 'This is very long usual event........' },
-      { type: 'error', content: 'This is error event 1.' },
-      { type: 'error', content: 'This is error event 2.' },
-      { type: 'error', content: 'This is error event 3.' },
-      { type: 'error', content: 'This is error event 4.' }
-    ]
-  };
+  private setupUser(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  }
 
-  // ngOnInit(): void {
-  //   this.setupData();
-  //   this.setupUser();
-  // }
-
-  // private setupData(): void {
-  //   this.examinationService.getAllExaminationsByDoctor(this.user.id).subscribe(data => {
-  //     this.listDataMap = data.date;
-  //   });
-  // }
-
-  // private setupUser(): void {
-  //   this.user = JSON.parse(localStorage.getItem('user'));
-  // } 
-
-  // formatDate(date): String {
-  //   return moment(date).format("L");
-  // }
-
-  getMonthData(date: Date): number | null {
-    if (date.getMonth() === 8) {
-      return 1394;
+  private setupData(): void {
+    if(this.user.userType === 'DOCTOR'){
+      this.scheduleService.getDoctorsSchedules(this.user.id).subscribe(data => {
+        console.log(data);
+        this.listOfData = data;
+      });
+    }else if(this.user.userType === 'NURSE'){
+      this.scheduleService.geNursesSchedules(this.user.id).subscribe(data => {
+        console.log(data);
+        this.listOfData = data;
+      });
     }
-    return null;
   }
+
+  public time(startAt, endAt): String {
+    if(startAt == null){
+      return "00:00:00 - 24:00:00";
+    }
+    return startAt+" - "+endAt;
+  }
+
+  public reason(reasonOfUnavailability): String {
+    if(reasonOfUnavailability == 'EXAMINATION'){
+      return "Pregled";
+    }else if(reasonOfUnavailability == 'VACATION'){
+      return "Godišnji odmor";
+    }
+  }
+
 }
