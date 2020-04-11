@@ -30,10 +30,7 @@ export class DoctorCalendarComponent implements OnInit {
         this.listOfData = data;
       });
     }else if(this.user.userType === 'NURSE'){
-      this.scheduleService.geNursesSchedules(this.user.id).subscribe(data => {
-        console.log(data);
-        this.listOfData = data;
-      });
+      
     }
   }
 
@@ -48,7 +45,7 @@ export class DoctorCalendarComponent implements OnInit {
     if(reasonOfUnavailability == 'EXAMINATION'){
       return "Pregled";
     }else if(reasonOfUnavailability == 'VACATION'){
-      return "Godišnji odmor";
+      return "Odsustvo";
     }
   }
 
