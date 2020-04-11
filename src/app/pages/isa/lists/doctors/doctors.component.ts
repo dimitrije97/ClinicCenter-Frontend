@@ -52,4 +52,13 @@ export class DoctorsComponent implements OnInit {
     });
   }
 
+  public getAvgGradeOfDoctor(id): void {
+    this.doctorService.getAvgGrade(id).subscribe(data => {
+       this.message.info(data.grade);
+     },
+     error => {
+       this.message.info(error.error.message);
+     });
+   }
+
 }
