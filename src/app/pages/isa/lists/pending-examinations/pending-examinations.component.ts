@@ -5,6 +5,7 @@ import * as moment from 'moment';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
 import { FilterService } from 'src/app/services/filter.service';
+import { SuggestService } from 'src/app/services/suggest.service';
 
 @Component({
   selector: 'app-pending-examinations',
@@ -23,10 +24,13 @@ export class PendingExaminationsComponent implements OnInit {
 
   public listOfData2 = [];
   public isVisible2: boolean;
+
+  public checked : boolean;
+  public isVisible3: boolean;
   
   public emergencyRoomId: any = null;
 
-  constructor(private filterService: FilterService, private message: NzMessageService, private examinationService: ExaminationService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
+  constructor(private suggestService: SuggestService, private filterService: FilterService, private message: NzMessageService, private examinationService: ExaminationService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.setupUser();
@@ -46,6 +50,8 @@ export class PendingExaminationsComponent implements OnInit {
     });
     this.isVisible = false;
     this.isVisible2 = false;
+    this.isVisible3 = false;
+    this.checked = true;
   }
 
   private setupUser(): void {
@@ -63,23 +69,33 @@ export class PendingExaminationsComponent implements OnInit {
     },
     error => {
       this.message.info(error.error.message);
+      this.isVisible3 = true;
     });
     
   }
 
   confirm(): void {
-    const body = {
-      examinationId: this.examinationId,
-      emergencyRoomId: this.emergencyRoomId
+    if(this.isVisible2){
+      const body = {
+        examinationId: this.examinationId,
+        emergencyRoomId: this.emergencyRoomId
+      }
+      console.log(body)
+      this.examinationService.confirmExamination(body).subscribe(data => {
+        this.setupData();
+        this.message.info('Uspešno ste odobrili zahtev za pregled.');
+      },
+      error => {
+        this.message.info(error.error.message);
+      });
+    }else if(this.isVisible3){
+      const id = this.examinationId;
+      this.suggestService.suggest(id).subscribe(() => {
+        this.setupData();
+        this.message.info('Uspešno ste odobrili zahtev za pregled.');
+      })
     }
-    console.log(body)
-    this.examinationService.confirmExamination(body).subscribe(data => {
-      this.setupData();
-      this.message.info('Uspešno ste odobrili zahtev za pregled.');
-    },
-    error => {
-      this.message.info(error.error.message);
-    });
+
   }
 
   getReason(): void {

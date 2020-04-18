@@ -52,6 +52,12 @@
     [(ngModel)]="emergencyRoomId">  
     <nz-option *ngFor="let item of listOfData2" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
 </nz-select>
+
+
+<br />
+<label nz-checkbox *ngIf="isVisible3" [(ngModel)]="checked">Automatski zakaži</label>
+
+
 <br />
 <br />
-<button *ngIf="isVisible2" (click)="confirm()" nz-button nzType="primary">Potvrdi</button>
+<button *ngIf="isVisible2 || isVisible3" (click)="confirm()" [disabled]="!checked" nz-button nzType="primary">Potvrdi</button>
