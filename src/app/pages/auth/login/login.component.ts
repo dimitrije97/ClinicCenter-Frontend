@@ -22,7 +22,18 @@ export class LoginComponent implements OnInit {
       password: [null, [Validators.required]]
     });
     
-    
+    const id = this.route.snapshot.params.id;
+    if(id != undefined){
+      const body = {
+        patientId: id
+      }
+      this.rrService.approveRegistrationRequest(body).subscribe(() => {
+        this.message.info('Uspešno ste se registrovali!');
+      },
+      error => {
+        this.message.info(error.error.message);
+      });
+    }
   }
 
   submitForm(): void {
