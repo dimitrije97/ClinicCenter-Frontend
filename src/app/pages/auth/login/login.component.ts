@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NzMessageService } from 'ng-zorro-antd';
+import { RegistrationRequestService } from 'src/app/services/registration-request.service';
 
 @Component({
   selector: 'app-login',
@@ -13,13 +14,15 @@ export class LoginComponent implements OnInit {
 
   validateForm: FormGroup;
 
-  constructor(private message: NzMessageService, private fb: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(private route: ActivatedRoute, private rrService: RegistrationRequestService, private message: NzMessageService, private fb: FormBuilder, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       username: [null, [Validators.required, Validators.email, Validators.minLength(3)]],
       password: [null, [Validators.required]]
     });
+    
+    
   }
 
   submitForm(): void {

@@ -39,10 +39,12 @@ import { ExaminationsHistoryComponent } from './pages/isa/lists/examinations-his
 import { DoctorsWhoCanBeGradedComponent } from './pages/isa/lists/doctors-who-can-be-graded/doctors-who-can-be-graded.component';
 import { ClinicsWhichCanBeGradedComponent } from './pages/isa/lists/clinics-which-can-be-graded/clinics-which-can-be-graded.component';
 import { PricelistComponent } from './pages/isa/lists/pricelist/pricelist.component';
+import { PendingRegistrationComponent } from './pages/isa/lists/pending-registration/pending-registration.component';
 
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/auth/login' },
+    { path: 'auth/login/:id/patient', component: LoginComponent },
     { path: 'auth/login', component: LoginComponent },
     { path: 'auth/registration', component: RegistrationComponent},
     { path: 'auth/:id/new-password', component: FirstLoginComponent},
@@ -71,6 +73,7 @@ const routes: Routes = [
         { path: 'doctors-who-can-be-graded', component: DoctorsWhoCanBeGradedComponent},
         { path: 'clinics-which-can-be-graded', component: ClinicsWhichCanBeGradedComponent},
         { path: 'pricelist', component: PricelistComponent},
+        { path: 'registration-requests', component: PendingRegistrationComponent},
 
         { path: 'my-profile', component: ProfileComponent},
         { path: 'profile/:id/patient', component: PatientComponent},

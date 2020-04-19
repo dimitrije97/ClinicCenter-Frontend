@@ -106,6 +106,15 @@
               <li nz-menu-item (click)="gradeClinics()">Klinike</li>
             </ul>
           </li>
+
+          <!-- ccadmin -->
+
+          <li *ngIf="isCCAdmin" nz-submenu>
+            <span title>Zahtevi</span>
+            <ul>
+              <li (click)="registrationRequests()" nz-menu-item>Za registraciju</li>
+            </ul>
+          </li>
           
         </ul>
 
