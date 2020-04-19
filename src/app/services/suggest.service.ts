@@ -13,7 +13,7 @@ export class SuggestService {
   constructor(private http: HttpClient) { }
 
 
-  public suggest(id): Observable<any> {
-    return this.http.get(`${this.baseUrl}suggests/${id}/examination`);
+  public suggest(body): Observable<any> {
+    return this.http.put(`${this.baseUrl}suggests`, body);
   }
 }

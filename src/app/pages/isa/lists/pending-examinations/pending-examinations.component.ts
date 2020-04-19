@@ -89,8 +89,10 @@ export class PendingExaminationsComponent implements OnInit {
         this.message.info(error.error.message);
       });
     }else if(this.isVisible3){
-      const id = this.examinationId;
-      this.suggestService.suggest(id).subscribe(() => {
+      const body = {
+        examinationId: this.examinationId
+      }
+      this.suggestService.suggest(body).subscribe(() => {
         this.setupData();
         this.message.info('Uspešno ste odobrili zahtev za pregled.');
       })
