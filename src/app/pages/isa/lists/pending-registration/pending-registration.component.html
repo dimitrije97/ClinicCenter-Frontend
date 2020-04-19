@@ -1,0 +1,38 @@
+<nz-table #nzTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th nzCustomFilter>
+            Ime
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ patientsDN(data.firstName, data.lastName) }}</td>
+        <td>{{ data.email }}</td>
+        <td *ngIf="!isVisible">
+            <button (click)="confirm(data.id)" nz-button nzType="primary">Odobri</button>
+          </td>
+          <td *ngIf="!isVisible">
+            <button (click)="geetReason()" nz-button nzType="danger">Odbij</button>
+          </td>
+          <td *ngIf="isVisible">
+            <form nz-form [formGroup]="validateForm">
+              <nz-form-item>
+                <nz-form-control style="height: 18px;" [nzSm]="14" [nzXs]="24">
+                  <input nz-input id="reason" formControlName="reason" placeholder="Upiši razlog odbijanja"/>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
+          </td>
+          <td *ngIf="isVisible">
+            <button (click)="deny(data.id)" nz-button nzType="primary">Potvrdi</button>
+          </td>
+      </tr>
+    </tbody>
+  </nz-table>
