@@ -61,6 +61,7 @@ export class FutureExaminationsComponent implements OnInit {
   public cancel(id): void {
     this.examinationService.cancelFutureExamination(id).subscribe(data => {
       this.setupData();
+      this.message.info('Uspešno ste otkazali pregled.');
     },
     error => {
       this.message.info(error.error.message);

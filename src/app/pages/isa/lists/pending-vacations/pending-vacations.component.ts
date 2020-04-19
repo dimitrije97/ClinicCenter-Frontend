@@ -50,6 +50,7 @@ export class PendingVacationsComponent implements OnInit {
     },
     error => {
       this.message.info(error.error.message);
+      this.setupData();
     });
   }
 

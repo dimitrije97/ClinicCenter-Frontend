@@ -23,7 +23,7 @@ export class PendingRegistrationComponent implements OnInit {
     this.setupUser();
     this.setupData();
     this.validateForm = this.fb.group({
-      reason: [null, [Validators.required, Validators.minLength(13)]]
+      message: [null, [Validators.required, Validators.minLength(13)]]
     });
   }
 

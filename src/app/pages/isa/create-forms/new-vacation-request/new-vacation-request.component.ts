@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { VacationService } from 'src/app/services/vacation.service';
 import { NzMessageService } from 'ng-zorro-antd';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-vacation-request',
@@ -17,7 +18,7 @@ export class NewVacationRequestComponent implements OnInit {
   footerRender = () => 'extra footer';
   public listOfDates = [];
 
-  constructor(private vacationService: VacationService, private message: NzMessageService) { }
+  constructor(private vacationService: VacationService, private message: NzMessageService, private router: Router) { }
 
   ngOnInit() {
     this.setupUser();
@@ -44,6 +45,7 @@ export class NewVacationRequestComponent implements OnInit {
     }
     this.vacationService.createVacation(body, this.user.id).subscribe(data => {
       console.log(data);
+      this.router.navigateByUrl('dashboard');
       this.message.info('Uspešno ste poslali zahtev za godišnji odmor.');
     },
     error => {
