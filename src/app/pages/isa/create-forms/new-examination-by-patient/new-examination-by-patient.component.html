@@ -41,7 +41,7 @@
           <button (click)="getAvgGradeOfClinic(data.id)" nz-button nzType="primary">Prosečna ocena</button>
         </td>
         <td>
-            <button (click)="chooseClinic(data.id)" nz-button nzType="primary">Izaberi kliniku</button>
+            <button (click)="chooseClinic(data.id, data.name)" nz-button nzType="primary">Izaberi kliniku</button>
         </td>
       </tr>
     </tbody>
@@ -81,7 +81,7 @@
           <button (click)="getAvgGradeOfDoctor(data.id)" nz-button nzType="primary">Prosečna ocena</button>
         </td>
         <td>
-            <button (click)="chooseDoctor(data.id)" nz-button nzType="primary">Izaberi lekara</button>
+            <button (click)="chooseDoctor(data.id, data.firstName, data.lastName)" nz-button nzType="primary">Izaberi lekara</button>
         </td>
       </tr>
     </tbody>

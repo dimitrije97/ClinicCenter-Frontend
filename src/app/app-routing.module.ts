@@ -40,6 +40,7 @@ import { DoctorsWhoCanBeGradedComponent } from './pages/isa/lists/doctors-who-ca
 import { ClinicsWhichCanBeGradedComponent } from './pages/isa/lists/clinics-which-can-be-graded/clinics-which-can-be-graded.component';
 import { PricelistComponent } from './pages/isa/lists/pricelist/pricelist.component';
 import { PendingRegistrationComponent } from './pages/isa/lists/pending-registration/pending-registration.component';
+import { ExaminationRedirectComponent } from './pages/isa/examination-redirect/examination-redirect.component';
 
 
 const routes: Routes = [
@@ -92,6 +93,8 @@ const routes: Routes = [
         { path: 'create-vacation-request', component: NewVacationRequestComponent},
         { path: 'create-examination-request/:id/patient', component: NewExaminationByDoctorComponent},
         { path: 'create-examination-request', component: NewExaminationByPatientComponent},
+      
+        { path: 'examination-redirect', component: ExaminationRedirectComponent},
       ]
     },
   ];

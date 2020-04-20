@@ -33,6 +33,10 @@ export class NewExaminationByPatientComponent implements OnInit {
   public doctorId: any;
 
   public isVisible4: boolean;
+
+  private clinic: String;
+
+  private doctor: String;
   
   constructor(private message: NzMessageService, private doctorService: DoctorService, private clinicService: ClinicService, private filterService: FilterService, private router: Router, private route: ActivatedRoute, private examinationTypeService:ExaminationTypeService, private examinationService: ExaminationService, private fb: FormBuilder) { }
 
@@ -73,17 +77,21 @@ export class NewExaminationByPatientComponent implements OnInit {
     });
   }
 
-  public chooseClinic(id): void {
+  public chooseClinic(id, name): void {
     this.isVisible2 = true;
     this.clinicId = id;
 
     this.isVisible3 = false;
     this.isVisible4 = false;
+
+    this.clinic = name;
   }
 
-  public chooseDoctor(id): void {
+  public chooseDoctor(id, name, surname): void {
     this.isVisible4 = true;
     this.doctorId = id;
+
+    this.doctor = name + ' ' + surname;
   }
 
   public showFilteredDoctors(): void {
@@ -127,14 +135,12 @@ export class NewExaminationByPatientComponent implements OnInit {
       date: this.date,
       doctorId: this.doctorId,
       startAt: moment(this.time).format("HH:mm:ss"),
-      patientId: this.user.id
+      patientId: this.user.id,
+      clinic : this.clinic,
+      doctor: this.doctor
     }
-    this.examinationService.createExaminationRequestAsPatient(body).subscribe(() => {
-      console.log(body);
-      this.message.info('Uspešno ste poslali zahtev za pregled.');
-    },
-    error => {
-      this.message.info(error.error.message);
-    });
+    localStorage.setItem('examinationData', JSON.stringify(body));
+    this.router.navigateByUrl('dashboard/examination-redirect');
+    
    }
 }
