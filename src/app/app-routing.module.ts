@@ -41,6 +41,8 @@ import { ClinicsWhichCanBeGradedComponent } from './pages/isa/lists/clinics-whic
 import { PricelistComponent } from './pages/isa/lists/pricelist/pricelist.component';
 import { PendingRegistrationComponent } from './pages/isa/lists/pending-registration/pending-registration.component';
 import { ExaminationRedirectComponent } from './pages/isa/examination-redirect/examination-redirect.component';
+import { GoogleMap } from '@angular/google-maps';
+import { GoogleMapsComponent } from './pages/isa/google-maps/google-maps.component';
 
 
 const routes: Routes = [
@@ -95,6 +97,8 @@ const routes: Routes = [
         { path: 'create-examination-request', component: NewExaminationByPatientComponent},
       
         { path: 'examination-redirect', component: ExaminationRedirectComponent},
+
+        { path: 'google-maps', component: GoogleMapsComponent}
       ]
     },
   ];
