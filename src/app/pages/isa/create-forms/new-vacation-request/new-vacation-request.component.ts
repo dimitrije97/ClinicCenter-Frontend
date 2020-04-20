@@ -36,6 +36,11 @@ export class NewVacationRequestComponent implements OnInit {
   scheduleVacation() {
     console.log(this.startAt.getDate());
     const month = this.startAt.getMonth();
+    if((this.startAt.getMonth() != this.endAt.getMonth()) || (this.startAt.getFullYear() != this.endAt.getFullYear())){
+      this.message.info('Za svaki mesec morate slati poseban zahtev.');
+      return;
+    }
+
     const year = this.startAt.getFullYear();
     for (let i = this.startAt.getDate(); i < this.endAt.getDate(); i++) {
       this.listOfDates.push(moment(new Date(`${year}-${month + 1}-${i}`)).format('YYYY/MM/DD'));
