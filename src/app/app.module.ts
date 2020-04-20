@@ -56,6 +56,9 @@ import { PricelistComponent } from './pages/isa/lists/pricelist/pricelist.compon
 import { PendingRegistrationComponent } from './pages/isa/lists/pending-registration/pending-registration.component';
 import { ExaminationRedirectComponent } from './pages/isa/examination-redirect/examination-redirect.component';
 
+import { GoogleMapsModule } from '@angular/google-maps';
+import { GoogleMapsComponent } from './pages/isa/google-maps/google-maps.component';
+
 registerLocaleData(en);
 
 const antDesignIcons = AllIcons as {
@@ -107,7 +110,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     ClinicsWhichCanBeGradedComponent,
     PricelistComponent,
     PendingRegistrationComponent,
-    ExaminationRedirectComponent
+    ExaminationRedirectComponent,
+    GoogleMapsComponent
   ],
   imports: [
     BrowserModule,
@@ -117,7 +121,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    NzIconModule
+    NzIconModule,
+    
+    GoogleMapsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICON_DEFAULT_TWOTONE_COLOR, useValue: '#00ff00' },
   { provide: NZ_ICONS, useValue: icons }],
