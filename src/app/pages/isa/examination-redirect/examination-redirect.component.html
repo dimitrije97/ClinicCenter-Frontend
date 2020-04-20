@@ -1,0 +1,53 @@
+<div class="profileWrapper">
+    <form nz-form [formGroup]="validateForm">
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="date" nzRequired>
+          <span>
+            Datum
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="date" formControlName="date"/>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="startAt" nzRequired>
+          <span>
+            Termin
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="startAt" formControlName="startAt"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="clinic" nzRequired>
+          <span>
+            Klinika
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="clinic" formControlName="clinic"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="doctor" nzRequired>
+          <span>
+            Doktor
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="doctor" formControlName="doctor"/>
+        </nz-form-control>
+      </nz-form-item>
+      
+      <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button (click)="confirm()" nz-button nzType="primary">Potvrdi</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+</div>

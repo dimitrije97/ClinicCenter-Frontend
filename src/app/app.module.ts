@@ -54,6 +54,7 @@ import { DoctorsWhoCanBeGradedComponent } from './pages/isa/lists/doctors-who-ca
 import { ClinicsWhichCanBeGradedComponent } from './pages/isa/lists/clinics-which-can-be-graded/clinics-which-can-be-graded.component';
 import { PricelistComponent } from './pages/isa/lists/pricelist/pricelist.component';
 import { PendingRegistrationComponent } from './pages/isa/lists/pending-registration/pending-registration.component';
+import { ExaminationRedirectComponent } from './pages/isa/examination-redirect/examination-redirect.component';
 
 registerLocaleData(en);
 
@@ -105,7 +106,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     DoctorsWhoCanBeGradedComponent,
     ClinicsWhichCanBeGradedComponent,
     PricelistComponent,
-    PendingRegistrationComponent
+    PendingRegistrationComponent,
+    ExaminationRedirectComponent
   ],
   imports: [
     BrowserModule,
