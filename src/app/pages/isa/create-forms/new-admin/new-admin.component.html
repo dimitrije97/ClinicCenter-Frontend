@@ -1,1 +1,109 @@
-<p>new-admin works!</p>
+  <form class="inputWrapper2" nz-form [formGroup]="validateForm">
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="firstName" nzRequired>
+        <span>Ime</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="firstName" formControlName="firstName" placeholder="Ime"/>
+        <nz-form-explain *ngIf="validateForm.get('firstName')?.dirty && validateForm.get('firstName')?.errors"
+          >Unesite ime!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastName" nzRequired>
+        <span>Prezime</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="lastName" formControlName="lastName" placeholder="Prezime" />
+        <nz-form-explain *ngIf="validateForm.get('lastName')?.dirty && validateForm.get('lastName')?.errors"
+          >Unesite prezime!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+    
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="ssn" nzRequired>JMBG</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="ssn" formControlName="ssn" placeholder="Jmbg" />
+        <nz-form-explain *ngIf="validateForm.get('ssn')?.dirty && validateForm.get('ssn')?.errors"
+          >Unesite JMBG!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="address" nzRequired>Adresa</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="address" formControlName="address" placeholder="Adresa" />
+        <nz-form-explain *ngIf="validateForm.get('address')?.dirty && validateForm.get('address')?.errors"
+          >Unesite adresu!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="city" nzRequired>Grad</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="city" formControlName="city" placeholder="Grad" />
+        <nz-form-explain *ngIf="validateForm.get('city')?.dirty && validateForm.get('city')?.errors"
+          >Unesite grad!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="country" nzRequired>Država</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="country" formControlName="country" placeholder="Država" />
+        <nz-form-explain *ngIf="validateForm.get('country')?.dirty && validateForm.get('country')?.errors"
+          >Unesite državu!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+    
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phone" nzRequired>Broj telefona</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="phone" formControlName="phone" placeholder="Broj telefona" />
+        <nz-form-explain *ngIf="validateForm.get('phone')?.dirty && validateForm.get('phone')?.errors"
+          >Unesite broj telefona!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+    
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input formControlName="email" id="email" placeholder="E-mail adresa" />
+        <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
+          Niste uneli validan email!
+        </nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+
+<br />
+<label *ngIf="isPredef" class = "wrapper" nz-checkbox [(ngModel)]="checked">Admin kliničkog centra</label>
+
+<br />
+<br />
+
+<nz-select
+  class = "wrapper"
+  *ngIf="!checked"
+  style="width: 260px;"
+  nzShowSearchselectedType
+  nzAllowClear
+  nzPlaceHolder="Izaberi kliniku"
+  [(ngModel)]="clinicId">  
+<nz-option *ngFor="let item of listOfData" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
+</nz-select>
+
+<br />
+<br />
+<br />
+
+<button class = "wrapper" nz-button nzType="primary" (click)="submitForm()" [disabled]="!validateForm.valid">Kreiraj</button>

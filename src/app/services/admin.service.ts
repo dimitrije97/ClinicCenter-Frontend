@@ -32,4 +32,8 @@ export class AdminService {
   public deleteAdmin(id): Observable<any> {
     return this.http.delete(`${this.baseUrl}admins/${id}/admin`);
   }
+
+  public createAdmin(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}auth/admins`, body);
+  }
 }
