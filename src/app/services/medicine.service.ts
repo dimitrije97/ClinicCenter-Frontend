@@ -20,4 +20,12 @@ export class MedicineService {
   public getAllMedicines(): Observable<any> {
     return this.http.get(`${this.baseUrl}medicines`);
   }
+
+  public deleteMedicine(id): Observable<any> {
+    return this.http.delete(`${this.baseUrl}medicines/${id}/medicine`);
+  }
+
+  public updateMedicine(body): Observable<any> {
+    return this.http.put(`${this.baseUrl}medicines`, body);
+  }
 }
