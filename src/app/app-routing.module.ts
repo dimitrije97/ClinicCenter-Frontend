@@ -47,6 +47,8 @@ import { NewClinicComponent } from './pages/isa/create-forms/new-clinic/new-clin
 import { NewAdminComponent } from './pages/isa/create-forms/new-admin/new-admin.component';
 import { NewMedicineComponent } from './pages/isa/create-forms/new-medicine/new-medicine.component';
 import { NewDiagnosisComponent } from './pages/isa/create-forms/new-diagnosis/new-diagnosis.component';
+import { MedicinesComponent } from './pages/isa/lists/medicines/medicines.component';
+import { DiagnosisComponent } from './pages/isa/lists/diagnosis/diagnosis.component';
 
 
 const routes: Routes = [
@@ -81,6 +83,9 @@ const routes: Routes = [
         { path: 'clinics-which-can-be-graded', component: ClinicsWhichCanBeGradedComponent},
         { path: 'pricelist', component: PricelistComponent},
         { path: 'registration-requests', component: PendingRegistrationComponent},
+        { path: 'medicines', component: MedicinesComponent},
+        { path: 'diagnosis', component: DiagnosisComponent},
+        { path: 'nurses', component: NursesComponent},
 
         { path: 'my-profile', component: ProfileComponent},
         { path: 'profile/:id/patient', component: PatientComponent},

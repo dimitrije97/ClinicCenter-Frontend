@@ -217,4 +217,29 @@ export class IsaComponent implements OnInit {
   public createDiagnosis(): void {
     this.router.navigateByUrl('dashboard/create-diagnosis');
   }
+
+  //ccadmin
+  public admins(): void {
+    this.router.navigateByUrl('dashboard/admins');
+  }
+
+  //ccadmin
+  public doctors(): void {
+    this.router.navigateByUrl('dashboard/doctors');
+  }
+
+  //ccadmin
+  public nurses(): void {
+    this.router.navigateByUrl('dashboard/nurses');
+  }
+
+  //ccadmin
+  public medicines(): void {
+    this.router.navigateByUrl('dashboard/medicines');
+  }
+
+  //ccadmin
+  public diagnosis(): void {
+    this.router.navigateByUrl('dashboard/diagnosis');
+  }
 }

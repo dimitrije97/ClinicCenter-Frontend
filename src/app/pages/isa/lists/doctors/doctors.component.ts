@@ -29,8 +29,14 @@ export class DoctorsComponent implements OnInit {
         this.message.info(error.error.message);
         this.router.navigateByUrl(`dashboard`);
       });
-    } else {
-      
+    } else if(this.user.userType === 'CLINIC_CENTER_ADMIN'){
+      this.doctorService.getAllDoctors().subscribe(data => {
+        this.listOfData = data;
+      },
+      error => {
+        this.message.info(error.error.message);
+        this.router.navigateByUrl(`dashboard`);
+      });
     }
   }
 

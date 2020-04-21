@@ -126,7 +126,18 @@
               <li (click)="registrationRequests()" nz-menu-item>Za registraciju</li>
             </ul>
           </li>
-          
+
+          <li *ngIf="isCCAdmin" nz-submenu>
+            <span title>Liste</span>
+            <ul>
+              <li (click)="admins()" nz-menu-item>Administratori</li>
+              <li (click)="doctors()" nz-menu-item>Lekari</li>
+              <li (click)="nurses()" nz-menu-item>Medicinske sestre</li>
+              <li (click)="clinics()" nz-menu-item>Klinike</li>
+              <li (click)="medicines()" nz-menu-item>Lekovi</li>
+              <li (click)="diagnosis()" nz-menu-item>Klinike</li>
+            </ul>
+          </li>
         </ul>
 
       </nz-sider>
