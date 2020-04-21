@@ -43,6 +43,8 @@ import { PendingRegistrationComponent } from './pages/isa/lists/pending-registra
 import { ExaminationRedirectComponent } from './pages/isa/examination-redirect/examination-redirect.component';
 import { GoogleMap } from '@angular/google-maps';
 import { GoogleMapsComponent } from './pages/isa/google-maps/google-maps.component';
+import { NewClinicComponent } from './pages/isa/create-forms/new-clinic/new-clinic.component';
+import { NewAdminComponent } from './pages/isa/create-forms/new-admin/new-admin.component';
 
 
 const routes: Routes = [
@@ -89,6 +91,8 @@ const routes: Routes = [
 
         { path: 'create-doctor', component: NewDoctorComponent},
         { path: 'create-nurse', component: NewNurseComponent},
+        { path: 'create-clinic', component: NewClinicComponent},
+        { path: 'create-admin', component: NewAdminComponent},
         { path: 'create-emergency-room', component: NewEmergencyRoomComponent},
         { path: 'create-examination-type', component: NewExaminationTypeComponent},
         { path: 'create-potential-examination', component: NewPotentialExaminationComponent},

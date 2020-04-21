@@ -32,4 +32,8 @@ export class ClinicService {
   public getAvgGrade(id): Observable<any> {
     return this.http.get(`${this.baseUrl}grades/avg/${id}/clinic`);
   }
+
+  public createClinic(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}auth/clinics`, body);
+  }
 }
