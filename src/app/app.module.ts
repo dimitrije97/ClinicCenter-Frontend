@@ -58,6 +58,8 @@ import { ExaminationRedirectComponent } from './pages/isa/examination-redirect/e
 
 import { GoogleMapsModule } from '@angular/google-maps';
 import { GoogleMapsComponent } from './pages/isa/google-maps/google-maps.component';
+import { NewAdminComponent } from './pages/isa/create-forms/new-admin/new-admin.component';
+import { NewClinicComponent } from './pages/isa/create-forms/new-clinic/new-clinic.component';
 
 registerLocaleData(en);
 
@@ -111,7 +113,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     PricelistComponent,
     PendingRegistrationComponent,
     ExaminationRedirectComponent,
-    GoogleMapsComponent
+    GoogleMapsComponent,
+    NewAdminComponent,
+    NewClinicComponent
   ],
   imports: [
     BrowserModule,

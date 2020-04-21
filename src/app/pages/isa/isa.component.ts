@@ -197,4 +197,14 @@ export class IsaComponent implements OnInit {
   public registrationRequests(): void {
     this.router.navigateByUrl(`dashboard/registration-requests`);
   }
+
+  //ccadmin
+  public createClinic(): void {
+    this.router.navigateByUrl('dashboard/create-clinic');
+  }
+
+  //ccadmin
+  public createAdmin(): void {
+    this.router.navigateByUrl('dashboard/create-admin');
+  }
 }

@@ -111,6 +111,14 @@
           <!-- ccadmin -->
 
           <li *ngIf="isCCAdmin" nz-submenu>
+            <span title>Kreiraj</span>
+            <ul>
+              <li (click)="createClinic()" nz-menu-item>Kliniku</li>
+              <li (click)="createAdmin()" nz-menu-item>Admina</li>
+            </ul>
+          </li>
+
+          <li *ngIf="isCCAdmin" nz-submenu>
             <span title>Zahtevi</span>
             <ul>
               <li (click)="registrationRequests()" nz-menu-item>Za registraciju</li>
