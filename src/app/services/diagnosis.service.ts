@@ -12,6 +12,7 @@ export class DiagnosisService {
 
   constructor(private http: HttpClient) { }
 
+
   public createDiagnosis(body): Observable<any> {
     return this.http.post(`${this.baseUrl}diagnosis`, body);
   }
