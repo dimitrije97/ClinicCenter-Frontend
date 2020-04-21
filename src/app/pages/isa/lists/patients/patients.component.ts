@@ -15,6 +15,8 @@ export class PatientsComponent implements OnInit {
   private id;
   private user: any;
 
+  public isCCAdmin: boolean;
+
   constructor(private message: NzMessageService, private patientService: PatientService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -27,6 +29,7 @@ export class PatientsComponent implements OnInit {
     if(this.user.userType === 'CLINIC_CENTER_ADMIN') {
       this.patientService.getAllPatients().subscribe(data => {
         this.listOfData = data;
+        this.isCCAdmin = true;
       },
       error => {
         this.message.info(error.error.message);
@@ -34,6 +37,7 @@ export class PatientsComponent implements OnInit {
     } else {
       this.patientService.getAllPatientsByClinic(this.user.myClinic.id).subscribe(data => {
         this.listOfData = data;
+        this.isCCAdmin = false;
       },
       error => {
         this.message.info(error.error.message);
@@ -57,5 +61,4 @@ export class PatientsComponent implements OnInit {
   public scheduleExamination(id): void {
     this.router.navigateByUrl(`dashboard/create-examination-request/${id}/patient`);
   }
-
 }
