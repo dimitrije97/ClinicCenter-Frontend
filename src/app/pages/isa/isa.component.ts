@@ -207,4 +207,14 @@ export class IsaComponent implements OnInit {
   public createAdmin(): void {
     this.router.navigateByUrl('dashboard/create-admin');
   }
+
+  //ccadmin
+  public createMedicine(): void {
+    this.router.navigateByUrl('dashboard/create-medicine');
+  }
+
+  //ccadmin
+  public createDiagnosis(): void {
+    this.router.navigateByUrl('dashboard/create-diagnosis');
+  }
 }
