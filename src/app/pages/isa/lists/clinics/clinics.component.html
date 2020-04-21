@@ -11,6 +11,7 @@
             Opis
         </th>
         <th></th>
+        <th *ngIf="isCCAdmin"></th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +21,9 @@
         <td>{{ data.description }}</td>
         <td>
           <button (click)="getAvgGradeOfClinic(data.id)" nz-button nzType="primary">Prosečna ocena</button>
+        </td>
+        <td *ngIf="isCCAdmin">
+          <button (click)="delete(data.id)" nz-button nzType="danger">Ukloni</button>
         </td>
       </tr>
     </tbody>

@@ -1,1 +1,18 @@
-<p>medicines works!</p>
+<nz-table #nzTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th nzCustomFilter>
+            Ime
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ data.name }}</td>
+        <td>
+            <button (click)="delete(data.id)" nz-button nzType="danger">Ukloni</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
