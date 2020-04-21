@@ -45,6 +45,8 @@ import { GoogleMap } from '@angular/google-maps';
 import { GoogleMapsComponent } from './pages/isa/google-maps/google-maps.component';
 import { NewClinicComponent } from './pages/isa/create-forms/new-clinic/new-clinic.component';
 import { NewAdminComponent } from './pages/isa/create-forms/new-admin/new-admin.component';
+import { NewMedicineComponent } from './pages/isa/create-forms/new-medicine/new-medicine.component';
+import { NewDiagnosisComponent } from './pages/isa/create-forms/new-diagnosis/new-diagnosis.component';
 
 
 const routes: Routes = [
@@ -99,6 +101,8 @@ const routes: Routes = [
         { path: 'create-vacation-request', component: NewVacationRequestComponent},
         { path: 'create-examination-request/:id/patient', component: NewExaminationByDoctorComponent},
         { path: 'create-examination-request', component: NewExaminationByPatientComponent},
+        { path: 'create-medicine', component: NewMedicineComponent},
+        { path: 'create-diagnosis', component: NewDiagnosisComponent},
       
         { path: 'examination-redirect', component: ExaminationRedirectComponent},
 

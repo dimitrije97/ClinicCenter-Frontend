@@ -1,0 +1,23 @@
+<div class="profileWrapper">
+    <form nz-form [formGroup]="validateForm">
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name" nzRequired>
+          <span>
+            Naziv
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="name" formControlName="name" placeholder="Naziv" />
+          <nz-form-explain *ngIf="validateForm.get('name')?.dirty && validateForm.get('name')?.errors"
+            >Unesite lek!</nz-form-explain
+          >
+        </nz-form-control>
+      </nz-form-item>
+      
+      <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button (click)="create()" nz-button nzType="primary" [disabled]="!validateForm.valid">Kreiraj</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+</div>
