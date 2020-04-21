@@ -12,8 +12,8 @@
             JMBG
         </th>
         <th></th>
-        <th></th>
-        <th></th>
+        <th *ngIf="!isCCAdmin"></th>
+        <th *ngIf="!isCCAdmin"></th>
       </tr>
     </thead>
     <tbody>
@@ -24,10 +24,10 @@
         <td>
           <button (click)="profile(data.id)" nz-button nzType="primary">Profil</button>
         </td>
-        <td>
+        <td *ngIf="!isCCAdmin">
           <button nz-button nzType="primary" (click)="scheduleExamination(data.id)">Zakaži pregled</button>
         </td>
-        <td>
+        <td *ngIf="!isCCAdmin">
           <button nz-button nzType="primary">Unesi izveštaj</button>
         </td>
       </tr>
