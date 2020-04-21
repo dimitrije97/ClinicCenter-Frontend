@@ -20,4 +20,12 @@ export class DiagnosisService {
   public getAllDiagnosis(): Observable<any> {
     return this.http.get(`${this.baseUrl}diagnosis`);
   }
+
+  public deleteDiagnosis(id): Observable<any> {
+    return this.http.delete(`${this.baseUrl}diagnosis/${id}/diagnosis`);
+  }
+
+  public updateDiagnosis(body): Observable<any> {
+    return this.http.put(`${this.baseUrl}diagnosis`, body);
+  }
 }
