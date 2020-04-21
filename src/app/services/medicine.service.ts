@@ -12,6 +12,7 @@ export class MedicineService {
 
   constructor(private http: HttpClient) { }
 
+
   public createMedicine(body): Observable<any> {
     return this.http.post(`${this.baseUrl}medicines`, body);
   }
