@@ -10,10 +10,10 @@
         <li *ngIf="isPatient" nz-menu-item style="font-style:oblique;">Zdravstveni karton</li>
         <li *ngIf="isPatient" routerLink="/dashboard/pricelist" nz-menu-item style="font-style:oblique;">Cenovnik</li>
         <li *ngIf="isDoctor" (click)="clinicProfile()" nz-menu-item style="font-style:oblique;">Profil klinike</li>
+        <li routerLink="/dashboard/google-maps" nz-menu-item style="font-style:oblique;">Mapa</li>
         <li nz-menu-item nzMatchRouter>
             <a (click)="updatePassword()" style="font-style:oblique;">Promeni lozinku</a>
         </li>
-        <li routerLink="/dashboard/google-maps" nz-menu-item style="font-style:oblique;">Mapa</li>
         <li nz-menu-item nzMatchRouter>
             <a (click)="clearStorage()" style="font-style:oblique;">Odjavi se</a>
         </li>
@@ -69,8 +69,18 @@
           <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
             <a (click)="vacation()">Godišnji odmor</a>
           </li>
+
           <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
             <a (click)="futureExaminations()">Zakazane posete</a>
+          </li>
+
+          <li *ngIf="isDoctor" nz-submenu>
+            <span title>Recepti</span>
+            <ul>
+              <li (click)="createRecipe()" nz-menu-item>Kreiraj</li>
+              <li (click)="certified()" nz-menu-item>Overeni</li>
+              <li (click)="nonCertified()" nz-menu-item>Neovereni</li>
+            </ul>
           </li>
 
           <!-- patient -->

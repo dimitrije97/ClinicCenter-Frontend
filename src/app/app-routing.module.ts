@@ -49,6 +49,9 @@ import { NewMedicineComponent } from './pages/isa/create-forms/new-medicine/new-
 import { NewDiagnosisComponent } from './pages/isa/create-forms/new-diagnosis/new-diagnosis.component';
 import { MedicinesComponent } from './pages/isa/lists/medicines/medicines.component';
 import { DiagnosisComponent } from './pages/isa/lists/diagnosis/diagnosis.component';
+import { NewRecipeComponent } from './pages/isa/create-forms/new-recipe/new-recipe.component';
+import { CertifiedRecipesComponent } from './pages/isa/lists/certified-recipes/certified-recipes.component';
+import { NonCertifiedRecipesComponent } from './pages/isa/lists/non-certified-recipes/non-certified-recipes.component';
 
 
 const routes: Routes = [
@@ -86,6 +89,8 @@ const routes: Routes = [
         { path: 'medicines', component: MedicinesComponent},
         { path: 'diagnosis', component: DiagnosisComponent},
         { path: 'nurses', component: NursesComponent},
+        { path: 'certified-recipes', component: CertifiedRecipesComponent},
+        { path: 'non-certified-recipes', component: NonCertifiedRecipesComponent},
 
         { path: 'my-profile', component: ProfileComponent},
         { path: 'profile/:id/patient', component: PatientComponent},
@@ -108,6 +113,7 @@ const routes: Routes = [
         { path: 'create-examination-request', component: NewExaminationByPatientComponent},
         { path: 'create-medicine', component: NewMedicineComponent},
         { path: 'create-diagnosis', component: NewDiagnosisComponent},
+        { path: 'create-recipe', component: NewRecipeComponent},
       
         { path: 'examination-redirect', component: ExaminationRedirectComponent},
 

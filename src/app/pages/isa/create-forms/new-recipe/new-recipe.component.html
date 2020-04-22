@@ -1,0 +1,34 @@
+<div class="inputWrapper2">
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name" nzRequired>
+      <span>Lekovi</span>
+    </nz-form-label>
+    <nz-select
+      style="width: 260px;"
+      nzShowSearchselectedType
+      nzAllowClear
+      nzPlaceHolder="Izaberi lek"
+      [(ngModel)]="medicineId">  
+    <nz-option *ngFor="let item of listOfData" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
+    </nz-select>
+    
+    <br/>
+    <br/>
+
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name" nzRequired>
+        <span>Dijagnoze</span>
+      </nz-form-label>
+      <nz-select
+        style="width: 260px;"
+        nzShowSearchselectedType
+        nzAllowClear
+        nzPlaceHolder="Izaberi dijagnozu"
+        [(ngModel)]="diagnosisId">  
+      <nz-option *ngFor="let item of listOfData2" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
+      </nz-select>
+      
+      <br/>
+      <br/>
+      <br/>
+
+      <button style="margin-left: 200px;" (click)="create()" nz-button nzType="primary">Kreiraj</button>
+</div>

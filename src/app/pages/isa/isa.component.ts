@@ -247,4 +247,19 @@ export class IsaComponent implements OnInit {
   public allPatients(): void {
     this.router.navigateByUrl('dashboard/patients');
   }
+
+  //doctor
+  public createRecipe(): void {
+    this.router.navigateByUrl('dashboard/create-recipe');
+  }
+
+  //doctor
+  public certified(): void {
+    this.router.navigateByUrl('dashboard/certified-recipes');
+  }
+
+  //doctor
+  public nonCertified(): void {
+    this.router.navigateByUrl('dashboard/non-certified-recipes');
+  }
 }

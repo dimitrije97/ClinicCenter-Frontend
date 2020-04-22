@@ -1,0 +1,18 @@
+<nz-table #nzTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th nzCustomFilter>
+            Lek
+        </th>
+        <th>
+            Dijagnoza
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ data.medicineName }}</td>
+        <td>{{ data.diagnosisName }}</td>
+      </tr>
+    </tbody>
+  </nz-table>
