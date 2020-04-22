@@ -69,7 +69,14 @@ export class LoginComponent implements OnInit {
         } else {
           this.router.navigateByUrl(`dashboard`);
         }
-      } 
+      } else if(user.userType === 'NURSE') {
+        if(user.setNewPassword) {
+          const id = user.id;
+          this.router.navigateByUrl(`auth/${id}/new-password`);
+        } else {
+          this.router.navigateByUrl(`dashboard`);
+        }
+      }
     },
     error => {
       this.message.info(error.error.message);
