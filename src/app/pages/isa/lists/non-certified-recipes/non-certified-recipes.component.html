@@ -1,0 +1,25 @@
+<nz-table #nzTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th nzCustomFilter>
+            Lek
+        </th>
+        <th>
+            Dijagnoza
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ data.medicineName }}</td>
+        <td>{{ data.diagnosisName }}</td>
+        <td *ngIf="isDoctor">
+            <button nz-button nzType="danger" (click)="delete(data.id)">Ukloni</button>
+        </td>
+        <td *ngIf="!isDoctor">
+            <button nz-button nzType="primary" (click)="certify(data.id)">Overi</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
