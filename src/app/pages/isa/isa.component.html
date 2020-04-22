@@ -74,10 +74,10 @@
             <a (click)="futureExaminations()">Zakazane posete</a>
           </li>
 
-          <li *ngIf="isDoctor" nz-submenu>
+          <li *ngIf="isDoctor || isNurse" nz-submenu>
             <span title>Recepti</span>
             <ul>
-              <li (click)="createRecipe()" nz-menu-item>Kreiraj</li>
+              <li *ngIf="isDoctor" (click)="createRecipe()" nz-menu-item>Kreiraj</li>
               <li (click)="certified()" nz-menu-item>Overeni</li>
               <li (click)="nonCertified()" nz-menu-item>Neovereni</li>
             </ul>
