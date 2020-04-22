@@ -9,7 +9,7 @@
         <li routerLink="/dashboard/my-profile" nz-menu-item style="font-style:oblique;">Profil</li>
         <li *ngIf="isPatient" nz-menu-item style="font-style:oblique;">Zdravstveni karton</li>
         <li *ngIf="isPatient" routerLink="/dashboard/pricelist" nz-menu-item style="font-style:oblique;">Cenovnik</li>
-        <li *ngIf="isDoctor" (click)="clinicProfile()" nz-menu-item style="font-style:oblique;">Profil klinike</li>
+        <li *ngIf="isDoctor || isNurse" (click)="clinicProfile()" nz-menu-item style="font-style:oblique;">Profil klinike</li>
         <li routerLink="/dashboard/google-maps" nz-menu-item style="font-style:oblique;">Mapa</li>
         <li nz-menu-item nzMatchRouter>
             <a (click)="updatePassword()" style="font-style:oblique;">Promeni lozinku</a>
@@ -58,7 +58,7 @@
 
           <!-- doctor -->
 
-          <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
+          <li nz-menu-item nzMatchRouter *ngIf="isDoctor || isNurse">
             <a (click)="patients()">Pacijenti</a>
           </li>
 
@@ -79,7 +79,8 @@
             <ul>
               <li *ngIf="isDoctor" (click)="createRecipe()" nz-menu-item>Kreiraj</li>
               <li (click)="certified()" nz-menu-item>Overeni</li>
-              <li (click)="nonCertified()" nz-menu-item>Neovereni</li>
+              <li *ngIf="isDoctor" (click)="nonCertified()" nz-menu-item>Neovereni</li>
+              <li *ngIf="isNurse" (click)="nonCertified()" nz-menu-item>Za overu</li>
             </ul>
           </li>
 

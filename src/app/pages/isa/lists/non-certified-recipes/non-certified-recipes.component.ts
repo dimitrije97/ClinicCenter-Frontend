@@ -35,13 +35,23 @@ export class NonCertifiedRecipesComponent implements OnInit {
   }
 
   private setupData(): void {
-    this.recipeService.getAllNonCertifiedRecipes().subscribe(data => {
-      this.listOfData = data;
-    },
-    error => {
-      this.message.info(error.error.message);
-      this.router.navigateByUrl('dashboard');
-    });
+    if(this.isDoctor){
+      this.recipeService.getAllNonCertifiedRecipes().subscribe(data => {
+        this.listOfData = data;
+      },
+      error => {
+        this.message.info(error.error.message);
+        this.router.navigateByUrl('dashboard');
+      });
+    }else{
+      this.recipeService.getAllWaitingRecipes().subscribe(data => {
+        this.listOfData = data;
+      },
+      error => {
+        this.message.info(error.error.message);
+        this.router.navigateByUrl('dashboard');
+      });
+    }
   }
 
   public delete(id): void {

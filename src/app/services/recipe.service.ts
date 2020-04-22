@@ -28,6 +28,10 @@ export class RecipeService {
     return this.http.get(`${this.baseUrl}recipes/non-certified`);
   }
 
+  public getAllWaitingRecipes(): Observable<any> {
+    return this.http.get(`${this.baseUrl}recipes/waiting`);
+  }
+
   public certifyRecipe(body): Observable<any> {
     return this.http.put(`${this.baseUrl}recipes`, body);
   }
