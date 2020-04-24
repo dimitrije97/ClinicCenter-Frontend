@@ -52,6 +52,7 @@ import { DiagnosisComponent } from './pages/isa/lists/diagnosis/diagnosis.compon
 import { NewRecipeComponent } from './pages/isa/create-forms/new-recipe/new-recipe.component';
 import { CertifiedRecipesComponent } from './pages/isa/lists/certified-recipes/certified-recipes.component';
 import { NonCertifiedRecipesComponent } from './pages/isa/lists/non-certified-recipes/non-certified-recipes.component';
+import { ClinicsIncomeComponent } from './pages/isa/lists/clinics-income/clinics-income.component';
 
 
 const routes: Routes = [
@@ -91,6 +92,7 @@ const routes: Routes = [
         { path: 'nurses', component: NursesComponent},
         { path: 'certified-recipes', component: CertifiedRecipesComponent},
         { path: 'non-certified-recipes', component: NonCertifiedRecipesComponent},
+        { path: 'clinics-income', component: ClinicsIncomeComponent},
 
         { path: 'my-profile', component: ProfileComponent},
         { path: 'profile/:id/patient', component: PatientComponent},

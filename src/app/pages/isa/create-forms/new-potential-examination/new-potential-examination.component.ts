@@ -45,15 +45,15 @@ export class NewPotentialExaminationComponent implements OnInit {
     const body = {
       emergencyRoomId: this.selectedEmergencyRoom,
       doctorId: this.selectedDoctor,
-      date: moment(this.date).format('L'),
+      date: moment(this.date).format('YYYY/MM/DD'),
       startAt: moment(this.startAt).format('HH:mm:ss')
     }
     this.peService.createPotentialExamination(body).subscribe(() => {
       this.message.info('Uspešno ste kreirali novi potencijalni pregled.');
     },
     error => {
-      // this.message.info(error.error.message);
-      this.message.info('Sva polja moraju biti popunjena.');
+      this.message.info(error.error.message);
+      // this.message.info('Sva polja moraju biti popunjena.');
     });
   }
 }

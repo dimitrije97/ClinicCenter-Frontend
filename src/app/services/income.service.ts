@@ -16,4 +16,8 @@ export class IncomeService {
   public getClinicsIncome(id): Observable<any> {
     return this.http.get(`${this.baseUrl}incomes/${id}/clinic`);
   }
+
+  public getClinicsMonthlyIncome(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}incomes/monthly/${id}/clinic`);
+  }
 }

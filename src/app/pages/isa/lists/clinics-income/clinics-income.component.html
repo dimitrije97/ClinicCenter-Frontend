@@ -1,0 +1,91 @@
+<div class="profileWrapper">
+    <form nz-form [formGroup]="validateForm">
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="income" nzRequired>
+          <span>
+            Ukupan prihod
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="income" formControlName="income"/>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="examinations" nzRequired>
+          <span>
+            Ukupan broj pregleda
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="examinations" formControlName="examinations"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisMonthIncome" nzRequired>
+          <span>
+            Prihod u ovom mesecu
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="thisMonthIncome" formControlName="thisMonthIncome"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisMonthExaminations" nzRequired>
+          <span>
+            Broj pregleda u ovom mesecu
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="thisMonthExaminations" formControlName="thisMonthExaminations"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastMonthIncome" nzRequired>
+          <span>
+            Prihod u prošlom mesecu
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="lastMonthIncome" formControlName="lastMonthIncome"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastMonthExaminations" nzRequired>
+          <span>
+            Broj pregleda u prošlom mesecu
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="lastMonthExaminations" formControlName="lastMonthExaminations"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastMonthIncome" nzRequired>
+          <span>
+            Prihod u pretprošlom mesecu
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="lastLastMonthIncome" formControlName="lastLastMonthIncome"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastMonthExaminations" nzRequired>
+          <span>
+            Broj pregleda u pretprošlom mesecu
+          </span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input [disabled]="true" nz-input id="lastLastMonthExaminations" formControlName="lastLastMonthExaminations"/>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+</div>
