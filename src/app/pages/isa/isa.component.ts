@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { IncomeService } from 'src/app/services/income.service';
 import { NzMessageService } from 'ng-zorro-antd';
+import { ClinicService } from 'src/app/services/clinic.service';
 
 @Component({
   selector: 'app-isa',
@@ -18,7 +18,7 @@ export class IsaComponent implements OnInit {
   public isPatient: boolean;
   private user: any;
 
-  constructor(private router: Router, private incomeService: IncomeService, private message: NzMessageService) { }
+  constructor(private router: Router, private clinicSevice: ClinicService, private message: NzMessageService) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -91,7 +91,7 @@ export class IsaComponent implements OnInit {
 
   //admin
   public reportByClinic(): void {
-
+    this.router.navigateByUrl(`dashboard/clinics-income`);
   }
 
   //admin
@@ -130,9 +130,9 @@ export class IsaComponent implements OnInit {
   }
 
   //admin
-  public clinicsIncome(): void {
-    this.incomeService.getClinicsIncome(this.user.myClinic.id).subscribe(data => {
-      this.message.info('Klinika je do sada imala '+data.examinationsNumber+' pregleda i zaradila '+data.income+' dinara.');
+  public clinicsAvgGrade(): void {
+    this.clinicSevice.getAvgGrade(this.user.myClinic.id).subscribe(data => {
+      this.message.info('Prosečna ocena klinike je '+data.grade+'.');
     },
     error => {
       this.message.info(error.error.message);
