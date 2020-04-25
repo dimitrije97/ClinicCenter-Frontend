@@ -16,4 +16,12 @@ export class MedicalRecordService {
   public createMedicalRecord(body): Observable<any> {
     return this.http.post(`${this.baseUrl}medical-records`, body);
   }
+
+  public getAllMedicalRecords(): Observable<any> {
+    return this.http.get(`${this.baseUrl}medical-records`);
+  }
+
+  public getMedicalRecordByPatient(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}medical-records/${id}/patient`);
+  }
 }
