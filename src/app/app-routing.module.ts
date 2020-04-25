@@ -54,6 +54,7 @@ import { CertifiedRecipesComponent } from './pages/isa/lists/certified-recipes/c
 import { NonCertifiedRecipesComponent } from './pages/isa/lists/non-certified-recipes/non-certified-recipes.component';
 import { ClinicsIncomeComponent } from './pages/isa/lists/clinics-income/clinics-income.component';
 import { NewReportComponent } from './pages/isa/create-forms/new-report/new-report.component';
+import { NewMedicalRecordComponent } from './pages/isa/create-forms/new-medical-record/new-medical-record.component';
 
 
 const routes: Routes = [
@@ -118,6 +119,7 @@ const routes: Routes = [
         { path: 'create-diagnosis', component: NewDiagnosisComponent},
         { path: 'create-recipe', component: NewRecipeComponent},
         { path: 'create-report/:id/patient', component: NewReportComponent},
+        { path: 'create-medical-record', component: NewMedicalRecordComponent},
       
         { path: 'examination-redirect', component: ExaminationRedirectComponent},
 

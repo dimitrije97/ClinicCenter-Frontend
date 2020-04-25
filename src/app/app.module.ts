@@ -69,6 +69,7 @@ import { CertifiedRecipesComponent } from './pages/isa/lists/certified-recipes/c
 import { NonCertifiedRecipesComponent } from './pages/isa/lists/non-certified-recipes/non-certified-recipes.component';
 import { ClinicsIncomeComponent } from './pages/isa/lists/clinics-income/clinics-income.component';
 import { NewReportComponent } from './pages/isa/create-forms/new-report/new-report.component';
+import { NewMedicalRecordComponent } from './pages/isa/create-forms/new-medical-record/new-medical-record.component';
 
 registerLocaleData(en);
 
@@ -133,7 +134,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     CertifiedRecipesComponent,
     NonCertifiedRecipesComponent,
     ClinicsIncomeComponent,
-    NewReportComponent
+    NewReportComponent,
+    NewMedicalRecordComponent
   ],
   imports: [
     BrowserModule,
