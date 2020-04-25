@@ -1,9 +1,9 @@
-<div class="inputWrapper2">
+<div class="inputWrapper1">
     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="recipe" nzRequired>
-      <span>Izaberite recept</span>
+      <span style="width: 119px;">Izaberite recept</span>
     </nz-form-label>
     <nz-select
-      style="width: 260px;"
+      style="width: 200px; "
       nzShowSearchselectedType
       nzAllowClear
       nzPlaceHolder="Izaberi recept"
@@ -14,110 +14,17 @@
     <form class="inputWrapper2" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
 
         <nz-form-item>
-          <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="description" nzRequired>
-            <span>Opis</span>
+          <nz-form-label style="margin-left: -17px;" [nzSm]="6" [nzXs]="24" nzFor="description" nzRequired>
+            <span style="width: 80px">Opis</span>
           </nz-form-label>
           <nz-form-control [nzSm]="14" [nzXs]="24">
-            <input nz-input id="description" formControlName="description" placeholder="Opis"/>
+            <input nz-input id="description" style="width: 200px;" formControlName="description" placeholder="Opis"/>
           </nz-form-control>
         </nz-form-item>
-        <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-item nz-row style="margin-bottom:8px">
             <nz-form-control [nzSpan]="14" [nzOffset]="6">
-              <button nz-button nzType="primary" [disabled]="!validateForm.valid">Potvrdi</button>
+              <button nz-button nzType="primary" style="margin-left: -140px;" [disabled]="!validateForm.valid">Potvrdi</button>
             </nz-form-control>
         </nz-form-item>
     </form>
 </div>
-  
-<!-- <form class="inputWrapper2" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
-
-  <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="firstName" nzRequired>
-      <span>Ime</span>
-    </nz-form-label>
-    <nz-form-control [nzSm]="14" [nzXs]="24">
-      <input nz-input id="firstName" formControlName="firstName" placeholder="Ime"/>
-      <nz-form-explain *ngIf="validateForm.get('firstName')?.dirty && validateForm.get('firstName')?.errors"
-        >Unesite ime!</nz-form-explain
-      >
-    </nz-form-control>
-  </nz-form-item>
-
-  <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastName" nzRequired>
-      <span>Prezime</span>
-    </nz-form-label>
-    <nz-form-control [nzSm]="14" [nzXs]="24">
-      <input nz-input id="lastName" formControlName="lastName" placeholder="Prezime" />
-      <nz-form-explain *ngIf="validateForm.get('lastName')?.dirty && validateForm.get('lastName')?.errors"
-        >Unesite prezime!</nz-form-explain
-      >
-    </nz-form-control>
-  </nz-form-item>
-  
-  <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="ssn" nzRequired>JMBG</nz-form-label>
-    <nz-form-control [nzSm]="14" [nzXs]="24">
-      <input nz-input id="ssn" formControlName="ssn" placeholder="Jmbg" />
-      <nz-form-explain *ngIf="validateForm.get('ssn')?.dirty && validateForm.get('ssn')?.errors"
-        >Unesite JMBG!</nz-form-explain
-      >
-    </nz-form-control>
-  </nz-form-item>
-
-  <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="address" nzRequired>Adresa</nz-form-label>
-    <nz-form-control [nzSm]="14" [nzXs]="24">
-      <input nz-input id="address" formControlName="address" placeholder="Adresa" />
-      <nz-form-explain *ngIf="validateForm.get('address')?.dirty && validateForm.get('address')?.errors"
-        >Unesite adresu!</nz-form-explain
-      >
-    </nz-form-control>
-  </nz-form-item>
-
-  <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="city" nzRequired>Grad</nz-form-label>
-    <nz-form-control [nzSm]="14" [nzXs]="24">
-      <input nz-input id="city" formControlName="city" placeholder="Grad" />
-      <nz-form-explain *ngIf="validateForm.get('city')?.dirty && validateForm.get('city')?.errors"
-        >Unesite grad!</nz-form-explain
-      >
-    </nz-form-control>
-  </nz-form-item>
-
-  <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="country" nzRequired>Država</nz-form-label>
-    <nz-form-control [nzSm]="14" [nzXs]="24">
-      <input nz-input id="country" formControlName="country" placeholder="Država" />
-      <nz-form-explain *ngIf="validateForm.get('country')?.dirty && validateForm.get('country')?.errors"
-        >Unesite državu!</nz-form-explain
-      >
-    </nz-form-control>
-  </nz-form-item>
-  
-  <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phone" nzRequired>Broj telefona</nz-form-label>
-    <nz-form-control [nzSm]="14" [nzXs]="24">
-      <input nz-input id="phone" formControlName="phone" placeholder="Broj telefona" />
-      <nz-form-explain *ngIf="validateForm.get('phone')?.dirty && validateForm.get('phone')?.errors"
-        >Unesite broj telefona!</nz-form-explain
-      >
-    </nz-form-control>
-  </nz-form-item>
-  
-  <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">E-mail</nz-form-label>
-    <nz-form-control [nzSm]="14" [nzXs]="24">
-      <input nz-input formControlName="email" id="email" placeholder="E-mail adresa" />
-      <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
-        Niste uneli validan email!
-      </nz-form-explain>
-    </nz-form-control>
-  </nz-form-item>
-
-  <nz-form-item nz-row style="margin-bottom:8px;">
-    <nz-form-control [nzSpan]="14" [nzOffset]="6">
-      <button nz-button nzType="primary" [disabled]="!validateForm.valid">Dodaj</button>
-    </nz-form-control>
-  </nz-form-item>
-</form> -->

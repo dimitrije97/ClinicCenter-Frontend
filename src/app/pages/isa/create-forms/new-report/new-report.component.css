@@ -1,10 +1,17 @@
-.inputWrapper{
+.inputWrapper1{
     margin-top: 2%;
-    margin: 20px 55px 0px -215px;
+    margin-left: 20px;
 }
 
 .inputWrapper2{
     margin-top: 2%;
-    margin: 20px 55px 0px -58px;
-    width: 800px;
+    margin-left: 20px;
+}
+
+.ant-col-sm-14 {
+    width: 20%;
+}
+
+.ant-col-sm-6 {
+    width: 15%;
 }

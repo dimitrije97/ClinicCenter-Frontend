@@ -1,5 +1,12 @@
 .profileWrapper{
     margin-top: 20px;
-    margin-left: 2%;
-    width: 310px;
+    margin-left: 1%;
+}
+
+.ant-form-item-label {
+    width: 260px;
+}
+
+.ant-col-sm-14 {
+    width: 15%;
 }
