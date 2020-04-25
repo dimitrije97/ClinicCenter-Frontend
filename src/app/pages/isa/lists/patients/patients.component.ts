@@ -69,4 +69,8 @@ export class PatientsComponent implements OnInit {
   public scheduleExamination(id): void {
     this.router.navigateByUrl(`dashboard/create-examination-request/${id}/patient`);
   }
+
+  public report(id): void {
+    this.router.navigateByUrl(`dashboard/create-report/${id}/patient`);
+  }
 }

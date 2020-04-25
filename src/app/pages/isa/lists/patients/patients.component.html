@@ -28,7 +28,7 @@
           <button nz-button nzType="primary" (click)="scheduleExamination(data.id)">Zakaži pregled</button>
         </td>
         <td *ngIf="!isCCAdmin && !isNurse">
-          <button nz-button nzType="primary">Unesi izveštaj</button>
+          <button (click)="report(data.id)" nz-button nzType="primary">Unesi izveštaj</button>
         </td>
       </tr>
     </tbody>
