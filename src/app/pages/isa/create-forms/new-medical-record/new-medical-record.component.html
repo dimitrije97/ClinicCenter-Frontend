@@ -1,0 +1,66 @@
+<div class="inputWrapper2">
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name" nzRequired>
+      <span>Pacijent</span>
+    </nz-form-label>
+    <nz-select
+      style="width: 260px;"
+      nzShowSearchselectedType
+      nzAllowClear
+      nzPlaceHolder="Izaberi pacijenta"
+      [(ngModel)]="patientId">  
+    <nz-option *ngFor="let item of listOfData" [nzValue]="item.id" [nzLabel]="patientDN(item.firstName, item.lastName)"></nz-option>
+    </nz-select>
+</div>
+
+<form class="inputWrapper2" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="height" nzRequired>
+        <span>Visina</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="height" formControlName="height" placeholder="Visina"/>
+        <nz-form-explain *ngIf="validateForm.get('height')?.dirty && validateForm.get('height')?.errors"
+          >Unesite visinu!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="weight" nzRequired>
+        <span>Težina</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="weight" formControlName="weight" placeholder="Težina" />
+        <nz-form-explain *ngIf="validateForm.get('weight')?.dirty && validateForm.get('weight')?.errors"
+          >Unesite težinu!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+    
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="allergy" nzRequired>Alergije</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="allergy" formControlName="allergy" placeholder="Alergije" />
+        <nz-form-explain *ngIf="validateForm.get('allergy')?.dirty && validateForm.get('allergy')?.errors"
+          >Unesite alergije!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="diopter" nzRequired>Dioptrija</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="diopter" formControlName="diopter" placeholder="Dioptrija" />
+        <nz-form-explain *ngIf="validateForm.get('diopter')?.dirty && validateForm.get('diopter')?.errors"
+          >Unesite dioptriju!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary" [disabled]="!validateForm.valid">Kreiraj</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>

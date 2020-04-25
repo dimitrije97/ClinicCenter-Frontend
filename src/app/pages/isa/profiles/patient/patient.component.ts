@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PatientService } from 'src/app/services/patient.service';
 import { NzMessageService } from 'ng-zorro-antd';
 
@@ -19,7 +19,7 @@ export class PatientComponent implements OnInit {
   private id: string;
   private user: any;
 
-  constructor(private message: NzMessageService, private route: ActivatedRoute, private patientService: PatientService, private fb: FormBuilder) { }
+  constructor(private message: NzMessageService, private route: ActivatedRoute, private patientService: PatientService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -80,4 +80,7 @@ export class PatientComponent implements OnInit {
     });
   }
 
+  public medicalRecord(): void {
+    
+  }
 }
