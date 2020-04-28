@@ -81,6 +81,6 @@ export class PatientComponent implements OnInit {
   }
 
   public medicalRecord(): void {
-    
+    this.router.navigateByUrl(`dashboard/medical-record/${this.id}/patient`);
   }
 }

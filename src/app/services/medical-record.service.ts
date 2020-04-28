@@ -24,4 +24,8 @@ export class MedicalRecordService {
   public getMedicalRecordByPatient(id): Observable<any> {
     return this.http.get(`${this.baseUrl}medical-records/${id}/patient`);
   }
+
+  public updateMedicalRecord(body): Observable<any> {
+    return this.http.put(`${this.baseUrl}medical-records`, body);
+  }
 }
