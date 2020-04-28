@@ -193,6 +193,11 @@ export class IsaComponent implements OnInit {
     this.router.navigateByUrl(`dashboard/clinics-which-can-be-graded`);
   }
 
+  //patient
+  public medicalRecordByPatient(): void {
+    this.router.navigateByUrl(`dashboard/medical-record/${this.user.id}/patient`);
+  }
+
   //ccadmin
   public registrationRequests(): void {
     this.router.navigateByUrl(`dashboard/registration-requests`);

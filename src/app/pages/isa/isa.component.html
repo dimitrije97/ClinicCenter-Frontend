@@ -7,7 +7,7 @@
       </div>
       <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
         <li routerLink="/dashboard/my-profile" nz-menu-item style="font-style:oblique;">Profil</li>
-        <li *ngIf="isPatient" nz-menu-item style="font-style:oblique;">Zdravstveni karton</li>
+        <li *ngIf="isPatient" (click)="medicalRecordByPatient()" nz-menu-item style="font-style:oblique;">Zdravstveni karton</li>
         <li *ngIf="isPatient" routerLink="/dashboard/pricelist" nz-menu-item style="font-style:oblique;">Cenovnik</li>
         <li *ngIf="isDoctor || isNurse" (click)="clinicProfile()" nz-menu-item style="font-style:oblique;">Profil klinike</li>
         <li routerLink="/dashboard/google-maps" nz-menu-item style="font-style:oblique;">Mapa</li>

@@ -15,4 +15,16 @@ export class ReportService {
   public createReport(body): Observable<any> {
     return this.http.post(`${this.baseUrl}reports`, body);
   }
+
+  public getAllReportsByMedicalRecord(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}reports/${id}/medical-record`);
+  }
+
+  public getReport(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}reports/${id}/report`);
+  }
+
+  public updateReport(body): Observable<any> {
+    return this.http.put(`${this.baseUrl}reports`, body);
+  }
 }

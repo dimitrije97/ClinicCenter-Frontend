@@ -1,0 +1,106 @@
+<nz-table #nzTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th nzCustomFilter>
+            Lek
+        </th>
+        <th>
+            Dijagnoza
+        </th>
+        <th>
+            Opis
+        </th>
+        <th *ngIf="!isReadOnly"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ data.medicineName }}</td>
+        <td>{{ data.diagnosisName }}</td>
+        <td>{{ data.description }}</td>
+        <td *ngIf="!isReadOnly">
+          <button (click)="updateReport(data.id)" nz-button nzType="primary">Izmeni</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+<form class="inputWrapper2" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="patientName" nzRequired>
+          <span>Ime</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="patientName" formControlName="patientName"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="patientSurname" nzRequired>
+          <span>Ime</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="patientSurname" formControlName="patientSurname"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="patientEmail" nzRequired>
+          <span>Email</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="patientEmail" formControlName="patientEmail"/>
+        </nz-form-control>
+      </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="height" nzRequired>
+        <span>Visina</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="height" formControlName="height"/>
+        <nz-form-explain *ngIf="validateForm.get('height')?.dirty && validateForm.get('height')?.errors"
+          >Unesite visinu!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="weight" nzRequired>
+        <span>Težina</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="weight" formControlName="weight"/>
+        <nz-form-explain *ngIf="validateForm.get('weight')?.dirty && validateForm.get('weight')?.errors"
+          >Unesite težinu!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+    
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="allergy" nzRequired>Alergije</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="allergy" formControlName="allergy"/>
+        <nz-form-explain *ngIf="validateForm.get('allergy')?.dirty && validateForm.get('allergy')?.errors"
+          >Unesite alergije!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+  
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="diopter" nzRequired>Dioptrija</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input id="diopter" formControlName="diopter"/>
+        <nz-form-explain *ngIf="validateForm.get('diopter')?.dirty && validateForm.get('diopter')?.errors"
+          >Unesite dioptriju!</nz-form-explain
+        >
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item *ngIf="!isReadOnly" nz-row style="margin-bottom:8px;">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary" [disabled]="!validateForm.valid">Izmeni</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>

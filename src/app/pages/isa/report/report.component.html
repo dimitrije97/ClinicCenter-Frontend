@@ -1,0 +1,35 @@
+<form class="inputWrapper2" nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="medicineName" nzRequired>
+          <span>Lek</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="medicineName" formControlName="medicineName"/>
+        </nz-form-control>
+      </nz-form-item>
+    
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="diagnosisName" nzRequired>
+          <span>Dijagnoza</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="diagnosisName" formControlName="diagnosisName"/>
+        </nz-form-control>
+      </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="description" nzRequired>
+          <span>Opis</span>
+        </nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input id="description" formControlName="description"/>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary" [disabled]="!validateForm.valid">Izmeni</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
