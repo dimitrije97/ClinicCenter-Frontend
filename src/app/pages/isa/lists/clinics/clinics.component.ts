@@ -14,6 +14,7 @@ export class ClinicsComponent implements OnInit {
 
   private user: any;
   public isCCAdmin: boolean;
+  public isPatient: boolean;
 
   constructor(private message: NzMessageService, private clinicService: ClinicService, private router: Router, private route: ActivatedRoute) { }
 
@@ -26,12 +27,16 @@ export class ClinicsComponent implements OnInit {
   private setupUser(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
     this.isCCAdmin = false;
+    this.isPatient = false;
   }
 
   private setupUserType(): void {
     if(this.user.userType === 'CLINIC_CENTER_ADMIN'){
       this.isCCAdmin = true;
+    }else if(this.user.userType === 'PATIENT'){
+      this.isPatient = true;
     }
+    console.log(this.isPatient)
   }
 
   private setupData(): void {
@@ -61,5 +66,9 @@ export class ClinicsComponent implements OnInit {
     error => {
       this.message.info(error.error.message);
     });
+  }
+
+  public doctors(id): void {
+    this.router.navigateByUrl(`dashboard/doctors/${id}/clinic`);
   }
 }

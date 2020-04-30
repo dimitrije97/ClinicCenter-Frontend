@@ -10,6 +10,8 @@
         <th>
             Opis
         </th>
+        <th *ngIf="isPatient">
+      </th>
         <th></th>
         <th *ngIf="isCCAdmin"></th>
       </tr>
@@ -24,6 +26,9 @@
         </td>
         <td *ngIf="isCCAdmin">
           <button (click)="delete(data.id)" nz-button nzType="danger">Ukloni</button>
+        </td>
+        <td *ngIf="isPatient">
+          <button (click)="doctors(data.id)" nz-button nzType="primary">Lekari</button>
         </td>
       </tr>
     </tbody>

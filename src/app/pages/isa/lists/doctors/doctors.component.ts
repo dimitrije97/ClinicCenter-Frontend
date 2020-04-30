@@ -12,12 +12,19 @@ export class DoctorsComponent implements OnInit {
 
   public listOfData = [];
   private user: any;
+  private id: any;
+  public isPatient: boolean;
 
   constructor(private message: NzMessageService, private doctorService: DoctorService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.setupUser();
+    this.extractId();
     this.setupData();
+  }
+
+  private extractId(): void {
+    this.id = this.route.snapshot.params.id;
   }
 
   private setupData(): void {
@@ -37,11 +44,24 @@ export class DoctorsComponent implements OnInit {
         this.message.info(error.error.message);
         this.router.navigateByUrl(`dashboard`);
       });
+    } else if(this.user.userType === 'PATIENT'){
+      this.doctorService.getAllDoctorsByClinic(this.id).subscribe(data => {
+        this.listOfData = data;
+      },
+      error => {
+        this.message.info(error.error.message);
+        this.router.navigateByUrl(`dashboard`);
+      });
     }
   }
 
   private setupUser(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
+    if(this.user.userType === 'PATIENT'){
+      this.isPatient = true;
+    }else{
+      this.isPatient = false;
+    }
   } 
 
   profile(id) {

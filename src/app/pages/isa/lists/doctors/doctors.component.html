@@ -10,7 +10,7 @@
         </th>
         <th></th>
         <th></th>
-        <th></th>
+        <th *ngIf="!isPatient"></th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +23,7 @@
         <td>
             <button (click)="profile(data.id)" nz-button nzType="primary">Profil</button>
         </td>
-        <td>
+        <td *ngIf="!isPatient">
           <button (click)="delete(data.id)" nz-button nzType="danger">Ukloni</button>
         </td>
       </tr>
