@@ -1,0 +1,22 @@
+<nz-calendar>
+    <ul *nzDateCell="let date" class="events">
+        <ng-container *ngFor="let item of listOfData">
+            <h3 style="color: rgb(27, 12, 109); font-style: italic;" *ngIf="isSameDate(date, item.date)">
+                <!-- <button (click)="click(item)" nz-button nzType="primary"> {{ reasonOfUnavailability(item.reasonOfUnavailability) }}</button> -->
+                <!-- <br />
+                <br /> -->
+                {{ reasonOfUnavailability(item) }}
+                <br />
+                <br />
+                </h3>
+
+        </ng-container>
+      <!-- <ng-container [ngSwitch]="date.getDate()">
+        <ng-container *ngFor="let item of listOfData">
+          <li *ngIf="date.getDate() == item.date">
+            <nz-badge [nzStatus]="error" [nzText]="item.startAt"></nz-badge>
+          </li>
+        </ng-container>
+      </ng-container> -->
+    </ul>
+  </nz-calendar>

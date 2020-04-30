@@ -57,6 +57,7 @@ import { NewReportComponent } from './pages/isa/create-forms/new-report/new-repo
 import { NewMedicalRecordComponent } from './pages/isa/create-forms/new-medical-record/new-medical-record.component';
 import { MedicalRecordComponent } from './pages/isa/medical-record/medical-record.component';
 import { ReportComponent } from './pages/isa/report/report.component';
+import { CalendarComponent } from './pages/isa/calendar/calendar.component';
 
 
 const routes: Routes = [
@@ -127,7 +128,8 @@ const routes: Routes = [
         { path: 'medical-record/:id/patient', component: MedicalRecordComponent},
         { path: ':id/report', component: ReportComponent},
 
-        { path: 'google-maps', component: GoogleMapsComponent}
+        { path: 'google-maps', component: GoogleMapsComponent},
+        { path: 'work-calendar', component: CalendarComponent}
       ]
     },
   ];
