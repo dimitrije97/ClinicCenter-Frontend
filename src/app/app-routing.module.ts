@@ -84,7 +84,7 @@ const routes: Routes = [
         { path: 'pending-examinations/:id/clinic', component: PendingExaminationsComponent},
         { path: 'confirming-examinations', component: ConfirmingExaminationsComponent},
         { path: 'pending-vacations/:id/clinic', component: PendingVacationsComponent},
-        { path: 'doctor-calendar', component: DoctorCalendarComponent},
+        { path: 'calendar', component: DoctorCalendarComponent},
         { path: 'future-examinations', component: FutureExaminationsComponent},
         { path: 'examinations-history', component: ExaminationsHistoryComponent},
         { path: 'doctors-who-can-be-graded', component: DoctorsWhoCanBeGradedComponent},

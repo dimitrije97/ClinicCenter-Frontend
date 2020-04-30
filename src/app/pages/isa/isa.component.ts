@@ -150,7 +150,7 @@ export class IsaComponent implements OnInit {
   }
 
   public schedule(): void {
-    this.router.navigateByUrl(`dashboard/doctor-calendar`);
+    this.router.navigateByUrl(`dashboard/calendar`);
   }
 
   //patient

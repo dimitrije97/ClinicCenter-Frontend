@@ -56,17 +56,17 @@
             </ul>
           </li>
 
-          <!-- doctor -->
+          <!-- doctor / nurse -->
 
           <li nz-menu-item nzMatchRouter *ngIf="isDoctor || isNurse">
             <a (click)="patients()">Pacijenti</a>
           </li>
 
-          <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
+          <li nz-menu-item nzMatchRouter *ngIf="isDoctor || isNurse">
             <a (click)="schedule()">Radni kalendar</a>
           </li>
 
-          <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
+          <li nz-menu-item nzMatchRouter *ngIf="isDoctor || isNurse">
             <a (click)="vacation()">Godišnji odmor</a>
           </li>
 

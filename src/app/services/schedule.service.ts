@@ -16,4 +16,8 @@ export class ScheduleService {
   public getDoctorsSchedules(id): Observable<any> {
     return this.http.get(`${this.baseUrl}schedules/${id}/doctor`);
   }
+
+  public getNursesSchedules(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}schedules/${id}/nurse`);
+  }
 }
