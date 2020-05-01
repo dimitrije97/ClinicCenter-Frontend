@@ -14,6 +14,11 @@ export class NewClinicComponent implements OnInit {
 
   validateForm: FormGroup;
 
+  checked: boolean;
+
+  lat: any = null;
+  lon: any = null;
+
   constructor(private message: NzMessageService, private fb: FormBuilder, private clinicService: ClinicService, private router: Router, private adminService: AdminService) { }
 
   ngOnInit(): void {
@@ -22,6 +27,7 @@ export class NewClinicComponent implements OnInit {
       address: [ null, [Validators.required, Validators.minLength(4)]],
       description: [ null, [Validators.required, Validators.minLength(4)]]
     });
+    this.checked = false
   }
 
   public create(): void {
@@ -30,7 +36,9 @@ export class NewClinicComponent implements OnInit {
       this.validateForm.controls[i].updateValueAndValidity();
     }
     const body = {
-      ...this.validateForm.value
+      ...this.validateForm.value,
+      lat: this.lat,
+      lon: this.lon
     }
     this.clinicService.createClinic(body).subscribe(() => {
       this.message.info('Uspešno ste kreirali kliniku!');

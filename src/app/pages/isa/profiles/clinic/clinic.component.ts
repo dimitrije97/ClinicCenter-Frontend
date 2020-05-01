@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ClinicService } from 'src/app/services/clinic.service';
 import { NzMessageService } from 'ng-zorro-antd';
 
@@ -18,7 +18,12 @@ export class ClinicComponent implements OnInit {
   private id: string;
   private user: any;
 
-  constructor(private message: NzMessageService, private route: ActivatedRoute, private clinicService: ClinicService, private fb: FormBuilder) { }
+  checked: boolean;
+
+  lat: any = null;
+  lon: any = null;
+
+  constructor(private router: Router, private message: NzMessageService, private route: ActivatedRoute, private clinicService: ClinicService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.setupUser();
@@ -26,6 +31,8 @@ export class ClinicComponent implements OnInit {
     this.setupForm();
     this.extractId();
     this.getDetails();
+
+    this.checked = false;
   }
 
   private setupIsReadOnly(): void {
@@ -59,16 +66,36 @@ export class ClinicComponent implements OnInit {
         address: data.address,
         description: data.description,
       }
+      this.lat = data.lat;
+      this.lon = data.lon;
       this.validateForm.setValue(formValues);
     })
   }
 
   public update(): void {
-    this.clinicService.updateClinic(this.id, this.validateForm.value).subscribe(data => {
+    const body = {
+      ...this.validateForm.value,
+      lat: this.lat,
+      lon: this.lon
+    }
+    this.clinicService.updateClinic(this.id, body).subscribe(data => {
       this.message.info('Uspešno ste izmenili podatke.');
     },
     error => {
       this.message.info(error.error.message);
     });
+  }
+
+  public location(): void {
+    if(this.lat == null || this.lon == null){
+      this.message.info('Još uvek ne postoji ta opcija za kliniku '+name+'.');
+      return;
+    }
+    const body = {
+      lat: this.lat,
+      lon: this.lon
+    }
+    localStorage.setItem('latlon', JSON.stringify(body));
+    this.router.navigateByUrl('dashboard/google-maps');
   }
 }

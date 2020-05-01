@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps';
+import { ClinicService } from 'src/app/services/clinic.service';
+import { NzMessageService } from 'ng-zorro-antd';
+import { Router } from '@angular/router';
 
 
 
@@ -25,12 +28,50 @@ export class GoogleMapsComponent implements OnInit {
   }
   markers = []
   infoContent = ''
+  private data: any;
+
+  constructor(private clinicService: ClinicService, private message: NzMessageService, private router: Router) { }
 
   ngOnInit() {
     navigator.geolocation.getCurrentPosition(position => {
-      this.center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
+      this.data = JSON.parse(localStorage.getItem('latlon'));
+      if(this.data != null){
+        this.center = {
+          lat: Number(this.data.lat),
+          lng: Number(this.data.lon)
+        }
+      }else{
+        this.center = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        }
+      }
+
+      
+    })
+    this.setupClinics();
+  }
+
+  setupClinics() {
+    this.clinicService.getAllClinics().subscribe(data => {
+      for(let i = 0;i < data.length;i++){
+         if(data[i].lat != null && data[i].lon != null){
+          this.markers.push({
+            position: {
+              lat: Number(data[i].lat),
+              lng: Number(data[i].lon)
+            },
+            label: {
+              color: 'red',
+              text: data[i].name,
+            },
+            title: data[i].name,
+            info: data[i].description,
+            options: {
+              animation: google.maps.Animation.BOUNCE,
+            },
+          })
+        }
       }
     })
   }
