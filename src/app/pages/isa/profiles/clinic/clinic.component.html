@@ -40,14 +40,14 @@
     </form>
   </div>
 
-  <button class="wrapper" *ngIf="isReadOnly" (click)="location()" nz-button nzType="primary">Prikaži na mapi</button>
+  <button class="wrapper" style="margin-left: 8.1%;" *ngIf="isReadOnly" (click)="location()" nz-button nzType="primary">Prikaži na mapi</button>
 
     <label *ngIf="!isReadOnly" class = "wrapper" nz-checkbox [(ngModel)]="checked">Izmeni lokaciju na mapi</label>
     <br />
     <br />
     <div *ngIf="checked" class="example-input">
-      <input [(ngModel)]="lat" style="margin-left: 77px;" nz-input placeholder="Geografska širina" nzSize="default" />
-      <input [(ngModel)]="lon" nz-input placeholder="Geografska dužina" nzSize="default" />
+      <input [(ngModel)]="lat" style="margin-left: 103px; width: 182px;" nz-input placeholder="Geografska širina" nzSize="default" />
+      <input [(ngModel)]="lon"style="width: 182px;" nz-input placeholder="Geografska dužina" nzSize="default" />
       <br />
       <br />
     </div>
