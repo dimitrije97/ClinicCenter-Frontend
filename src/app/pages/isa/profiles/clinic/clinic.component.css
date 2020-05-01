@@ -3,3 +3,12 @@
     margin-left: 2%;
     width: 310px;
 }
+
+.wrapper{
+    margin-left: 77px;
+}
+
+.example-input .ant-input {
+    width: 200px;
+    margin: 0 8px 8px 0;
+  }

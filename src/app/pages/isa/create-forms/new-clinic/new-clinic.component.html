@@ -32,10 +32,21 @@
           >
         </nz-form-control>
       </nz-form-item>
-      <nz-form-item nz-row style="margin-bottom:8px;">
+      <!-- <nz-form-item nz-row style="margin-bottom:8px;">
         <nz-form-control [nzSpan]="14" [nzOffset]="6">
           <button (click)="create()" nz-button nzType="primary" [disabled]="!validateForm.valid">Kreiraj</button>
         </nz-form-control>
-      </nz-form-item>
+      </nz-form-item> -->
     </form>
   </div>
+
+  <label class = "wrapper" nz-checkbox [(ngModel)]="checked">Dodaj lokaciju na mapu</label>
+  <br />
+  <br />
+  <div *ngIf="checked" class="example-input">
+    <input [(ngModel)]="lat" style="margin-left: 95px;" nz-input placeholder="Geografska širina" nzSize="default" />
+    <input [(ngModel)]="lon" nz-input placeholder="Geografska dužina" nzSize="default" />
+    <br />
+    <br />
+  </div>
+  <button class = "wrapper" (click)="create()" nz-button nzType="primary" [disabled]="!validateForm.valid">Kreiraj</button>

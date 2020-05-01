@@ -32,10 +32,25 @@
           >
         </nz-form-control>
       </nz-form-item>
-      <nz-form-item *ngIf="!isReadOnly" nz-row style="margin-bottom:8px;">
+      <!-- <nz-form-item *ngIf="!isReadOnly" nz-row style="margin-bottom:8px;">
         <nz-form-control [nzSpan]="14" [nzOffset]="6">
           <button (click)="update()" nz-button nzType="primary">Sačuvaj</button>
         </nz-form-control>
-      </nz-form-item>
+      </nz-form-item> -->
     </form>
   </div>
+
+  <button class="wrapper" *ngIf="isReadOnly" (click)="location()" nz-button nzType="primary">Prikaži na mapi</button>
+
+    <label *ngIf="!isReadOnly" class = "wrapper" nz-checkbox [(ngModel)]="checked">Izmeni lokaciju na mapi</label>
+    <br />
+    <br />
+    <div *ngIf="checked" class="example-input">
+      <input [(ngModel)]="lat" style="margin-left: 77px;" nz-input placeholder="Geografska širina" nzSize="default" />
+      <input [(ngModel)]="lon" nz-input placeholder="Geografska dužina" nzSize="default" />
+      <br />
+      <br />
+    </div>
+
+    <button class="wrapper" *ngIf="!isReadOnly" (click)="update()" nz-button nzType="primary">Sačuvaj</button>
+  

@@ -14,6 +14,7 @@
       </th>
         <th></th>
         <th *ngIf="isCCAdmin"></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +30,9 @@
         </td>
         <td *ngIf="isPatient">
           <button (click)="doctors(data.id)" nz-button nzType="primary">Lekari</button>
+        </td>
+        <td>
+          <button (click)="location(data.lat, data.lon, data.name)" nz-button nzType="primary">Lokacija</button>
         </td>
       </tr>
     </tbody>

@@ -71,4 +71,17 @@ export class ClinicsComponent implements OnInit {
   public doctors(id): void {
     this.router.navigateByUrl(`dashboard/doctors/${id}/clinic`);
   }
+
+  public location(lat, lon, name): void {
+    if(lat == null || lon == null){
+      this.message.info('Još uvek ne postoji ta opcija za kliniku '+name+'.');
+      return;
+    }
+    const body = {
+      lat: lat,
+      lon: lon
+    }
+    localStorage.setItem('latlon', JSON.stringify(body));
+    this.router.navigateByUrl('dashboard/google-maps');
+  }
 }
