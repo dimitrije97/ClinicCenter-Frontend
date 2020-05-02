@@ -73,3 +73,9 @@
       </nz-form-item>
     </form>
 </div>
+<span style="width: 35%; margin-left: 40px;">Procentualno prihodi u ovom, prošlom i pretprošlom mesecu, redom:</span>
+<div class="proggress">
+  <nz-progress [nzPercent]="thisMonthIncomePercent"></nz-progress>
+  <nz-progress [nzPercent]="lastMonthIncomePercent"></nz-progress>
+  <nz-progress [nzPercent]="lastLastMonthIncomePercent"></nz-progress>
+</div>

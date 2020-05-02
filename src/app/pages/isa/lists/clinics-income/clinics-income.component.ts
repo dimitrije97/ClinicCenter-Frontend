@@ -11,6 +11,10 @@ export class ClinicsIncomeComponent implements OnInit {
 
   validateForm: FormGroup;
   private user: any;
+  
+  public thisMonthIncomePercent: any;
+  public lastMonthIncomePercent: any;
+  public lastLastMonthIncomePercent: any;
 
   constructor(private fb: FormBuilder, private incomeService: IncomeService) { }
 
@@ -45,6 +49,9 @@ export class ClinicsIncomeComponent implements OnInit {
         lastLastMonthIncome: data.lastLastMonthIncome,
         lastLastMonthExaminations: data.lastLastMonthExaminations
       });
+      this.thisMonthIncomePercent = data.thisMonthIncomePercent;
+      this.lastMonthIncomePercent = data.lastMonthIncomePercent;
+      this.lastLastMonthIncomePercent = data.lastLastMonthIncomePercent;
     });
   }
 }

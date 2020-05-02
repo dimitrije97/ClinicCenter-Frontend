@@ -10,3 +10,9 @@
 .ant-col-sm-14 {
     width: 15%;
 }
+
+.proggress {
+    width: 35%;
+    font-size: 40px;
+    margin-left: 40px;
+}
