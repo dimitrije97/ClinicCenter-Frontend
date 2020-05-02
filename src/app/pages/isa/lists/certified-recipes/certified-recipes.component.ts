@@ -21,7 +21,6 @@ export class CertifiedRecipesComponent implements OnInit {
   private setupData(): void {
     this.recipeService.getAllCertifiedRecipes().subscribe(data => {
       this.listOfData = data;
-      console.log(data);
     },
     error => {
       this.message.info(error.error.message);
@@ -29,4 +28,7 @@ export class CertifiedRecipesComponent implements OnInit {
     });
   }
 
+  public nurseDN(name, surname): String {
+    return name+' '+surname;
+  }
 }

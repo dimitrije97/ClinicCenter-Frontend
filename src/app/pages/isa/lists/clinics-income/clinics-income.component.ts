@@ -10,11 +10,16 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class ClinicsIncomeComponent implements OnInit {
 
   validateForm: FormGroup;
+  validateForm2: FormGroup;
   private user: any;
   
   public thisMonthIncomePercent: any;
   public lastMonthIncomePercent: any;
   public lastLastMonthIncomePercent: any;
+
+  public thisDayIncomePercent: any;
+  public lastDayIncomePercent: any;
+  public lastLastDayIncomePercent: any;
 
   constructor(private fb: FormBuilder, private incomeService: IncomeService) { }
 
@@ -28,6 +33,14 @@ export class ClinicsIncomeComponent implements OnInit {
       lastMonthExaminations: [null, [Validators.required]],
       lastLastMonthIncome: [null, [Validators.required]],
       lastLastMonthExaminations: [null, [Validators.required]]
+    });
+    this.validateForm2 = this.fb.group({
+      thisDayIncome: [null, [Validators.required]],
+      thisDayExaminations: [null, [Validators.required]],
+      lastDayIncome: [null, [Validators.required]],
+      lastDayExaminations: [null, [Validators.required]],
+      lastLastDayIncome: [null, [Validators.required]],
+      lastLastDayExaminations: [null, [Validators.required]]
     });
     this.setupUser();
     this.setupData();
@@ -52,6 +65,21 @@ export class ClinicsIncomeComponent implements OnInit {
       this.thisMonthIncomePercent = data.thisMonthIncomePercent;
       this.lastMonthIncomePercent = data.lastMonthIncomePercent;
       this.lastLastMonthIncomePercent = data.lastLastMonthIncomePercent;
+    });
+
+    this.incomeService.getClinicsDailyIncome(this.user.myClinic.id).subscribe(data => {
+      this.validateForm2 = this.fb.group({
+        thisDayIncome: data.thisDayIncome,
+        thisDayExaminations: data.thisDayExaminations,
+        lastDayIncome: data.lastDayIncome,
+        lastDayExaminations: data.lastDayExaminations,
+        lastLastDayIncome: data.lastLastDayIncome,
+        lastLastDayExaminations: data.lastLastDayExaminations
+      });
+      console.log(this.validateForm2.value)
+      this.thisDayIncomePercent = data.thisDayIncomePercent;
+      this.lastDayIncomePercent = data.lastDayIncomePercent;
+      this.lastLastDayIncomePercent = data.lastLastDayIncomePercent;
     });
   }
 }

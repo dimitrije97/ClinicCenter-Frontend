@@ -7,12 +7,16 @@
         <th>
             Dijagnoza
         </th>
+        <th>
+          Overilac
+      </th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let data of nzTable.data">
         <td>{{ data.medicineName }}</td>
         <td>{{ data.diagnosisName }}</td>
+        <td>{{ nurseDN(data.nurseName, data.nurseSurname) }}</td>
       </tr>
     </tbody>
   </nz-table>

@@ -86,69 +86,69 @@
 <!-- drugi deo -->
 
 <div class="split right">
-  <form nz-form [formGroup]="validateForm">
+  <form nz-form [formGroup]="validateForm2">
 
     <b><h3 style="width: 35%; margin-left: 150px; font-style: oblique;">Izveštaj na dnevnom nivou:</h3></b>
     <br/>
 
     <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisMonthIncome">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisDayIncome">
         <span>Prihod danas</span>
       </nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
-        <input [disabled]="true" nz-input id="thisMonthIncome" formControlName="thisMonthIncome"/>
+        <input [disabled]="true" nz-input id="thisDayIncome" formControlName="thisDayIncome"/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisMonthExaminations">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisDayExaminations">
         <span>Broj pregleda danas</span>
       </nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
-        <input [disabled]="true" nz-input id="thisMonthExaminations" formControlName="thisMonthExaminations"/>
+        <input [disabled]="true" nz-input id="thisDayExaminations" formControlName="thisDayExaminations"/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastMonthIncome">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastDayIncome">
         <span>Prihod juče</span>
       </nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
-        <input [disabled]="true" nz-input id="lastMonthIncome" formControlName="lastMonthIncome"/>
+        <input [disabled]="true" nz-input id="lastDayIncome" formControlName="lastDayIncome"/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastMonthExaminations">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastDayExaminations">
         <span>Broj pregleda juče</span>
       </nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
-        <input [disabled]="true" nz-input id="lastMonthExaminations" formControlName="lastMonthExaminations"/>
+        <input [disabled]="true" nz-input id="lastDayExaminations" formControlName="lastDayExaminations"/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastMonthIncome">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastDayIncome">
         <span>Prihod prekjuče</span>
       </nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
-        <input [disabled]="true" nz-input id="lastLastMonthIncome" formControlName="lastLastMonthIncome"/>
+        <input [disabled]="true" nz-input id="lastLastDayIncome" formControlName="lastLastDayIncome"/>
       </nz-form-control>
     </nz-form-item>
 
     <nz-form-item>
-      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastMonthExaminations">
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastDayExaminations">
         <span>Broj pregleda prekjuče</span>
       </nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
-        <input [disabled]="true" nz-input id="lastLastMonthExaminations" formControlName="lastLastMonthExaminations"/>
+        <input [disabled]="true" nz-input id="lastLastDayExaminations" formControlName="lastLastDayExaminations"/>
       </nz-form-control>
     </nz-form-item>
   </form>
   <span style="width: 35%;">Procentualno prihodi danas, juče i prekjuče, redom:</span>
     <div class="proggress" style="width: 35%;">
-      <nz-progress [nzPercent]="thisMonthIncomePercent"></nz-progress>
-      <nz-progress [nzPercent]="lastMonthIncomePercent"></nz-progress>
-      <nz-progress [nzPercent]="lastLastMonthIncomePercent"></nz-progress> 
+      <nz-progress [nzPercent]="thisDayIncomePercent"></nz-progress>
+      <nz-progress [nzPercent]="lastDayIncomePercent"></nz-progress>
+      <nz-progress [nzPercent]="lastLastDayIncomePercent"></nz-progress> 
     </div>
 </div>
