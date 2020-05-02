@@ -74,6 +74,8 @@ import { MedicalRecordComponent } from './pages/isa/medical-record/medical-recor
 import { ReportComponent } from './pages/isa/report/report.component';
 import { CalendarComponent } from './pages/isa/calendar/calendar.component';
 
+import { AngularSplitModule } from 'angular-split';
+
 registerLocaleData(en);
 
 const antDesignIcons = AllIcons as {
@@ -152,6 +154,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     BrowserAnimationsModule,
     AppRoutingModule,
     NzIconModule,
+    AngularSplitModule.forRoot(),
     
     GoogleMapsModule
   ],

@@ -1,7 +1,7 @@
-<div class="profileWrapper">
+<div class="split left">
     <form nz-form [formGroup]="validateForm">
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="income" nzRequired>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="income" >
           <span>Ukupan prihod</span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
@@ -10,7 +10,7 @@
       </nz-form-item>
   
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="examinations" nzRequired>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="examinations">
           <span>Ukupan broj pregleda</span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
@@ -18,9 +18,12 @@
         </nz-form-control>
       </nz-form-item>
 
+      <b><h3 style="width: 35%; margin-left: 150px; font-style: oblique;">Izveštaj na mesečnom nivou:</h3></b>
+      <br/>
+
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisMonthIncome" nzRequired>
-          <span>Prihod u ovom mesecu</span>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisMonthIncome">
+          <span>Prihod u tekućem mesecu</span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
           <input [disabled]="true" nz-input id="thisMonthIncome" formControlName="thisMonthIncome"/>
@@ -28,8 +31,8 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisMonthExaminations" nzRequired>
-          <span>Broj pregleda u ovom mesecu</span>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisMonthExaminations">
+          <span>Broj pregleda u tekućem mesecu</span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
           <input [disabled]="true" nz-input id="thisMonthExaminations" formControlName="thisMonthExaminations"/>
@@ -37,7 +40,7 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastMonthIncome" nzRequired>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastMonthIncome">
           <span>Prihod u prošlom mesecu</span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
@@ -46,7 +49,7 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastMonthExaminations" nzRequired>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastMonthExaminations">
           <span>Broj pregleda u prošlom mesecu</span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
@@ -55,7 +58,7 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastMonthIncome" nzRequired>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastMonthIncome">
           <span>Prihod u pretprošlom mesecu</span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
@@ -64,7 +67,7 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastMonthExaminations" nzRequired>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastMonthExaminations">
           <span>Broj pregleda u pretprošlom mesecu</span>
         </nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
@@ -72,10 +75,80 @@
         </nz-form-control>
       </nz-form-item>
     </form>
+    <span style="width: 35%;">Procentualno prihodi u ovom, prošlom i pretprošlom mesecu, redom:</span>
+    <div class="proggress" style="width: 35%;">
+      <nz-progress [nzPercent]="thisMonthIncomePercent"></nz-progress>
+      <nz-progress [nzPercent]="lastMonthIncomePercent"></nz-progress>
+      <nz-progress [nzPercent]="lastLastMonthIncomePercent"></nz-progress> 
+    </div>
 </div>
-<span style="width: 35%; margin-left: 40px;">Procentualno prihodi u ovom, prošlom i pretprošlom mesecu, redom:</span>
-<div class="proggress">
-  <nz-progress [nzPercent]="thisMonthIncomePercent"></nz-progress>
-  <nz-progress [nzPercent]="lastMonthIncomePercent"></nz-progress>
-  <nz-progress [nzPercent]="lastLastMonthIncomePercent"></nz-progress>
+
+<!-- drugi deo -->
+
+<div class="split right">
+  <form nz-form [formGroup]="validateForm">
+
+    <b><h3 style="width: 35%; margin-left: 150px; font-style: oblique;">Izveštaj na dnevnom nivou:</h3></b>
+    <br/>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisMonthIncome">
+        <span>Prihod danas</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input [disabled]="true" nz-input id="thisMonthIncome" formControlName="thisMonthIncome"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="thisMonthExaminations">
+        <span>Broj pregleda danas</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input [disabled]="true" nz-input id="thisMonthExaminations" formControlName="thisMonthExaminations"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastMonthIncome">
+        <span>Prihod juče</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input [disabled]="true" nz-input id="lastMonthIncome" formControlName="lastMonthIncome"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastMonthExaminations">
+        <span>Broj pregleda juče</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input [disabled]="true" nz-input id="lastMonthExaminations" formControlName="lastMonthExaminations"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastMonthIncome">
+        <span>Prihod prekjuče</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input [disabled]="true" nz-input id="lastLastMonthIncome" formControlName="lastLastMonthIncome"/>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastLastMonthExaminations">
+        <span>Broj pregleda prekjuče</span>
+      </nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input [disabled]="true" nz-input id="lastLastMonthExaminations" formControlName="lastLastMonthExaminations"/>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+  <span style="width: 35%;">Procentualno prihodi danas, juče i prekjuče, redom:</span>
+    <div class="proggress" style="width: 35%;">
+      <nz-progress [nzPercent]="thisMonthIncomePercent"></nz-progress>
+      <nz-progress [nzPercent]="lastMonthIncomePercent"></nz-progress>
+      <nz-progress [nzPercent]="lastLastMonthIncomePercent"></nz-progress> 
+    </div>
 </div>
