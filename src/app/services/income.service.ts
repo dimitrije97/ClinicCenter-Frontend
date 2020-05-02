@@ -20,4 +20,8 @@ export class IncomeService {
   public getClinicsMonthlyIncome(id): Observable<any> {
     return this.http.get(`${this.baseUrl}incomes/monthly/${id}/clinic`);
   }
+
+  public getClinicsDailyIncome(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}incomes/daily/${id}/clinic`);
+  }
 }

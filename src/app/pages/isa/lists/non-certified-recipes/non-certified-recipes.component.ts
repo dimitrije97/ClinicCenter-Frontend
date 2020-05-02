@@ -63,7 +63,8 @@ export class NonCertifiedRecipesComponent implements OnInit {
 
   public certify(id): void {
     const body = {
-      recipeId: id
+      recipeId: id,
+      nurseId: this.user.id
     }
     this.recipeService.certifyRecipe(body).subscribe(() => {
       this.message.info('Uspešno ste overili recept.');
