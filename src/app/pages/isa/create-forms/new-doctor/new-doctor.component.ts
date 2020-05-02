@@ -71,6 +71,9 @@ export class NewDoctorComponent implements OnInit {
         this.message.info('Uspešno ste kreirali novog lekara.');
       // error => {
       //   this.message.info(error.error.message);
+      },
+      error => {
+        this.message.info(error.error.message);
       });
     }
   }

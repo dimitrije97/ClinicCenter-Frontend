@@ -79,8 +79,9 @@ export class NewAdminComponent implements OnInit {
         this.adminService.createAdmin(body).subscribe(data => {
           console.log(data);
           this.message.info('Uspešno ste kreirali novog administratora.');
-        // error => {
-        //   this.message.info(error.error.message);
+        },
+        error => {
+          this.message.info(error.error.message);
         });
       }else{
         const body = {
