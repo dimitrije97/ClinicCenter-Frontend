@@ -14,6 +14,8 @@ export class ExaminationsHistoryComponent implements OnInit {
   public listOfData = [];
   private user: any;
 
+  public name: any = '';
+
   constructor(private message: NzMessageService, private examinationService: ExaminationService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -34,6 +36,15 @@ export class ExaminationsHistoryComponent implements OnInit {
   private setupUser(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
   } 
+
+  public search(): void {
+    const filteredObject = {
+      name: this.name
+    }
+    this.examinationService.getExaminationsHistoryByName(filteredObject, this.user.id).subscribe(data => {
+      this.listOfData = data;
+    })
+  }
 
   formatDate(date): String {
     return moment(date).format("L");

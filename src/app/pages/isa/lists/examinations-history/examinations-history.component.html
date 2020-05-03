@@ -18,3 +18,8 @@
       </tr>
     </tbody>
   </nz-table>
+
+  <input [(ngModel)]="name" style="margin-left: 8px; width: 220px;" nz-input placeholder="Pretraga po tipu pregleda" nzSize="default" />
+    <br />
+    <br />
+  <button (click)="search()" style="margin-left: 8px;" nz-button nzType="primary" nzGhost>Pretraži</button>
