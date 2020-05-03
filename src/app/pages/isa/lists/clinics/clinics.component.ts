@@ -16,6 +16,9 @@ export class ClinicsComponent implements OnInit {
   public isCCAdmin: boolean;
   public isPatient: boolean;
 
+  public name: any = '';
+  public address: any = '';
+
   constructor(private message: NzMessageService, private clinicService: ClinicService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -83,5 +86,16 @@ export class ClinicsComponent implements OnInit {
     }
     localStorage.setItem('latlon', JSON.stringify(body));
     this.router.navigateByUrl('dashboard/google-maps');
+  }
+
+  public search(): void {
+    const filteredObject = {
+      name: this.name,
+      address: this.address
+    }
+    console.log(filteredObject);
+    this.clinicService.getAllClinicsByNameAndAddress(filteredObject).subscribe(data => {
+      this.listOfData = data;
+    });
   }
 }
