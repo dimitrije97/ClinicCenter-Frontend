@@ -37,6 +37,9 @@ export class NewExaminationByPatientComponent implements OnInit {
   private clinic: String;
 
   private doctor: String;
+
+  public firstName: any = '';
+  public lastName: any = '';
   
   constructor(private message: NzMessageService, private doctorService: DoctorService, private clinicService: ClinicService, private filterService: FilterService, private router: Router, private route: ActivatedRoute, private examinationTypeService:ExaminationTypeService, private examinationService: ExaminationService, private fb: FormBuilder) { }
 
@@ -104,6 +107,8 @@ export class NewExaminationByPatientComponent implements OnInit {
     this.filterService.getFilteredDoctors(filterObject).subscribe(data => {
       this.listOfData3 = data;
       this.isVisible3 = true;
+      this.isVisible = false;
+      this.isVisible2 = false;
 
       this.isVisible4 = false;
     },
@@ -142,5 +147,24 @@ export class NewExaminationByPatientComponent implements OnInit {
     localStorage.setItem('examinationData', JSON.stringify(body));
     this.router.navigateByUrl('dashboard/examination-redirect');
     
+   }
+
+   public search(): void {
+     const filteredObject = {
+      date: moment(this.date).format('YYYY/MM/DD'),
+      examinationTypeId: this.examinationTypeId,
+      startAt: moment(this.time).format("HH:mm:ss"),
+      clinicId: this.clinicId,
+      firstName: this.firstName,
+      lastName: this.lastName
+     }
+     this.filterService.getFilteredDoctorsByFirstNameAndLastName(filteredObject).subscribe(data => {
+      this.listOfData3 = data;
+      this.isVisible3 = true;
+      this.isVisible = false;
+      this.isVisible2 = false;
+
+      this.isVisible4 = false;
+     });
    }
 }

@@ -87,5 +87,17 @@
     </tbody>
   </nz-table>
 
+  <div *ngIf="isVisible3">
+    <input [(ngModel)]="firstName" style="margin-left: 8px; width: 220px;" nz-input placeholder="Pretraga po imenu" nzSize="default" />
+    <br />
+    <br />
+    <input [(ngModel)]="lastName" style="margin-left: 8px; width: 220px;" nz-input placeholder="Pretraga po prezimenu" nzSize="default" />
+    <br />
+    <br />
+    <button (click)="search()" style="margin-left: 8px;" nz-button nzType="primary" nzGhost>Pretraži</button>
+    <br />
+    <br />
+  </div>
+
   <!-- ISVISIBLE4 -->
-  <button *ngIf="isVisible4" (click)="sendExaminationRequest()" nz-button nzType="primary">Pošalji</button>
+  <button *ngIf="isVisible4" style="margin-left: 8px;" (click)="sendExaminationRequest()" nz-button nzType="primary">Pošalji</button>
