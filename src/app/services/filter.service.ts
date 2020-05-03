@@ -25,6 +25,10 @@ export class FilterService {
     return this.http.get(`${this.baseUrl}filters/emergency-rooms${this.buildFilterRequest(filter)}`);
   }
 
+  public getFilteredDoctorsByFirstNameAndLastName(filter = {}): Observable<any> {
+    return this.http.get(`${this.baseUrl}filters/doctors/search${this.buildFilterRequest(filter)}`);
+  }
+
   private buildFilterRequest(filterObject: any): String {
     const values = Object.keys(filterObject).filter(filterValue => filterValue !== null || filterValue !== '');
     if(values.length === 0) {
