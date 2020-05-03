@@ -31,4 +31,30 @@ export class PatientService {
   public deletePatient(id): Observable<any> {
     return this.http.delete(`${this.baseUrl}patients/${id}/patient`);
   }
+
+  public getAllPatientsByFirstNameAndLastNameAndSsn(filter = {}, id): Observable<any> {
+    return this.http.get(`${this.baseUrl}patients/search/${id}/clinic/${this.buildFilterRequest(filter)}`);
+  }
+
+  private buildFilterRequest(filterObject: any): String {
+    const values = Object.keys(filterObject).filter(filterValue => filterValue !== null || filterValue !== '');
+    if(values.length === 0) {
+      return '';
+    }
+    let filterQuery = '?';
+    let counter;
+    Object.keys(filterObject).forEach(x => {
+      if(filterObject[x] !== null || filterObject[x] !== '') {
+        let temp = '';
+        if(counter === 0) {
+          temp = '';
+        } else {
+          temp = '&';
+        }
+        filterQuery = filterQuery + temp + x + '=' + filterObject[x];
+        counter = counter + 1;
+      }
+    })
+    return filterQuery;
+  }
 }

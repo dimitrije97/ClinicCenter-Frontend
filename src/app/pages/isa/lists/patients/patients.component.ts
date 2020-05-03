@@ -19,6 +19,10 @@ export class PatientsComponent implements OnInit {
 
   public isNurse: boolean;
 
+  public firstName: any = '';
+  public lastName: any = '';
+  public ssn: any = '';
+
   constructor(private message: NzMessageService, private patientService: PatientService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -72,5 +76,16 @@ export class PatientsComponent implements OnInit {
 
   public report(id): void {
     this.router.navigateByUrl(`dashboard/create-report/${id}/patient`);
+  }
+
+  public search(): void {
+    const filteredObject = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      ssn: this.ssn
+    }
+    this.patientService.getAllPatientsByFirstNameAndLastNameAndSsn(filteredObject, this.id).subscribe(data => {
+      this.listOfData = data;
+    })
   }
 }
