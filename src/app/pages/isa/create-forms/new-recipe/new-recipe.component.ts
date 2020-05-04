@@ -44,7 +44,7 @@ export class NewRecipeComponent implements OnInit {
 
     this.recipeService.createRecipe(body).subscribe(() => {
       this.message.info('Uspešno ste kreirali novi recept.');
-      this.router.navigateByUrl('dashboard');
+      // this.router.navigateByUrl('dashboard');
     })
   }
 }
