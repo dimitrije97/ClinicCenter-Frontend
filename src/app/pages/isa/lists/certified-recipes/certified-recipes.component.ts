@@ -10,7 +10,10 @@ import { Router } from '@angular/router';
 })
 export class CertifiedRecipesComponent implements OnInit {
 
-  listOfData = [];
+  public listOfData = [];
+
+  public medicineName: any = '';
+  public diagnosisName: any = '';
 
   constructor(private message: NzMessageService, private recipeService: RecipeService, private router: Router) { }
 
@@ -30,5 +33,15 @@ export class CertifiedRecipesComponent implements OnInit {
 
   public nurseDN(name, surname): String {
     return name+' '+surname;
+  }
+
+  public search(): void {
+    const filteredObject = {
+      medicineName: this.medicineName,
+      diagnosisName: this.diagnosisName
+    }
+    this.recipeService.getAllCertifiedRecipesByMedicineNameAndDiagnosisName(filteredObject).subscribe(data => {
+      this.listOfData = data;
+    })
   }
 }
