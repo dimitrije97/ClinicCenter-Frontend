@@ -8,6 +8,9 @@
         <th>
             Prezime
         </th>
+        <th>
+          Specijalnost
+        </th>
         <th></th>
         <th></th>
         <th *ngIf="!isPatient"></th>
@@ -17,6 +20,7 @@
       <tr *ngFor="let data of nzTable.data">
         <td>{{ data.firstName }}</td>
         <td>{{ data.lastName }}</td>
+        <td>{{ data.examinationTypeName }}</td>
         <td>
           <button (click)="getAvgGradeOfDoctor(data.id)" nz-button nzType="primary">Prosečna ocena</button>
         </td>
@@ -29,3 +33,18 @@
       </tr>
     </tbody>
   </nz-table>
+
+  <div *ngIf="isPatient">
+    <input [(ngModel)]="firstName" style="margin-left: 8px; width: 220px;" nz-input placeholder="Pretraga po imenu" nzSize="default" />
+    <br />
+    <br />
+    <input [(ngModel)]="lastName" style="margin-left: 8px; width: 220px;" nz-input placeholder="Pretraga po prezimenu" nzSize="default" />
+    <br />
+    <br />
+    <input [(ngModel)]="name" style="margin-left: 8px; width: 220px;" nz-input placeholder="Pretraga po specijalizaciji" nzSize="default" />
+    <br />
+    <br />
+    <button (click)="search()" style="margin-left: 8px;" nz-button nzType="primary" nzGhost>Pretraži</button>
+    <br />
+    <br />
+  </div>
