@@ -44,19 +44,54 @@
   </nz-table>
 
   <!-- ISVISIBLE2 -->
-  <nz-select *ngIf="isVisible2"
+  <!-- <nz-select *ngIf="isVisible2"
     style="width: 180px;"
     nzShowSearchselectedType
     nzAllowClear
     nzPlaceHolder="Odaberi salu"
     [(ngModel)]="emergencyRoomId">  
-    <nz-option *ngFor="let item of listOfData2" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
-</nz-select>
+    <nz-option *ngFor="let item of listOfData2" [nzValue]="item.id" [nzLabel]="item.name"></nz-option> -->
+<!-- </nz-select> -->
+<nz-table #nzTable [nzData]="listOfData2" *ngIf="isVisible2">
+  <thead>
+    <tr>
+      <th nzCustomFilter>
+          Broj
+      </th>
+      <th>
+          Naziv
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of nzTable.data">
+      <td>{{ data.number }}</td>
+      <td>{{ data.name }}</td>
+      <td>
+          <button (click)="choose(data.id)" nz-button nzType="primary">Izaberi</button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+
+<div *ngIf="isVisible2">
+  <input [(ngModel)]="number" style="margin-left: 8px; width: 220px;" nz-input placeholder="Pretraga po broju" nzSize="default" />
+  <br />
+  <br />
+  <input [(ngModel)]="name" style="margin-left: 8px; width: 220px;" nz-input placeholder="Pretraga po nazivu" nzSize="default" />
+  <br />
+  <br />
+  <button (click)="search()" style="margin-left: 8px;" nz-button nzType="primary" nzGhost>Pretraži</button>
+  <br />
+  <br />
+</div>
 
 
-<label nz-checkbox *ngIf="isVisible3" [(ngModel)]="checked">Automatski zakaži</label>
+
+<label style="margin-left: 8px;" nz-checkbox *ngIf="isVisible3" [(ngModel)]="checked">Automatski zakaži</label>
 
 
 <br />
 <br />
-<button *ngIf="isVisible2 || isVisible3" (click)="confirm()" [disabled]="!checked" nz-button nzType="primary">Potvrdi</button>
+<button style="margin-left: 8px;" *ngIf="isVisible4" (click)="confirm()" [disabled]="!checked" nz-button nzType="primary">Potvrdi</button>

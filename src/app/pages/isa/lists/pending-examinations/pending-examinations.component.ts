@@ -27,8 +27,12 @@ export class PendingExaminationsComponent implements OnInit {
 
   public checked : boolean;
   public isVisible3: boolean;
+  public isVisible4: boolean;
   
   public emergencyRoomId: any = null;
+
+  public name: any = '';
+  public number: any = '';
 
   constructor(private suggestService: SuggestService, private filterService: FilterService, private message: NzMessageService, private examinationService: ExaminationService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) { }
 
@@ -51,6 +55,7 @@ export class PendingExaminationsComponent implements OnInit {
     this.isVisible = false;
     this.isVisible2 = false;
     this.isVisible3 = false;
+    this.isVisible4 = false;
     this.checked = true;
   }
 
@@ -70,6 +75,7 @@ export class PendingExaminationsComponent implements OnInit {
     error => {
       this.message.info(error.error.message);
       this.isVisible3 = true;
+      this.isVisible4 = true;
     });
     
   }
@@ -118,6 +124,22 @@ export class PendingExaminationsComponent implements OnInit {
     error => {
       this.message.info(error.error.message);
     });
+  }
+
+  choose(id): void {
+    this.emergencyRoomId = id;
+    this.isVisible4 = true;
+  }
+
+  search(): void {
+    const filteredObject = {
+      examinationId: this.examinationId,
+      name: this.name,
+      number: this.number
+    }
+    this.filterService.getFilteredEmergencyRoomsByNameAndNumber(filteredObject).subscribe(data => {
+      this.listOfData2 = data;
+    })
   }
 
   formatDate(date): String {
