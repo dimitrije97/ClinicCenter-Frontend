@@ -15,6 +15,10 @@ export class DoctorsComponent implements OnInit {
   private id: any;
   public isPatient: boolean;
 
+  public firstName: any = '';
+  public lastName: any = '';
+  public name: any = '';
+
   constructor(private message: NzMessageService, private doctorService: DoctorService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -87,4 +91,14 @@ export class DoctorsComponent implements OnInit {
      });
    }
 
+   public search(): void {
+     const filteredObject = {
+       firstName: this.firstName,
+       lastName: this.lastName,
+       name: this.name
+     }
+     this.doctorService.getAllDoctorsByClinicByFirstNameAndLastNameAndName(filteredObject, this.id).subscribe(data => {
+       this.listOfData = data;
+     });
+   }
 }
