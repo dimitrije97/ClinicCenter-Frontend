@@ -36,7 +36,7 @@ export class NonCertifiedRecipesComponent implements OnInit {
 
   private setupData(): void {
     if(this.isDoctor){
-      this.recipeService.getAllNonCertifiedRecipes().subscribe(data => {
+      this.recipeService.getAllNonCertifiedRecipes(this.user.myClinic.id).subscribe(data => {
         this.listOfData = data;
       },
       error => {
@@ -44,7 +44,7 @@ export class NonCertifiedRecipesComponent implements OnInit {
         this.router.navigateByUrl('dashboard');
       });
     }else{
-      this.recipeService.getAllWaitingRecipes().subscribe(data => {
+      this.recipeService.getAllWaitingRecipes(this.user.myClinic.id).subscribe(data => {
         this.listOfData = data;
       },
       error => {

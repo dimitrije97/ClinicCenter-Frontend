@@ -13,6 +13,7 @@ import { RecipeService } from 'src/app/services/recipe.service';
 export class NewRecipeComponent implements OnInit {
 
   public listOfData = [];
+  private user: any;
   public listOfData2 = [];
   public medicineId = null;
   public diagnosisId = null;
@@ -20,8 +21,13 @@ export class NewRecipeComponent implements OnInit {
   constructor(private recipeService: RecipeService, private medicineService: MedicineService, private diagnosisService: DiagnosisService, private message: NzMessageService, private router: Router) { }
 
   ngOnInit(): void {
+    this.setupUser();
     this.setupData();
     this.setupData2();
+  }
+
+  private setupUser(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
   private setupData(): void {
@@ -39,7 +45,8 @@ export class NewRecipeComponent implements OnInit {
   public create(): void {
     const body = {
       medicineId: this.medicineId,
-      diagnosisId: this.diagnosisId
+      diagnosisId: this.diagnosisId,
+      clinicId: this.user.myClinic.id
     }
 
     this.recipeService.createRecipe(body).subscribe(() => {

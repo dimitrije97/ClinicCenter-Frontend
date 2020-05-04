@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CertifiedRecipesComponent implements OnInit {
 
   public listOfData = [];
+  private user: any;
 
   public medicineName: any = '';
   public diagnosisName: any = '';
@@ -18,11 +19,16 @@ export class CertifiedRecipesComponent implements OnInit {
   constructor(private message: NzMessageService, private recipeService: RecipeService, private router: Router) { }
 
   ngOnInit(): void {
+    this.setupUser();
     this.setupData();
   }
 
+  private setupUser(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
+  }
+
   private setupData(): void {
-    this.recipeService.getAllCertifiedRecipes().subscribe(data => {
+    this.recipeService.getAllCertifiedRecipes(this.user.myClinic.id).subscribe(data => {
       this.listOfData = data;
     },
     error => {
@@ -40,7 +46,7 @@ export class CertifiedRecipesComponent implements OnInit {
       medicineName: this.medicineName,
       diagnosisName: this.diagnosisName
     }
-    this.recipeService.getAllCertifiedRecipesByMedicineNameAndDiagnosisName(filteredObject).subscribe(data => {
+    this.recipeService.getAllCertifiedRecipesByMedicineNameAndDiagnosisName(filteredObject, this.user.myClinic.id).subscribe(data => {
       this.listOfData = data;
     })
   }

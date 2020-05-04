@@ -20,16 +20,16 @@ export class RecipeService {
     return this.http.get(`${this.baseUrl}recipes`);
   }
 
-  public getAllCertifiedRecipes(): Observable<any> {
-    return this.http.get(`${this.baseUrl}recipes/certified`);
+  public getAllCertifiedRecipes(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}recipes/certified/${id}/clinic`);
   }
 
-  public getAllNonCertifiedRecipes(): Observable<any> {
-    return this.http.get(`${this.baseUrl}recipes/non-certified`);
+  public getAllNonCertifiedRecipes(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}recipes/non-certified/${id}/clinic`);
   }
 
-  public getAllWaitingRecipes(): Observable<any> {
-    return this.http.get(`${this.baseUrl}recipes/waiting`);
+  public getAllWaitingRecipes(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}recipes/waiting/${id}/clinic`);
   }
 
   public certifyRecipe(body): Observable<any> {
@@ -40,8 +40,8 @@ export class RecipeService {
     return this.http.delete(`${this.baseUrl}recipes/${id}/recipe`);
   }
 
-  public getAllCertifiedRecipesByMedicineNameAndDiagnosisName(filter = {}): Observable<any> {
-    return this.http.get(`${this.baseUrl}recipes/certified/search${this.buildFilterRequest(filter)}`);
+  public getAllCertifiedRecipesByMedicineNameAndDiagnosisName(filter = {}, id): Observable<any> {
+    return this.http.get(`${this.baseUrl}recipes/certified/search/${id}/clinic${this.buildFilterRequest(filter)}`);
   }
 
   private buildFilterRequest(filterObject: any): String {
