@@ -13,6 +13,9 @@ export class EmergencyRoomsComponent implements OnInit {
   public listOfData = [];
   private user: any;
 
+  public name: any = '';
+  public number: any = '';
+
   constructor(private message: NzMessageService, private emergencyRoomService: EmergencyRoomService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -36,6 +39,16 @@ export class EmergencyRoomsComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user'));
   } 
 
+  public search(): void {
+    const filteredObject = {
+      name: this.name,
+      number: this.number
+    }
+    this.emergencyRoomService.getAllEmergencyRoomsByClinicByNameAndNumber(filteredObject, this.user.myClinic.id).subscribe(data => {
+      this.listOfData = data;
+    });
+  }
+
   update(id) {
     this.router.navigateByUrl(`dashboard/profile/${id}/emergency-room`);
   }
@@ -44,6 +57,8 @@ export class EmergencyRoomsComponent implements OnInit {
     this.emergencyRoomService.deleteEmergencyRoom(id).subscribe(() => {
       this.setupData();
       this.message.info('Uspešno ste obrisali salu.');
+      this.name = '';
+      this.number = '';
     },
     error => {
       this.message.info(error.error.message);
