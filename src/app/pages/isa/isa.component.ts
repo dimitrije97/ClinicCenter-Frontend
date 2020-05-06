@@ -70,6 +70,11 @@ export class IsaComponent implements OnInit {
   }
 
   //admin
+  public pendingOperationsByClinic(): void {
+    this.router.navigateByUrl(`dashboard/pending-operations/${this.user.myClinic.id}/clinic`);
+  }
+
+  //admin
   public pendingVacationsByClinic(): void {
     this.router.navigateByUrl(`dashboard/pending-vacations/${this.user.id}/clinic`);
   }

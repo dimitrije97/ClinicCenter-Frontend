@@ -16,4 +16,8 @@ export class SuggestService {
   public suggest(body): Observable<any> {
     return this.http.put(`${this.baseUrl}suggests`, body);
   }
+
+  public suggestOp(body): Observable<any> {
+    return this.http.put(`${this.baseUrl}suggests/operation`, body);
+  }
 }
