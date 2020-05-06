@@ -58,6 +58,8 @@ import { NewMedicalRecordComponent } from './pages/isa/create-forms/new-medical-
 import { MedicalRecordComponent } from './pages/isa/medical-record/medical-record.component';
 import { ReportComponent } from './pages/isa/report/report.component';
 import { CalendarComponent } from './pages/isa/calendar/calendar.component';
+import { NewOperationComponent } from './pages/isa/create-forms/new-operation/new-operation.component';
+import { PendingOperationsComponent } from './pages/isa/lists/pending-operations/pending-operations.component';
 
 
 const routes: Routes = [
@@ -98,6 +100,7 @@ const routes: Routes = [
         { path: 'certified-recipes', component: CertifiedRecipesComponent},
         { path: 'non-certified-recipes', component: NonCertifiedRecipesComponent},
         { path: 'clinics-income', component: ClinicsIncomeComponent},
+        { path: 'pending-operations/:id/clinic', component: PendingOperationsComponent},
 
         { path: 'my-profile', component: ProfileComponent},
         { path: 'profile/:id/patient', component: PatientComponent},
@@ -123,6 +126,7 @@ const routes: Routes = [
         { path: 'create-recipe', component: NewRecipeComponent},
         { path: 'create-report/:id/patient', component: NewReportComponent},
         { path: 'create-medical-record', component: NewMedicalRecordComponent},
+        { path: 'create-operation-request/:id/patient', component: NewOperationComponent},
       
         { path: 'examination-redirect', component: ExaminationRedirectComponent},
         { path: 'medical-record/:id/patient', component: MedicalRecordComponent},

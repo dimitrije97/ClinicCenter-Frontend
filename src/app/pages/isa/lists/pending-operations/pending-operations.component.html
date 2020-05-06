@@ -1,0 +1,63 @@
+<nz-table #nzTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th nzCustomFilter>
+            Doktor
+        </th>
+        <th>
+            Pacijent
+        </th>
+        <th>Datum</th>
+        <th>Termin</th>
+        <th *ngIf="!isVisible"></th>
+        <th *ngIf="!isVisible"></th>
+        <th *ngIf="isVisible">Razlog</th>
+        <th *ngIf="isVisible"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ data.doctorFirstName }}</td>
+        <td>{{ data.patientFirstName }}</td>
+        <td>{{ formatDate(data.date) }}</td>
+        <td>{{ data.startAt }}</td>
+        <td *ngIf="!isVisible">
+            <button (click)="chooseEmergencyRoom(data.id)" nz-button nzType="primary">Odobri</button>
+          </td>
+          <td *ngIf="!isVisible">
+            <button (click)="getReason()" nz-button nzType="danger">Odbij</button>
+          </td>
+          <td *ngIf="isVisible">
+            <form nz-form [formGroup]="validateForm">
+              <nz-form-item>
+                <nz-form-control style="height: 18px;" [nzSm]="14" [nzXs]="24">
+                  <input nz-input id="reason" formControlName="reason" placeholder="Upiši razlog odbijanja"/>
+                </nz-form-control>
+              </nz-form-item>
+            </form>
+          </td>
+          <td *ngIf="isVisible">
+            <button (click)="deny(data.id)" nz-button nzType="primary">Potvrdi</button>
+          </td>
+      </tr>
+    </tbody>
+  </nz-table>
+
+  <!-- ISVISIBLE2 -->
+  <nz-select *ngIf="isVisible2" style="margin-left: 8px;"
+    style="width: 180px;"
+    nzShowSearchselectedType
+    nzAllowClear
+    nzPlaceHolder="Odaberi salu"
+    [(ngModel)]="emergencyRoomId">  
+    <nz-option *ngFor="let item of listOfData2" [nzValue]="item.id" [nzLabel]="item.name"></nz-option>
+</nz-select>
+
+
+ <!-- ISVISIBLE3 -->
+<label style="margin-left: 2px;" nz-checkbox *ngIf="isVisible3" [(ngModel)]="checked">Automatski zakaži</label>
+
+
+<br />
+<br />
+<button *ngIf="isVisible2 || isVisible3" (click)="confirm()" [disabled]="!checked" nz-button nzType="primary">Potvrdi</button>

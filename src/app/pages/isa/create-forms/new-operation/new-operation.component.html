@@ -1,0 +1,8 @@
+<div class="inputWrapper">
+    <nz-date-picker style="width: 180px;" [(ngModel)]="date" nzPlaceHolder="Datum"></nz-date-picker>
+    <br />
+    <br />
+    <nz-time-picker nzPlaceHolder="Termin operacije" style="width: 180px" [(ngModel)]="startAt"></nz-time-picker>
+</div>
+
+<button class="confirm" (click)="onSchedule()" nz-button nzType="primary" >Zakaži</button>
