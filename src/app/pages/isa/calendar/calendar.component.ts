@@ -48,7 +48,15 @@ export class CalendarComponent implements OnInit {
 
   public reasonOfUnavailability(item): String {
     if(item.reasonOfUnavailability === 'EXAMINATION'){
-      return 'Pregled: '+item.startAt.toString()+'-'+item.endAt.toString();
+      var start = item.startAt.toString();
+      var startTokens = start.split(':');
+
+      var end = item.endAt.toString();
+      var endTokens = end.split(':');
+      if((Number(endTokens[0]) - Number(startTokens[0])) == Number('1')){
+        return 'Pregled: '+item.startAt.toString()+'-'+item.endAt.toString();  
+      }
+      return 'Operacija: '+item.startAt.toString()+'-'+item.endAt.toString();
     }
     return 'Odsustvo';
   }

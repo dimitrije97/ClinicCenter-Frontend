@@ -71,13 +71,21 @@
             <a (click)="vacation()">Godišnji odmor</a>
           </li>
 
-          <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
+          <li *ngIf="isDoctor" nz-submenu>
+            <span title>Zakazani termini</span>
+            <ul>
+              <li (click)="futureExaminations()" nz-menu-item>Pregledi</li>
+              <li (click)="futureOperations()" nz-menu-item>Operacije</li>
+            </ul>
+          </li>
+
+          <!-- <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
             <a (click)="futureExaminations()">Zakazani pregled</a>
           </li>
 
           <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
             <a (click)="futureOperations()">Zakazane operacije</a>
-          </li>
+          </li> -->
 
           <li *ngIf="isDoctor || isNurse" nz-submenu>
             <span title>Recepti</span>
@@ -104,13 +112,21 @@
             <a (click)="clinics()">Klinike</a>
           </li>
 
-          <li nz-menu-item nzMatchRouter *ngIf="isPatient">
+          <li *ngIf="isPatient" nz-submenu>
+            <span title>Zakazane posete</span>
+            <ul>
+              <li (click)="futureExaminations()" nz-menu-item>Pregledi</li>
+              <li (click)="futureOperations()" nz-menu-item>Operacije</li>
+            </ul>
+          </li>
+
+          <!-- <li nz-menu-item nzMatchRouter *ngIf="isPatient">
             <a (click)="futureExaminations()">Zakazani pregledi</a>
           </li>
 
           <li nz-menu-item nzMatchRouter *ngIf="isPatient">
             <a (click)="futureOperations()">Zakazane operacije</a>
-          </li>
+          </li> -->
 
           <li *ngIf="isPatient" nz-submenu>
             <span title>Arhiva</span>
