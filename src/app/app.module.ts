@@ -77,6 +77,8 @@ import { CalendarComponent } from './pages/isa/calendar/calendar.component';
 import { AngularSplitModule } from 'angular-split';
 import { NewOperationComponent } from './pages/isa/create-forms/new-operation/new-operation.component';
 import { PendingOperationsComponent } from './pages/isa/lists/pending-operations/pending-operations.component';
+import { OperationsHistoryComponent } from './pages/isa/lists/operations-history/operations-history.component';
+import { FutureOperationsComponent } from './pages/isa/lists/future-operations/future-operations.component';
 
 registerLocaleData(en);
 
@@ -147,7 +149,9 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     ReportComponent,
     CalendarComponent,
     NewOperationComponent,
-    PendingOperationsComponent
+    PendingOperationsComponent,
+    OperationsHistoryComponent,
+    FutureOperationsComponent
   ],
   imports: [
     BrowserModule,

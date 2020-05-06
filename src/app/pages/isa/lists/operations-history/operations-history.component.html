@@ -1,0 +1,20 @@
+<nz-table #nzTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th>Datum</th>
+        <th>Termin</th>
+        <th>Tip</th>
+        <th>Klinika</th>
+        <th>Doktor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data">
+        <td>{{ formatDate(data.date) }}</td>
+        <td>{{ data.startAt }}</td>
+        <td>{{ data.examinationTypeName }}</td>
+        <td>{{ data.clinicName }}</td>
+        <td>{{ data.doctorFirstName }} {{ data.doctorLastName}} </td>
+      </tr>
+    </tbody>
+  </nz-table>

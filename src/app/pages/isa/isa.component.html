@@ -72,7 +72,11 @@
           </li>
 
           <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
-            <a (click)="futureExaminations()">Zakazane posete</a>
+            <a (click)="futureExaminations()">Zakazani pregled</a>
+          </li>
+
+          <li nz-menu-item nzMatchRouter *ngIf="isDoctor">
+            <a (click)="futureOperations()">Zakazane operacije</a>
           </li>
 
           <li *ngIf="isDoctor || isNurse" nz-submenu>
@@ -101,14 +105,18 @@
           </li>
 
           <li nz-menu-item nzMatchRouter *ngIf="isPatient">
-            <a (click)="futureExaminations()">Zakazane posete</a>
+            <a (click)="futureExaminations()">Zakazani pregledi</a>
+          </li>
+
+          <li nz-menu-item nzMatchRouter *ngIf="isPatient">
+            <a (click)="futureOperations()">Zakazane operacije</a>
           </li>
 
           <li *ngIf="isPatient" nz-submenu>
             <span title>Arhiva</span>
             <ul>
-              <li nz-menu-item (click)="examinationHistory()">Istorija pregleda</li>
-              <li nz-menu-item>Istorija operacija</li>
+              <li nz-menu-item (click)="examinationsHistory()">Istorija pregleda</li>
+              <li nz-menu-item (click)="operationsHistory()">Istorija operacija</li>
             </ul>
           </li>
 

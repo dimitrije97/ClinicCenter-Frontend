@@ -184,8 +184,18 @@ export class IsaComponent implements OnInit {
   }
 
   //patient
-  public examinationHistory(): void {
+  public futureOperations(): void {
+    this.router.navigateByUrl(`dashboard/future-operations`);
+  }
+
+  //patient
+  public examinationsHistory(): void {
     this.router.navigateByUrl(`dashboard/examinations-history`);
+  }
+
+  //patient
+  public operationsHistory(): void {
+    this.router.navigateByUrl(`dashboard/operations-history`);
   }
 
   //patient
