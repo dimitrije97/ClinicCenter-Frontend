@@ -60,6 +60,8 @@ import { ReportComponent } from './pages/isa/report/report.component';
 import { CalendarComponent } from './pages/isa/calendar/calendar.component';
 import { NewOperationComponent } from './pages/isa/create-forms/new-operation/new-operation.component';
 import { PendingOperationsComponent } from './pages/isa/lists/pending-operations/pending-operations.component';
+import { FutureOperationsComponent } from './pages/isa/lists/future-operations/future-operations.component';
+import { OperationsHistoryComponent } from './pages/isa/lists/operations-history/operations-history.component';
 
 
 const routes: Routes = [
@@ -101,6 +103,8 @@ const routes: Routes = [
         { path: 'non-certified-recipes', component: NonCertifiedRecipesComponent},
         { path: 'clinics-income', component: ClinicsIncomeComponent},
         { path: 'pending-operations/:id/clinic', component: PendingOperationsComponent},
+        { path: 'future-operations', component: FutureOperationsComponent},
+        { path: 'operations-history', component: OperationsHistoryComponent},
 
         { path: 'my-profile', component: ProfileComponent},
         { path: 'profile/:id/patient', component: PatientComponent},
