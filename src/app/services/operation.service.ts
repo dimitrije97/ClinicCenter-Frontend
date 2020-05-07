@@ -47,4 +47,12 @@ export class OperationService {
   public getOperationsHistory(id): Observable<any> {
     return this.http.get(`${this.baseUrl}operations/history/${id}/patient`);
   }
+
+  public getAllFutureOperationsByAdmin(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}operations/future/${id}/clinic`);
+  }
+
+  public assignDoctor(body): Observable<any> {
+    return this.http.post(`${this.baseUrl}operations/assign-doctor`, body);
+  }
 }

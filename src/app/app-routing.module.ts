@@ -62,6 +62,7 @@ import { NewOperationComponent } from './pages/isa/create-forms/new-operation/ne
 import { PendingOperationsComponent } from './pages/isa/lists/pending-operations/pending-operations.component';
 import { FutureOperationsComponent } from './pages/isa/lists/future-operations/future-operations.component';
 import { OperationsHistoryComponent } from './pages/isa/lists/operations-history/operations-history.component';
+import { AssignDoctorComponent } from './pages/isa/assign-doctor/assign-doctor.component';
 
 
 const routes: Routes = [
@@ -135,6 +136,7 @@ const routes: Routes = [
         { path: 'examination-redirect', component: ExaminationRedirectComponent},
         { path: 'medical-record/:id/patient', component: MedicalRecordComponent},
         { path: ':id/report', component: ReportComponent},
+        { path: 'assign-doctor/:id/operation', component: AssignDoctorComponent},
 
         { path: 'google-maps', component: GoogleMapsComponent},
         { path: 'work-calendar', component: CalendarComponent}

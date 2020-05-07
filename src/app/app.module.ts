@@ -79,6 +79,7 @@ import { NewOperationComponent } from './pages/isa/create-forms/new-operation/ne
 import { PendingOperationsComponent } from './pages/isa/lists/pending-operations/pending-operations.component';
 import { OperationsHistoryComponent } from './pages/isa/lists/operations-history/operations-history.component';
 import { FutureOperationsComponent } from './pages/isa/lists/future-operations/future-operations.component';
+import { AssignDoctorComponent } from './pages/isa/assign-doctor/assign-doctor.component';
 
 registerLocaleData(en);
 
@@ -151,7 +152,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     NewOperationComponent,
     PendingOperationsComponent,
     OperationsHistoryComponent,
-    FutureOperationsComponent
+    FutureOperationsComponent,
+    AssignDoctorComponent
   ],
   imports: [
     BrowserModule,

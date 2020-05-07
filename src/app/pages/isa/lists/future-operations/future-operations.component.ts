@@ -15,6 +15,8 @@ export class FutureOperationsComponent implements OnInit {
   private user: any;
   private isDoctor: boolean;
   private isPatient: boolean;
+  public isAdmin: boolean;
+  public isVisible: boolean;
 
   constructor(private message: NzMessageService, private operationService: OperationService, private router: Router) { }
 
@@ -22,6 +24,7 @@ export class FutureOperationsComponent implements OnInit {
     this.setupUser();
     this.setupUserType();
     this.setupData();
+    this.isVisible = false;
   }
 
   private setupData(): void {
@@ -41,6 +44,14 @@ export class FutureOperationsComponent implements OnInit {
         this.message.info(error.error.message);
         this.router.navigateByUrl(`dashboard`);
       });
+    }else if(this.isAdmin){
+      this.operationService.getAllFutureOperationsByAdmin(this.user.myClinic.id).subscribe(data => {
+        this.listOfData = data;
+      },
+      error => {
+        this.message.info(error.error.message);
+        this.router.navigateByUrl(`dashboard`);
+      });
     }
   }
 
@@ -52,8 +63,14 @@ export class FutureOperationsComponent implements OnInit {
     if(this.user.userType === 'PATIENT'){
       this.isPatient = true;
       this.isDoctor = false;
+      this.isAdmin = false;
     }else if(this.user.userType === 'DOCTOR'){
       this.isDoctor = true;
+      this.isPatient = false;
+      this.isAdmin = false;
+    }else if(this.user.userType === 'ADMIN'){
+      this.isAdmin = true;
+      this.isDoctor = false;
       this.isPatient = false;
     }
   }
@@ -66,6 +83,10 @@ export class FutureOperationsComponent implements OnInit {
     error => {
       this.message.info(error.error.message);
     });
+  }
+
+  public assign(id): void {
+    this.router.navigateByUrl(`dashboard/assign-doctor/${id}/operation`);
   }
 
   formatDate(date): String {

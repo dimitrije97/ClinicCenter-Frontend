@@ -1,0 +1,19 @@
+<div class="inputWrapper2">
+  <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="name" nzRequired>
+    <span>Lekari</span>
+  </nz-form-label>
+  <nz-select
+    style="width: 260px;"
+    nzShowSearchselectedType
+    nzAllowClear
+    nzPlaceHolder="Izaberi lekara"
+    [(ngModel)]="doctorId">  
+  <nz-option *ngFor="let item of listOfData" [nzValue]="item.id" [nzLabel]="doctorDN(item.firstName, item.lastName)"></nz-option>
+  </nz-select>
+  
+  <br/>
+  <br/>
+  <br/>
+
+  <button style="margin-left: 200px;" (click)="assign()" nz-button nzType="primary">Dodaj</button>
+</div>

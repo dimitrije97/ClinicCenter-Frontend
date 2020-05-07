@@ -144,6 +144,16 @@ export class IsaComponent implements OnInit {
     });
   }
 
+  //admin
+  public scheduledOperations(): void {
+    this.router.navigateByUrl('dashboard/future-operations');
+  }
+
+  //admin
+  public scheduledExaminations(): void {
+    this.router.navigateByUrl('dashboard/future-examinations');
+  }
+
   //doctor
   public patients(): void {
     this.router.navigateByUrl(`dashboard/patients/${this.user.myClinic.id}/clinic`);

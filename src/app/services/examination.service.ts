@@ -65,6 +65,10 @@ export class ExaminationService {
     return this.http.get(`${this.baseUrl}examinations/search/history/${id}/patient${this.buildFilterRequest(filter)}`);
   }
 
+  public getAllFutureExaminationsByAdmin(id): Observable<any> {
+    return this.http.get(`${this.baseUrl}examinations/future/${id}/clinic`);
+  }
+
   private buildFilterRequest(filterObject: any): String {
     const values = Object.keys(filterObject).filter(filterValue => filterValue !== null || filterValue !== '');
     if(values.length === 0) {
