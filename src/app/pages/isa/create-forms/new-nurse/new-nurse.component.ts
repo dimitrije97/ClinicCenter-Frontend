@@ -57,6 +57,9 @@ export class NewNurseComponent implements OnInit {
         this.message.info('Uspešno ste kreirali novu medicinsku sestru.');
       // error => {
       //   this.message.info(error.error.message);
+      },
+      error => {
+        this.message.info(error.error.message);
       });
     }
   }
