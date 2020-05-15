@@ -29,6 +29,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Other repositories
 https://github.com/dimitrije97/ClinicCenter-Backend
 
+https://isa-final.herokuapp.com/auth/login
+
 ## Authors
 Student 1: Dimitrije Salic
 
