@@ -31,5 +31,7 @@ https://github.com/dimitrije97/ClinicCenter-Backend
 
 ## Authors
 Student 1: Dimitrije Salic
+
 Student 2: Lara Mimica Kostovic
+
 Student 3: Milica Svonja
