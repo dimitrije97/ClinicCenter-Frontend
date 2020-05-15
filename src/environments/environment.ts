@@ -4,9 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://isa-b.herokuapp.com/'
+  baseUrl: 'http://localhost:8090/'
 };
-//http://localhost:8090/ kad radis lokalno
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
