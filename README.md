@@ -32,7 +32,7 @@ https://github.com/dimitrije97/ClinicCenter-Backend
 
 ## Heroku
 
-https://isa-final.herokuapp.com/auth/login
+https://dashboard.heroku.com/apps/isa-final
 
 ## Authors
 Student 1: Dimitrije Salic
